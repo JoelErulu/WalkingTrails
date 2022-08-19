@@ -1,11 +1,13 @@
 # WalkingTrailApp
-Walking/Fitness Trail App
+[Repo URL](https://github.com/GGC-SD/WalkingTrailApp.git)
+## Fanstatic 4 2022
 
-[Repo location URL](https://github.com/GGC-SD/WalkingTrailApp.git)
+### Serena
+1. Programmer
+2. Lead Programmer
+3. Team Manager
 
-## Team Fanstatic 4 2022
-Members
 1. Jared - Database Model / Document
-2. Insert name - Lead Programmer / Team manager
-3. Insert name - UI/UX design / Testing
-4. Charlie - Testing lead / Client Liason
+2. Insert name - UI/UX design / Testing
+3. Charlie - Testing lead / Client Liason
+
