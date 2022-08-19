@@ -1,7 +1,7 @@
 # WalkingTrailApp
 Walking/Fitness Trail App
 
-	[title](https://github.com/GGC-SD/WalkingTrailApp.git)
+[Repo location URL](https://github.com/GGC-SD/WalkingTrailApp.git)
 
 ## team fanstatic 4 2022
 members
