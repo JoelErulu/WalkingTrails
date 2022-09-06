@@ -1,3 +1,10 @@
 body {
     background-image: url(photo1.jpg);
+
 }
+
+h1 {
+    color: rgb(56, 121, 56);
+}
+
+h6 {color: white;}
