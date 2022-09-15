@@ -1,0 +1,29 @@
+essetials sept 16
+
+
+current personal task work on the past trail page in bootstap
+
+2 side by side pages ( one page with user info, the other with trail info)
+no qr code scanner
+create a container to hold one trail 
+
+user info page:
+	0. new a navigation bar
+	1. blog page 
+	2. button to start new trail
+
+past trail page:
+	1.navagation bar
+	2.when trail was completed
+	3.trail name
+	4. total time to complete trail
+	5. start new trail button
+
+current trail page:
+	1. no qr code scanning, but an image with a clickable link
+	2. button to see past trails (the 2nd page)
+	3. picture of trail
+	4. distance and time tracking between checkpoints
+	5. length of trail or trail part
+
+	4.button to see current trail (3rd page)
