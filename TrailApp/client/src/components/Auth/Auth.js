@@ -48,7 +48,7 @@ const Auth = () => {
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
-            history.push('/');
+            history.push('/home');
 
         } catch (err) {
             console.log(err);
@@ -100,7 +100,7 @@ const Auth = () => {
                 </form>
             </Paper>
         </Container>
-  );
+    );
 };
 
 export default Auth;
