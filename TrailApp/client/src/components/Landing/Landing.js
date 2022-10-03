@@ -8,7 +8,7 @@ const Landing = () => {
 
     return (
         <Container component="main" maxWidth="xs">
-            <Card className={classes.paper} >
+            <Paper className={classes.paper} >
             <div className={classes.title}>
                 <Typography variant="h3" color="primary">Walking Trail</Typography>
             </div>
@@ -20,7 +20,7 @@ const Landing = () => {
             </div>
                 <Button component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                 
-            </Card>
+            </Paper>
         </Container>
     );
 };
