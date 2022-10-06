@@ -16,7 +16,7 @@ const Landing = () => {
                 <Typography variant="h6">Explore the trails of GGC</Typography>
             </div>
             <div className={classes.body}>
-                <Typography variant="body1">Explore our trails through a unique, digital experience. Just scan the QR codes and go! Walking Trail serves to provide a great experience for Stuentds, Teachers, and nature lovers.</Typography>
+                <Typography variant="body1">Explore our trails through a unique, digital experience. Just scan the QR codes and go! Walking Trail serves to provide a great experience for Students, Teachers, and nature lovers.</Typography>
             </div>
                 <Button component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                 

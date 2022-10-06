@@ -10,3 +10,8 @@ export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
+
+export const fetchTrails = () => API.get('/trails');
+export const createTrail = (newTrail) => API.post('/trails', newTrail);
+export const updateTrail = (id, updatedTrail) => API.patch(`/trails/${id}`, updatedTrail);
+export const deleteTrail = (id) => API.delete(`/trails/${id}`);
