@@ -48,8 +48,10 @@ npm i mongoose
 npm i nodemon
 
 ### How to Run
-1. Move to the "src" directory inside of the client foler
-2. enter "npm start" in the terminal 
+1. Move to the "client" directory inside of the TrailApp foler
+2. Enter "npm start" in the terminal 
+3. Move to the "server" directory inside of the TrailApp foler
+2. Enter "npm start" in the terminal 
 
 ### List of working features
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
