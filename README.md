@@ -16,6 +16,7 @@ This project uses the MERN Stack
     https://reactjs.org/
   
 ### Installation Steps
+*** Add --force at the end of the npm command when encountered with errors
 1. Open the terminal
 2. Move to the "TrailApp" directory (cd C:/../WalkingTrailApp/TrailApp)
 3. Move to the "client" directory (cd C:/../WalkingTrailApp/TrailApp/client)
