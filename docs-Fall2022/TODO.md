@@ -6,3 +6,7 @@
 5. Displaying Distance, Time completed, and other statistics on past trails completed by user
 6. Start Trail page not completed
 7. Past Trail page not completed
+8. Home page not completed
+9. Add Blog preview on Home page
+10. Add Select Trail on home page
+11. Add Select Content on home page
