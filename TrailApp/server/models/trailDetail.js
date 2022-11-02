@@ -4,8 +4,8 @@ const trailSchema = mongoose.Schema({
     title: String,
     location: String,
     distance: Number,
-    qr: Number,
     creator: String,
+    selectedFile: String,
     createdAt: {
         type: Date,
         default: new Date()

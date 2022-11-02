@@ -24,7 +24,7 @@ const Trail = ({ trail, setCurrentId }) => {
                 <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(trail._id)}><MoreHorizIcon fontSize="medium" /></Button>
             </div>
             <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary" component="h2">QR {trail.qr}</Typography>
+                <Typography variant="body2" color="textSecondary" component="h2"></Typography>
             </div>
                 <Typography className={classes.title} gutterBottom variant="h5" component="h2">{trail.title}</Typography>
             <CardContent>

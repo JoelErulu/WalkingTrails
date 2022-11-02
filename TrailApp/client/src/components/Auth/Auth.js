@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container, TextField, Icon } from '@material-ui/core';
 import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import icon from './icon.js';
@@ -18,7 +18,7 @@ const Auth = () => {
     const [ isSignup, setIsSignup ] = useState(false);
     const [ formData, setFormData ] = useState(initialState);
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useNavigate();
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); 
 
@@ -48,7 +48,7 @@ const Auth = () => {
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
-            history.push('/home');
+            history('/home');
 
         } catch (err) {
             console.log(err);

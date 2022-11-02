@@ -7,7 +7,7 @@ import Trails from '../Trails/Trails.js';
 import TrailForm from '../TrailForm/TrailForm.js';
 import useStyles from './styles.js';
 
-const Home = (theme) => {
+const ManageTrail = (theme) => {
     const [currentId, setCurrentId] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -32,4 +32,4 @@ const Home = (theme) => {
     );
 };
 
-export default Home;
+export default ManageTrail;

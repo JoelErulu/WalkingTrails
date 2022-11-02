@@ -31,7 +31,7 @@ const TrailForm = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(0);
-        setTrailData({ creator: '', title: '', location: '', distance: '', qr: '' });
+        setTrailData({ creator: '', title: '', location: '', distance: '', selectedFile: '' });
 
     }
 
@@ -43,7 +43,7 @@ const TrailForm = ({ currentId, setCurrentId }) => {
                 <TextField name="title" variant="outlined" label="Title" fullWidth value={trailData.title}onChange={(e) => setTrailData({ ...trailData, title: e.target.value })}/>
                 <TextField name="location" variant="outlined" label="Location" fullWidth value={trailData.location}onChange={(e) => setTrailData({ ...trailData, location: e.target.value })}/>
                 <TextField name="distance" variant="outlined" label="Distance (miles)" fullWidth value={trailData.distance}onChange={(e) => setTrailData({ ...trailData, distance: e.target.value })}/>
-                <TextField name="qr" variant="outlined" label="QR (# of QR codes)" fullWidth value={trailData.qr}onChange={(e) => setTrailData({ ...trailData, qr: e.target.value })}/>
+                <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setTrailData({ ...trailData, selectedFile: base64 })}/></div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
