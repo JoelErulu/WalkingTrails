@@ -5,21 +5,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTrails } from '../../actions/trails.js';
 import GoogleMapReact from 'google-map-react';
 import useStyles from './styles.js';
+import CurrentMarker from './Marker/CurrentMarker.js';
+import Marker from './Marker/Marker.js';
 
 const Current = () => {
-    const [ lat, setLat ] = useState(33.7490);
-    const [ lon, setLon ] = useState(-84.3880);
+    const [ map, setMap ] = useState(/** @type google.maps.Map */ (null));
+    const [ lati, setLati ] = useState('');
+    const [ long, setLong ] = useState('');
+    const [ center, setCenter ] = useState('');
     const classes = useStyles();
    
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLat(position.coords.latitude);
-            setLon(position.coords.longitude);
+        navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude}}) => {
+            setCenter({ lat: latitude, lng:longitude });
+            setLati(latitude);
+            setLong(longitude);
         })
-    }, [])
+    }, []);
+    
+    console.log(center);
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="lg">
             <Paper className={classes.paper} elevation={3}>
                 <div style={{ height: "75vh", width: "100%" }}>
                     <GoogleMapReact
@@ -28,10 +35,58 @@ const Current = () => {
                             language: "en",
                             region: "US"
                         }}
-                        defaultCenter={{ lat: 33.7490, lng: -84.3880 }}
-                        defaultZoom={15}
+                        center={ center }
+                        defaultZoom={17}    
+                        
                     >
-                    
+                    <CurrentMarker
+                        lat={lati}
+                        lng={long}
+                        name="Current Location"
+                        color="blue"
+                    />
+                    <Marker
+                        lat={33.979838}
+                        lng={-84.0013006}
+                        name="Building A"
+                        color="red"
+                    />
+                    <Marker
+                        lat={33.9808338}
+                        lng={-84.0055385}
+                        name="Building B"
+                        color="red"
+                    />
+                    <Marker
+                        lat={33.9802712}
+                        lng={-84.0063357}
+                        name="Building C"
+                        color="red"
+                    />
+                    <Marker
+                        lat={33.9791322}
+                        lng={-84.0056598}
+                        name="Building E"
+                        color="red"
+                    />
+                    <Marker
+                        lat={33.9800459}
+                        lng={-84.0035811}
+                        name="Building H"
+                        color="red"
+                    />
+                    <Marker
+                        lat={33.9793307}
+                        lng={-84.0047613}
+                        name="Building L"
+                        color="red"
+                    />
+                    <Marker
+                        lat={33.97968}
+                        lng={-84.006435}
+                        name="Building W"
+                        color="red"
+                    />
                     </GoogleMapReact>
                 </div>
             </Paper>

@@ -14,7 +14,7 @@ import Current from './components/Current/Current.js';
 const App = () => (
     <GoogleOAuthProvider clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'>
         <BrowserRouter>
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<Landing />} />

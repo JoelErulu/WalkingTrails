@@ -18,7 +18,7 @@ const Auth = () => {
     const [ isSignup, setIsSignup ] = useState(false);
     const [ formData, setFormData ] = useState(initialState);
     const dispatch = useDispatch();
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); 
 
@@ -26,9 +26,9 @@ const Auth = () => {
         e.preventDefault();
 
         if(isSignup) {
-            dispatch(signup(formData, history));
+            dispatch(signup(formData, navigate));
         } else {
-            dispatch(signin(formData, history));
+            dispatch(signin(formData, navigate));
         }
     };
 
@@ -48,7 +48,7 @@ const Auth = () => {
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
-            history('/home');
+            navigate('/home');
 
         } catch (err) {
             console.log(err);
