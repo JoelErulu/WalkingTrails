@@ -3,7 +3,7 @@ import TrailDetail from '../models/trailDetail.js';
 
 export const getTrails = async (req, res) => {
     try {
-        const trailDetail = await TrailDetail.find();
+        const trailDetail = await TrailDetail.find().sort({ _id: -1 });
 
         res.status(200).json(trailDetail);
     } catch (err) {

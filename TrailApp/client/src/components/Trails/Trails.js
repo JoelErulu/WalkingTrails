@@ -15,7 +15,7 @@ const Trails = ({ setCurrentId }) => {
         !trails.length ? <Grid container direction="column" justifyContent="center" alignItems="center"><CircularProgress /></Grid> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {trails.map((trail) => (
-                    <Grid key={trail._id} item xs={12} sm={6}>
+                    <Grid key={trail._id} item xs={12} sm={12} md={6} lg={3}>
                         <Trail trail={trail} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}
