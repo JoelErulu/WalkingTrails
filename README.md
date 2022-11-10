@@ -14,6 +14,12 @@ This project uses the MERN Stack
     https://nodejs.org/en/
 - React
     https://reactjs.org/
+
+- Google Map Api
+-   https://developers.google.com/maps
+-   (IMPORTANT)
+-   The google map api needs key access from goolge through paid access.
+    Either a renewal of a access is needed or use a new google account to obtain another key for a new free trial for the map to work.
   
 ### Installation Steps
 *** Add --force at the end of the npm command when encountered with errors
@@ -58,6 +64,11 @@ npm i nodemon
 2. Social Media - Create blog psosts and observe the posts of other users
 3. Trail interaction - Begin a new trail, search up names of trails, track amount of QR codes scanned.
 
+### Features for the future
+1. Have comments and reviews of trails posted on the blog(manage trails page)
+2. Offline/True GPS tracking (High difficulty, if you want to do this then start immediately or you won't have enough time to complete)
+3. Content pages for trails
+4. Ability to add checkpoints on maps
 
 
 ### Team Members
