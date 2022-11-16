@@ -77,3 +77,5 @@ npm i nodemon
 3. Ti - UI/UX design / Testing
 4. Charlie - Testing lead / Client Liason
 
+### link to the demo of the app running
+https://youtu.be/j3sLqDTzJUw
