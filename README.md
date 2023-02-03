@@ -1,6 +1,6 @@
 # WalkingTrailApp
 [Repo URL](https://github.com/GGC-SD/WalkingTrailApp.git)
-## Fanstatic 4 2022
+## TTrail 2023
 ### Decription
 A fitness app which allows users to experience trails through a digital experience. Users will be able to scan QR codes to learn about trails they are exploring, create blog posts, and begin personalized workouts.
 
@@ -72,10 +72,8 @@ npm i nodemon
 
 
 ### Team Members
-1. Serena - Lead Programmer, Team Manager
-2. Jared - Database Model / Document
-3. Ti - UI/UX design / Testing
-4. Charlie - Testing lead / Client Liason
+1. Nathan - Lead Programmer, Team Manager , Client Liason
+
 
 ### link to the demo of the app running
 https://youtu.be/j3sLqDTzJUw
