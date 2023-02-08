@@ -2,11 +2,7 @@
 
 [Repo URL](https://github.com/GGC-SD/WalkingTrailApp.git)
 
-## Fanstatic 4 2022
-
-## TTrail 2023
-
-### Decription
+### Description
 
 A fitness app which allows users to experience trails through a digital experience. Users will be able to scan QR codes to learn about trails they are exploring, create blog posts, and begin personalized workouts.
 
@@ -82,19 +78,6 @@ This project uses the MERN Stack
 2. Offline/True GPS tracking (High difficulty, if you want to do this then start immediately or you won't have enough time to complete)
 3. Content pages for trails
 4. Ability to add checkpoints on maps
-
-### Team Members 2022
-
-1. Serena - Lead Programmer, Team Manager
-2. Jared - Database Model / Document
-3. Ti - UI/UX design / Testing
-4. Charlie - Testing lead / Client Liason
-
-### Team Members 2023
-
-1. **Nathan** - _Lead Programmer, Team Manager , Client Liason_ :ghost:
-
-2. **Peter** - _Data Modeler, Testing Lead_ :mage_man:
 
 ### link to the demo of the app running
 
