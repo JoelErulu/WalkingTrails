@@ -92,7 +92,7 @@ This project uses the MERN Stack
 
 ### Team Members 2023
 
-1. Nathan - Lead Programmer, Team Manager , Client Liason
+1. **Nathan** - _Lead Programmer, Team Manager , Client Liason_ :ghost:
 
 ### link to the demo of the app running
 
