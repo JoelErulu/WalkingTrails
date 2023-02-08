@@ -94,6 +94,8 @@ This project uses the MERN Stack
 
 1. **Nathan** - _Lead Programmer, Team Manager , Client Liason_ :ghost:
 
+2. **Peter** - _Data Modeler, Testing Lead_ :mage_man:
+
 ### link to the demo of the app running
 
 https://youtu.be/j3sLqDTzJUw
