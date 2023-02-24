@@ -10,6 +10,7 @@ const initialState = { creator: '', title: '', message: '', tags: '', selectedFi
 
 const Form = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState(initialState);
+    //currentId is null. Where does it come from?
     const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
     const classes = useStyles();
     const dispatch = useDispatch();

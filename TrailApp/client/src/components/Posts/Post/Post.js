@@ -24,6 +24,8 @@ const Post = ({ post, setCurrentId }) => {
                 <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="medium" /></Button>
             </div>
             <div className={classes.details}>
+                //Problem lies within post once a trail is selected
+                //Appears as undefined. Defined in the beginning though
                 <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag}`)}</Typography>
             </div>
                 <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
