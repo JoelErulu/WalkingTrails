@@ -4,14 +4,13 @@ import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 
 import useStyles from './styles.js';
-import { createPost, updatePost } from '../../actions/posts.js';
+import { createPost, getPosts, updatePost } from '../../actions/posts.js';
 
 const initialState = { creator: '', title: '', message: '', tags: '', selectedFile: '' };
 
 const Form = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState(initialState);
-    //currentId is null. Where does it come from?
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
     const classes = useStyles();
     const dispatch = useDispatch();
 

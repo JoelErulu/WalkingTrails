@@ -17,11 +17,9 @@ const Home = () => {
     const handleChange = (e) => {
         settrail(e.target.value);
     }
-    console.log("Before useEffect: Current id is "+ currentId);
     useEffect(() => {
         dispatch(getTrails());
     }, [currentId, dispatch]);
-    console.log("After useEffect: THis is current id "+ currentId);
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
