@@ -21,7 +21,7 @@ app.use('/trails', trailRoutes);
 
 //const PORT = process.env.PORT || 5000;
 const PORT = 5000;
-const CONNECTION_URL = 'mongodb+srv://admin:admin123@trailcluster.txlu38n.mongodb.net/?retryWrites=true&w=majority'
+const CONNECTION_URL = 'mongodb+srv://admin:nierautomatabestgame@ttrail.htmfwmp.mongodb.net/testdb?retryWrites=true&w=majority'
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))

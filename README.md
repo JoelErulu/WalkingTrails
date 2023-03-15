@@ -96,6 +96,8 @@ This project uses the MERN Stack
 
 2. **Peter** - _Data Modeler, Testing Lead_ :mage_man:
 
+3. **Daniel** - _UI/UX, Documentation_
+
 ### link to the demo of the app running
 
 https://youtu.be/j3sLqDTzJUw
