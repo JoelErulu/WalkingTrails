@@ -44,11 +44,15 @@ const Auth = () => {
     const googleSuccess = async (res) => {
         const result = jwt_decode(res?.credential);
         const token = res?.credential;
+        //Find how to identify the role found
+        console.log("this is token "+res);
+        console.table(res);
 
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
             navigate('/home');
+            //navigate('/admin');
 
         } catch (err) {
             console.log(err);
