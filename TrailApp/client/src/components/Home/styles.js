@@ -1,17 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: theme.spacing(2),
+  gridContainer: {
+      flexDirection: 'row',
   },
-  select: {
-    margin: theme.spacing(0, 0, 2),
+  gridItem: {
+    textAlign: 'center',
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  image: {
+    width: '100%',
+    height: 'auto',
+    objectFit: 'cover',
   },
 }));
