@@ -13,6 +13,7 @@ import { signin, signup } from '../../actions/auth.js';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
+    const[role, setRole] = useState('guest');
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [ isSignup, setIsSignup ] = useState(false);
@@ -50,6 +51,12 @@ const Auth = () => {
 
         try {
             dispatch({type: 'AUTH', data: {result, token}});
+            console.log(result.email);
+            const res1 = await fetch(`/api/verifyGoogleToken?accessToken=${token}`);
+            console.log(res1);
+            console.log("hey! result inbound");
+            console.log(result);
+            console.log(token);
 
             navigate('/home');
             //navigate('/admin');
