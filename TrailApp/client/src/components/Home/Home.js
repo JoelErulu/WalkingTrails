@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Typography, Container} from '@material-ui/core';
-import { useDispatch} from 'react-redux';
-import { getTrails } from '../../actions/trails.js';
 import useStyles from './styles.js';
 import gold from '../../images/gold.png';
 import green from '../../images/green.png';
