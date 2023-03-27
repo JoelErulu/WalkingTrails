@@ -9,6 +9,9 @@ import icon from './icon.js';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import { signin, signup } from '../../actions/auth.js';
+// import verifyGoogleIdToken from '../../../../server/middleware/googleauth.js';
+
+
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
@@ -42,21 +45,37 @@ const Auth = () => {
         setShowPassword(false);
     };
 
+    //Find a way to assign a role to the user that just signed in
+    //Currently,
+    //
     const googleSuccess = async (res) => {
         const result = jwt_decode(res?.credential);
         const token = res?.credential;
+
         //Find how to identify the role found
         console.log("this is token "+res);
         console.table(res);
 
         try {
             dispatch({type: 'AUTH', data: {result, token}});
+
+            //token is provided here. 
             console.log(result.email);
-            const res1 = await fetch(`/api/verifyGoogleToken?accessToken=${token}`);
-            console.log(res1);
+            const{email} = result.email;
+            const{firstName, lastName} = result.name;
+            console.log(firstName);
+            //given_name
+            //family_name
+            console.log(lastName);
+            //const res1 = await verifyGoogleIdToken(token); 
+            // console.log(res1);
             console.log("hey! result inbound");
             console.log(result);
             console.log(token);
+
+            //check if google user exists within the database
+            //backend api method (email, resu)
+            
 
             navigate('/home');
             //navigate('/admin');
