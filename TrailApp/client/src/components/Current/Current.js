@@ -32,7 +32,7 @@ function Current() {
                 <div style={{ display: "inline-block", height: "50vh", width: "100%" }}>
                     <GoogleMapReact
                         bootstrapURLKeys={{
-                            key: "AIzaSyBCiYYrFFae6p9h3FcpqEP8p9YxFwqJooY",
+                            key: "AIzaSyBWo0kr3jti4QZCS6vyqjHVKEv6L31S2VA",
                             language: "en",
                             region: "US"
                         }}
