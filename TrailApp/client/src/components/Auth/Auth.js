@@ -9,7 +9,7 @@ import icon from './icon.js';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import { signin, signup } from '../../actions/auth.js';
-// import verifyGoogleIdToken from '../../../../server/middleware/googleauth.js';
+import { googleLogin } from '../../api/index.js';
 
 
 
@@ -53,8 +53,8 @@ const Auth = () => {
         const token = res?.credential;
 
         //Find how to identify the role found
-        console.log("this is token "+res);
-        console.table(res);
+        // console.log("this is token "+res);
+        // console.table(res);
 
         try {
             dispatch({type: 'AUTH', data: {result, token}});
@@ -72,11 +72,14 @@ const Auth = () => {
             console.log("hey! result inbound");
             console.log(result);
             console.log(token);
+            console.log(typeof(token));
 
             //check if google user exists within the database
             //backend api method (email, resu)
             
-
+            const{data} = await googleLogin(token);
+            
+            console.log(data);
             navigate('/home');
             //navigate('/admin');
 
