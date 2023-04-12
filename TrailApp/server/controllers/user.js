@@ -47,6 +47,18 @@ export const signup = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong.' });
     }
 }
+
+export const getUsers = async(req, res)=>{
+    try {
+        const users = await User.find().sort({ _id: -1 });
+        console.log(users);
+        res.send(users);
+    } catch(err) {
+        console.log("Error inbound:");
+        console.log(err.message);
+        res.status(404).json({ message: err.message });
+    }
+}
 //Assign user with role
 export const googleSignIn = async(res) =>{
     try{

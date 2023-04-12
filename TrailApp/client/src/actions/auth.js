@@ -7,7 +7,9 @@ export const signin = (formData, navigate) => async (dispatch) => {
         console.log(data);
         dispatch({ type: AUTH, data });
         if(data.result.role){
-            navigate('/admin');
+            //navigate('/admin');
+            navigate('/adminPrivilege')
+
         }else{
             navigate('/home');
         }

@@ -11,6 +11,7 @@ import Home from './components/Home/Home.js';
 import ManageTrail from './components/ManageTrail/ManageTrail.js';
 import Current from './components/Current/Current.js';
 import Admin from './components/Admin/Admin.js';
+import AdminPrivilege from './components/Admin/AdminPrivilege.js';
 
 const App = () => (
     <GoogleOAuthProvider clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'>
@@ -25,6 +26,7 @@ const App = () => (
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/trails" element={<ManageTrail />} />
                     <Route path="/current" element={<Current />} />
+                    <Route path="/adminPrivilege" element={<AdminPrivilege />} />
                 </Routes>
             </Container>
         </BrowserRouter>

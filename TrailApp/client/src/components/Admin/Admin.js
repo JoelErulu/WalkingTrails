@@ -45,6 +45,7 @@ const Admin = () => {
                     <Button component={Link} to="/trails" variant="contained" color="primary">Manage Trails</Button><br></br>
                     <Button component={Link} to="" variant="contained" color="primary">Create Nutrition</Button><br></br>
                     <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button>
+                    <Button component={Link} to="/privileges" variant="contained" color="primary">Assign Admin privileges</Button>
                 </Grid>
             </Paper>
         </Container>
