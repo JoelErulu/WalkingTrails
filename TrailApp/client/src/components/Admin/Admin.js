@@ -29,16 +29,30 @@ const Admin = () => {
         <>
         
         <Container component="main" maxWidth="xl">
-        <div className={classes.welcomeAdmin}> Hello Admin, Pick The Trail You'd Like to Edit </div>
+        <Typography className={classes.paper} variant="h5">Admin</Typography>
                 <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={0}>
-                    
+                <FormControl variant="filled" fullWidth>
+                        <InputLabel id="demo-simple-select-label">Trails</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={trail}
+                            label="Trails"
+                            onChange={handleChange}
+                        >
+                            {trails.map((trail) => (
+                                <MenuItem key ={trail._id} value={trail._id}>{trail.title}</MenuItem>
+                                
+                            ))}
+                        </Select>
+                    </FormControl><br></br>
                 </Grid>
 
                 <Paper className={classes.paper} elevation={3}>
                     <Grid className={classes.submit} container direction="column">
-                        <Button component={Link} to="/trails" variant="contained" color="primary">Manage Trails</Button><br></br>
-                        <Button component={Link} to="" variant="contained" color="primary">Create Nutrition</Button><br></br>
-                        <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button>
+                        <Button component={Link} to="" variant="contained" color="primary">Edit CheckPoints </Button><br></br>
+                        <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
+                        <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button>
                     </Grid>
                 </Paper>
             </Container></>
