@@ -12,9 +12,14 @@ export default makeStyles((theme) => ({
     height: 'auto',
     objectFit: 'cover',
   },
-  admin: {
-    position: 'absolute', 
-    bottom: 10, 
-    right: 10
-  }
+  submit: {
+    padding: theme.spacing(1),
+    top: '5%',
+  },
+  welcomeAdmin: {
+    border: 'soild',
+    background: 'white',
+    textAlign: 'center',
+    fontSize: 40,
+  },
 }));
