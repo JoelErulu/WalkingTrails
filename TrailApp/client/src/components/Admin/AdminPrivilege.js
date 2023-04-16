@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-//import { List, ListItem, ListItemText, Checkbox, FormControlLabel } from '@material-ui/core';
+import { FormControlLabel } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../actions/users';
 import RoleCheckbox from "./RoleCheckbox.js";
+import { Button, Paper, Grid, Typography, Container, InputLabel, MenuItem, FormControl, Select, SelectChangeEvent } from '@material-ui/core';
 
 const AdminPrivilege = () => {
   const dispatch = useDispatch();
@@ -65,21 +66,36 @@ const AdminPrivilege = () => {
     //         label="Assign privilege"
     //       />
     //     </ListItem>
-    <div>
+    <Container>
+      <Typography variant="h2" align='center'>Assign Admin Privileges</Typography>
       {users && users.map((user) => (
         <div key={user._id}>
-          <p>{user.name}</p>
-          {user.role === 'admin' && (
+          {/* <p>{user.name}</p> */}
+          <FormControlLabel
+            label={ <Typography variant="body1">
+                {user.name}
+              </Typography>}
+               control={
+                <RoleCheckbox
+                    checked={
+                      privileges.find((item) => item.id === user._id)?.checked
+                    }
+                    onChange={(isChecked) => handleCheckboxChange(user._id, isChecked)}
+                  />
+               }
+            
+          />
+          {/* {user.role === 'admin' && (
             <RoleCheckbox
               checked={
                 privileges.find((item) => item.id === user._id)?.checked
               }
               onChange={(isChecked) => handleCheckboxChange(user._id, isChecked)}
             />
-          )}
+          )} */}
         </div>
       ))}
-    </div>
+    </Container>
   
   );
 };
