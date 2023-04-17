@@ -12,3 +12,12 @@ export const getUsers = () => async (dispatch) => {
         console.log(err);
     }
 }
+export const updateUserRole = (id, role) => async (dispatch) => {
+    try {
+        const { data } = await api.updateUserRole(id, role);
+        console.log(data);
+        dispatch({ type: UPDATE, payload: data });
+    } catch (err) {
+        console.log(err);
+    }
+}

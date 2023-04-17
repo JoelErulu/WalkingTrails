@@ -56,6 +56,19 @@ export const getUsers = async(req, res)=>{
         res.status(404).json({ message: err.message });
     }
 }
+
+export const updateUserRole = async(req, res) =>{
+    const { id: _id } = req.params;
+    const userRole = req.body.role;
+   
+    console.log(req.body);
+
+    //if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
+
+    const updatedUser = await User.findByIdAndUpdate(_id, { role: userRole }, { new: true });
+   
+    res.json(updatedUser);
+}
 //Assign user with role
 export const googleSignIn = async(res) =>{
     try{

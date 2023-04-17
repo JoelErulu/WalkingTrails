@@ -13,6 +13,7 @@ export default (state = { isLoading: true, users: [] }, action) => {
         case DELETE:
                 return { ...state, users: state.filter((users) => users._id !== action.payload) };
         case UPDATE:
+            return state.map((user) => user._id === action.payload._id ? action.payload : user); 
         case LIKE:
                 return { ...state, users: state.map((users) => users._id === action.payload._id ? action.payload : users) }; 
       

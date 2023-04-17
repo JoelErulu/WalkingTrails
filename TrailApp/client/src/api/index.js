@@ -11,6 +11,7 @@ export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);
 export const fetchUsers = () => API.get('/user/users');
+export const updateUserRole = (id, role) => API.patch(`/user/${id}`, role);
 export const googleLogin = (token) => API.post('user/googleLogin', token);
 
 export const fetchTrails = () => API.get('/trails');
