@@ -63,4 +63,25 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  gridContainer: {
+      flexDirection: 'row',
+  },
+  gridItem: {
+    textAlign: 'center',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    objectFit: 'cover',
+  },
+  submit: {
+    padding: theme.spacing(1),
+    top: '5%',
+  },
+  welcomeAdmin: {
+    border: 'soild',
+    background: 'white',
+    textAlign: 'center',
+    fontSize: 40,
+  },
 }));

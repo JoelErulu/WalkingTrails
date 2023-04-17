@@ -1,33 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Paper, Grid, Typography, Container, InputLabel, MenuItem, FormControl, Select, SelectChangeEvent } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
+import { AppBar, Grid, Typography, Container, Button, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { useDispatch} from 'react-redux';
 import { getTrails } from '../../actions/trails.js';
 import useStyles from './styles.js';
+import gold from '../../images/gold.png';
+import green from '../../images/green.png';
+import gray from '../../images/gray.png';
+
 
 const Admin = () => {
-    const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('profile')));
-    const [ trail, settrail ] = useState();
-    const [ currentId, setCurrentId ] = useState(null);
-    const trails = useSelector((state) => state.trails);
+
     const classes = useStyles();
-    const displayFirstName = user.result.name.split(' ');
+    const [trail, setTrail] = useState('');
+    const [trails, setTrails] = useState([]);
+
     const dispatch = useDispatch();
 
-    const handleChange = (e) => {
-        settrail(e.target.value);
-    }
     useEffect(() => {
         dispatch(getTrails());
-    }, [currentId, dispatch]);
+    }, [dispatch]);
+
+    const handleChange = (event) => {
+        setTrail(event.target.value);
+    };
+
     return (
-        <Container component="main" maxWidth="xs">
-            <Paper className={classes.paper} elevation={3}>
-                <Typography variant="h5">Action Center</Typography>
-                <Typography variant="h6">{trail}</Typography>
-                
-                <Grid className={classes.submit} container direction="column">
-                    <FormControl variant="filled" fullWidth>
+        <>
+        
+        <Container component="main" maxWidth="xl">
+        <Typography className={classes.paper} variant="h5">Admin</Typography>
+                <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={0}>
+                <FormControl variant="filled" fullWidth>
                         <InputLabel id="demo-simple-select-label">Trails</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
@@ -37,18 +41,21 @@ const Admin = () => {
                             onChange={handleChange}
                         >
                             {trails.map((trail) => (
-                                <MenuItem key ={trail._id} value={trail.title}>{trail.title}</MenuItem>
+                                <MenuItem key ={trail._id} value={trail._id}>{trail.title}</MenuItem>
                                 
                             ))}
                         </Select>
                     </FormControl><br></br>
-                    <Button component={Link} to="/trails" variant="contained" color="primary">Manage Trails</Button><br></br>
-                    <Button component={Link} to="" variant="contained" color="primary">Create Nutrition</Button><br></br>
-                    <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button>
-                    <Button component={Link} to="/privileges" variant="contained" color="primary">Assign Admin privileges</Button>
                 </Grid>
-            </Paper>
-        </Container>
+
+                <Paper className={classes.paper} elevation={3}>
+                    <Grid className={classes.submit} container direction="column">
+                        <Button component={Link} to="" variant="contained" color="primary">Edit CheckPoints </Button><br></br>
+                        <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
+                        <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button>
+                    </Grid>
+                </Paper>
+            </Container></>
     );
 };
 

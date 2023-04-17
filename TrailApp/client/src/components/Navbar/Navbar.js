@@ -4,7 +4,7 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import gwinnett from '../../images/gwinnett.png';
+import GGC from '../../images/GGClogo.jpg';
 
 const Navbar = () => {
     const classes = useStyles();
@@ -30,8 +30,8 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
-                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">Gwinnett</Typography>
-                <img className={classes.image} src={gwinnett} alt="gwinnett" height="60" />
+                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">GGC</Typography>
+                <img className={classes.image} src={GGC} alt="gwinnett" height="60" />
             </div>
             {user ? (
                 <Toolbar className={classes.toolbar}>
