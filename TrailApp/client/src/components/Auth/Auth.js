@@ -9,10 +9,14 @@ import icon from './icon.js';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import { signin, signup } from '../../actions/auth.js';
+import { googleLogin } from '../../api/index.js';
+
+
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
+    const[role, setRole] = useState('guest');
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [ isSignup, setIsSignup ] = useState(false);
@@ -41,14 +45,43 @@ const Auth = () => {
         setShowPassword(false);
     };
 
+    //Find a way to assign a role to the user that just signed in
+    //Currently,
+    //
     const googleSuccess = async (res) => {
         const result = jwt_decode(res?.credential);
         const token = res?.credential;
 
+        //Find how to identify the role found
+        // console.log("this is token "+res);
+        // console.table(res);
+
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
+            //token is provided here. 
+            console.log(result.email);
+            const{email} = result.email;
+            const{firstName, lastName} = result.name;
+            console.log(firstName);
+            //given_name
+            //family_name
+            console.log(lastName);
+            //const res1 = await verifyGoogleIdToken(token); 
+            // console.log(res1);
+            console.log("hey! result inbound");
+            console.log(result);
+            console.log(token);
+            console.log(typeof(token));
+
+            //check if google user exists within the database
+            //backend api method (email, resu)
+            
+            const{data} = await googleLogin(token);
+            
+            console.log(data);
             navigate('/home');
+            //navigate('/admin');
 
         } catch (err) {
             console.log(err);

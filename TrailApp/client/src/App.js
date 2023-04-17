@@ -10,6 +10,7 @@ import Landing from './components/Landing/Landing.js';
 import Home from './components/Home/Home.js';
 import ManageTrail from './components/ManageTrail/ManageTrail.js';
 import Current from './components/Current/Current.js';
+import AdminPrivilege from './components/Admin/AdminPrivilege.js';
 import Gold from './components/BigTrails/Gold.BigTrails';
 import Green from './components/BigTrails/Green.BigTrails';
 import Gray from './components/BigTrails/Gray.BigTrails';
@@ -31,6 +32,7 @@ const App = () => (
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/trails" element={<ManageTrail />} />
                     <Route path="/current" element={<Current />} />
+                    <Route path="/adminPrivilege" element={<AdminPrivilege />} />
                 </Routes>
             </Container>
         </BrowserRouter>

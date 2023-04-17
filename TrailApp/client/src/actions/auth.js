@@ -4,10 +4,15 @@ import * as api from '../api/index.js';
 export const signin = (formData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.signIn(formData);
-
+        console.log(data);
         dispatch({ type: AUTH, data });
+        if(data.result.role){
+            //navigate('/admin');
+            navigate('/adminPrivilege')
 
-        navigate('/home');
+        }else{
+            navigate('/home');
+        }
     } catch (err) {
         console.log(err);
     }
