@@ -6,4 +6,7 @@ export default makeStyles((theme) => ({
     height: 'auto',
     objectFit: 'cover',
   },
+  textfield: {
+    marginBottom: '10px',
+  },
 }));

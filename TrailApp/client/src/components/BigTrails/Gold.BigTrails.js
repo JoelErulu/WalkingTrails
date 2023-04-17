@@ -1,35 +1,61 @@
-import { Button, Box, Paper, Grid, Typography, Container, InputLabel, MenuItem, FormControl, Select, SelectChangeEvent, Drawer, Divider } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import useStyles from './styles.js';
 import CurrentMarker from './CurrentMarker.Gold.js';
 import Marker from './Marker.Gold.js';
+import Line from './Line.js';
+import { createMarker, getMarkers } from '../../actions/markers.js';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Gold = () => {
 
     const classes = useStyles();
+    const dispatch = useDispatch();
+    
+    const initialState = { lat: '', lng: '', name: '', color: '' };
 
+    const {markers, isLoading} = useSelector((state) => state.markers);
+
+    const [markerData, setMarkerData] = useState(initialState);
     const [map, setMap] = useState(/** @type google.maps.Map */(null));
     const [lati, setLati] = useState('');
     const [long, setLong] = useState('');
     const [center, setCenter] = useState('');
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+    const [selectedMarker, setSelectedMarker] = useState(initialState);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            setCenter({ lat: latitude, lng: longitude });
+            setCenter({ lat: 33.979904281519644, lng: -84.00106991202341 });
             setLati(latitude);
             setLong(longitude);
         });
     }, []);
 
-    const OpenDrawer = () => {
-        <Drawer anchor = 'left' open = {isDrawerOpen} onClose = {() => setIsDrawerOpen(false)}>
-            <Box>
-                <Typography> Side Panel </Typography>
-            </Box>
-        </Drawer>
+    useEffect(() => {
+        dispatch(getMarkers());
+    }, [dispatch])
+
+    function _onClick({x,y,lat,lng, event}) {
+        console.log(x,y,lat,lng,event)
+        setMarkerData({...markerData, lat: lat, lng: lng});
     }
+
+    function handleMarkerClick(key, props) {
+        setSelectedMarker({...selectedMarker, name: props.name, color: props.color})
+    };
+
+    const handleSubmit = (e) => {
+        // e.preventDefault();
+
+         dispatch(createMarker(markerData));
+
+    }
+    
+    // const lineCoords = [
+    //     { lat: 33.98086540534484, lng: -84.00684184158578},
+
+    // ];
 
     return (
     <Container component="main" maxWidth="xl">
@@ -37,11 +63,27 @@ const Gold = () => {
             <Grid item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
                 <Typography variant="h6">Gold Trail</Typography>
 
-                <Divider/>
+                <Typography>
+                    {selectedMarker?.name}
+                    {selectedMarker?.color}
+                </Typography>
 
-                <table>
-                    
-                </table>
+                <Divider/>
+                
+                <form onSubmit={handleSubmit}>
+                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerData.name}
+                onChange={(e) => setMarkerData({...markerData, name: e.target.value})}></TextField>
+                <br/>
+                <TextField name='color' variant="outlined" label="Color" margin="normal"   value={markerData.color}
+                onChange={(e) => setMarkerData({...markerData, color: e.target.value})}></TextField>
+                <br/>
+                <TextField name='lat' variant="outlined" label="Latitude" value = {markerData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <br/>
+                <TextField name='lng' variant="outlined" label="Longitude" value = {markerData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <br/>
+                <Button type='submit' color="primary" variant="contained">Create</Button>
+                </form>
+
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
                 <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
@@ -52,50 +94,42 @@ const Gold = () => {
                             region: "US"
                         }}
                         center={center}
-                        defaultZoom={17}
-
+                        defaultZoom={16}
+                        onClick={_onClick}
+                        onChildClick={handleMarkerClick}
                     >
+
                         <CurrentMarker
                             lat={lati}
                             lng={long}
                             name="Current Location"
                             color="blue" />
-                        <Marker
-                            lat={33.979838}
-                            lng={-84.0013006}
-                            name="Building A"
-                            color="red" 
+
+                        {markers.map((marker) => (
+                            <Marker 
+                                key = {marker._id}
+                                lat = {marker.lat}
+                                lng = {marker.lng}
+                                name = {marker.name}
+                                color = {marker.color}
                             />
-                        {/* <Marker
-                            lat={33.9808338}
-                            lng={-84.0055385}
-                            name="Building B"
-                            color="red" />
-                        <Marker
-                            lat={33.9802712}
-                            lng={-84.0063357}
-                            name="Building C"
-                            color="red" />
-                        <Marker
-                            lat={33.9791322}
-                            lng={-84.0056598}
-                            name="Building E"
-                            color="red" />
-                        <Marker
-                            lat={33.9800459}
-                            lng={-84.0035811}
-                            name="Building H"
-                            color="red" />
-                        <Marker
-                            lat={33.9793307}
-                            lng={-84.0047613}
-                            name="Building L"
-                            color="red" />
-                        <Marker
-                            lat={33.97968}
-                            lng={-84.006435}
-                            name="Building W"
-                            color="red" /> */}
+                        ))}
+
+                        {markerData.lat && markerData.lng && (
+                            <Marker 
+                                lat = {markerData.lat}
+                                lng = {markerData.lng}
+                                name = {markerData.name}
+                                color = {markerData.color}
+                            />
+                        )}
+
+                        <Marker 
+                            lat = {33.979904281519644}
+                            lng = {-84.00106991202341}
+                            name = "GGC A Building"
+                            color = "red"
+                        />
                     </GoogleMapReact>
                 </div>
                 </Grid>
