@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, START_LOADING, END_LOADING } from '../constants/actionTypes.js';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, START_LOADING, END_LOADING } from '../constants/actionTypes.js';
 
 export default (state = { isLoading: true, users: [] }, action) => {
     switch (action.type) {
@@ -13,10 +13,7 @@ export default (state = { isLoading: true, users: [] }, action) => {
         case DELETE:
                 return { ...state, users: state.filter((users) => users._id !== action.payload) };
         case UPDATE:
-            return state.map((user) => user._id === action.payload._id ? action.payload : user); 
-        case LIKE:
-                return { ...state, users: state.map((users) => users._id === action.payload._id ? action.payload : users) }; 
-      
+            return {...state, users: state.users.map((user) => user._id === action.payload._id ? action.payload : user)}; 
         default:
             return state;
         

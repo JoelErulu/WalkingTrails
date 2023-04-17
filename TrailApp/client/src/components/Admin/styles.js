@@ -33,6 +33,7 @@ export default makeStyles((theme) => ({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
+    backgroundColor: '#91C2E9',
   },
   overlay: {
     position: 'absolute',

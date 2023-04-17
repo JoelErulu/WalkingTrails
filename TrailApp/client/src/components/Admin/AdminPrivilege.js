@@ -23,7 +23,7 @@ const AdminPrivilege = () => {
 
   const handleCheckboxChange = (userId, isChecked) => {
     dispatch(updateUserRole(userId, {role: isChecked ? 'admin' : 'user'}));
-
+    console.log(users);
     //click on checkbox
     //update db
     //refresh page
@@ -35,14 +35,14 @@ const AdminPrivilege = () => {
       <Grid item xs={12} md={8} lg={6}>
         <Card className={classes.card}>
           <CardContent>
-            <Typography variant="h4" align="center" gutterBottom>
+            <Typography variant="h4" align="center" style={{color:'#000629', textDecoration: 'underline'}} gutterBottom>
               Assign Admin Privileges
             </Typography>
             {users &&
               users.map((user) => (
                 <Grid container key={user._id} alignItems="center" spacing={2}>
-                  <Grid item xs={8}>
-                    <Typography variant="body1">{user.name}</Typography>
+                  <Grid item xs={8} style={{ padding: '0 16px' }}>
+                    <Typography variant="body1" align='center' style={{ padding: 'auto', border:'1px solid black', color:'#020E1C', fontWeight:'bold' }} >{user.name}</Typography>
                   </Grid>
                   <Grid item xs={4}>
                     <FormControlLabel
