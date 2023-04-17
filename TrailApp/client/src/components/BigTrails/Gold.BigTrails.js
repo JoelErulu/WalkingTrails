@@ -65,7 +65,13 @@ const Gold = () => {
 
                 <Typography>
                     {selectedMarker?.name}
+                    <br/>
                     {selectedMarker?.color}
+                    <br/>
+                    {selectedMarker?.lat}
+                    <br/>
+                    {selectedMarker?.lng}
+                    <br/>
                 </Typography>
 
                 <Divider/>
