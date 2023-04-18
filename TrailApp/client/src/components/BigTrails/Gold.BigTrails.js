@@ -21,7 +21,7 @@ const Gold = () => {
     const [map, setMap] = useState(/** @type google.maps.Map */(null));
     const [lati, setLati] = useState('');
     const [long, setLong] = useState('');
-    const [center, setCenter] = useState('');
+    const [center, setCenter] = useState({ lat: 33.979904281519644, lng: -84.00106991202341 });
     const [selectedMarker, setSelectedMarker] = useState(initialState);
 
     useEffect(() => {
@@ -122,7 +122,7 @@ const Gold = () => {
                         ))}
 
                         {markerData.lat && markerData.lng && (
-                            <Marker 
+                            <Marker
                                 lat = {markerData.lat}
                                 lng = {markerData.lng}
                                 name = {markerData.name}
