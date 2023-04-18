@@ -67,36 +67,32 @@ export const updateUserRole = async(req, res) =>{
 //Assign user with role
 export const googleSignIn = async(req, res) =>{
     try{
-        //const token = res?.credential;
         const CLIENT_ID = '115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
-        //const CLIENT_ID = '982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com';
         const client = new OAuth2Client(CLIENT_ID);
-        //const clientSecret = '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';
-        
         const token =Object.keys(req.body)[0];
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: CLIENT_ID,
         });
-        //const result = jwt_decode(res?.credential);
-        //const email = result.email;
-        //const name =  result.given + result.family_name;
-        //const role = '';
         const payload = ticket.getPayload();
-        console.log("Below is the payload: "+payload);
-        //const userid = payload['sub'];
         const email = payload.email;
-        const name =  payload.given + payload.family_name;
-        console.log(payload);
-        const user = await User.findOne({email});
-        //check in database
+        const name =  payload.given_name + (payload.family_name? payload.family_name :'');
+        let user = await User.findOne({email});
+        let result;
         if(!user){
-          await User.create({email, role:'user'});
+            const password = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8).toUpperCase() + "!@#$%^&*()_+";
+            const hashedPassword = await bcrypt.hash(password,12);
+            const createdUser = await User.create({email,name,password, role:'user'});
+            result = createdUser;
+            user = createdUser;
         }
+        const jwtToken = jwt.sign({ email: user.email, id: user._id }, 'test', { expiresIn: "1h" });
+        result = user || createdUser;
+        res.status(200).json({ result, jwtToken });
         return payload;
     }catch(err){
         console.log(err);
-        //throw new Error('Invalid Google ID token');
+        res.status(500).json({ message: 'Something went wrong.' });
     }
  
 }

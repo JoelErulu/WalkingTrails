@@ -51,38 +51,15 @@ const Auth = () => {
     const googleSuccess = async (res) => {
         const result = jwt_decode(res?.credential);
         const token = res?.credential;
-
-        //Find how to identify the role found
-        // console.log("this is token "+res);
-        // console.table(res);
-
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
-            //token is provided here. 
-            console.log(result.email);
-            const{email} = result.email;
-            const{firstName, lastName} = result.name;
-            console.log(firstName);
-            //given_name
-            //family_name
-            console.log(lastName);
-            //const res1 = await verifyGoogleIdToken(token); 
-            // console.log(res1);
-            console.log("hey! result inbound");
-            console.log(result);
-            console.log(token);
-            console.log(typeof(token));
-
-            //check if google user exists within the database
-            //backend api method (email, resu)
-            
-            const{data} = await googleLogin(token);
-            
-            console.log(data);
-            navigate('/home');
-            //navigate('/admin');
-
+            const{data} = await googleLogin(res?.credential);
+            if(data.result.role ==="admin"){
+                navigate('/admin');
+            }else{
+                navigate('/home');
+            }
         } catch (err) {
             console.log(err);
         }

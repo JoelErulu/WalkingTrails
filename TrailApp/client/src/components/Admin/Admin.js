@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Grid, Typography, Container, Button, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { getTrails } from '../../actions/trails.js';
 import useStyles from './styles.js';
 import gold from '../../images/gold.png';
@@ -13,7 +13,7 @@ const Admin = () => {
 
     const classes = useStyles();
     const [trail, setTrail] = useState('');
-    const [trails, setTrails] = useState([]);
+    const trails = useSelector((state) => state.trails);
 
     const dispatch = useDispatch();
 
