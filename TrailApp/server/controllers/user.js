@@ -60,29 +60,20 @@ export const getUsers = async(req, res)=>{
 export const updateUserRole = async(req, res) =>{
     const { id: _id } = req.params;
     const userRole = req.body.role;
-   
-    console.log(req.body);
-
-    //if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
-
     const updatedUser = await User.findByIdAndUpdate(_id, { role: userRole }, { new: true });
    
     res.json(updatedUser);
 }
 //Assign user with role
-export const googleSignIn = async(res) =>{
+export const googleSignIn = async(req, res) =>{
     try{
         //const token = res?.credential;
-        //const CLIENT_ID = '115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
-        const CLIENT_ID = '982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com';
+        const CLIENT_ID = '115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
+        //const CLIENT_ID = '982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com';
         const client = new OAuth2Client(CLIENT_ID);
-        const clientSecret = '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';
-        //
-        // let buff = Buffer.from(res, 'base64');
-        // let text = buff.toString('ascii');
-        //
-        const token = res;
-        console.log(token);
+        //const clientSecret = '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';
+        
+        const token =Object.keys(req.body)[0];
         const ticket = await client.verifyIdToken({
             idToken: token,
             audience: CLIENT_ID,
@@ -96,16 +87,16 @@ export const googleSignIn = async(res) =>{
         //const userid = payload['sub'];
         const email = payload.email;
         const name =  payload.given + payload.family_name;
-    
+        console.log(payload);
         const user = await User.findOne({email});
         //check in database
         if(!user){
-          await User.create({email, role:''});
+          await User.create({email, role:'user'});
         }
         return payload;
     }catch(err){
         console.log(err);
-        throw new Error('Invalid Google ID token');
+        //throw new Error('Invalid Google ID token');
     }
  
 }

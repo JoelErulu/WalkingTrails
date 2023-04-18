@@ -52,7 +52,8 @@ const Admin = () => {
                     <Grid className={classes.submit} container direction="column">
                         <Button component={Link} to="" variant="contained" color="primary">Edit CheckPoints </Button><br></br>
                         <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
-                        <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button>
+                        <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button><br></br>
+                        <Button component={Link} to="/adminPrivilege" variant="contained" color="primary">Assign Admin Privilege</Button>
                     </Grid>
                 </Paper>
             </Container></>
