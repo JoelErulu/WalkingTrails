@@ -14,11 +14,15 @@ const Admin = () => {
     const classes = useStyles();
     const [trail, setTrail] = useState('');
     const trails = useSelector((state) => state.trails);
+    const [userRole, setUserRole] = useState('');
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getTrails());
+        const currentUser = JSON.parse(localStorage.getItem("profile"));
+        const currentUserRole = currentUser.result.role;
+        setUserRole(currentUserRole);
     }, [dispatch]);
 
     const handleChange = (event) => {
@@ -53,7 +57,7 @@ const Admin = () => {
                         <Button component={Link} to="" variant="contained" color="primary">Edit CheckPoints </Button><br></br>
                         <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
                         <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button><br></br>
-                        <Button component={Link} to="/adminPrivilege" variant="contained" color="primary">Assign Admin Privilege</Button>
+                        {userRole==="SuperAdmin"?<Button component={Link} to="/adminPrivilege" variant="contained" color="primary">Assign Admin Privilege</Button>:''}
                     </Grid>
                 </Paper>
             </Container></>
