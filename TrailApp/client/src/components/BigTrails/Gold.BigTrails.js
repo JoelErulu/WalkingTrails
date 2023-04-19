@@ -164,7 +164,6 @@ const Gold = () => {
                                     name: "First",
                                 })}
                             />
-
                             {/* database markers */}
                             {markers.map((marker) => (
                             <Marker 

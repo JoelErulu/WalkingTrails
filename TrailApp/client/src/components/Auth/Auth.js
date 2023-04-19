@@ -9,10 +9,14 @@ import icon from './icon.js';
 import useStyles from './styles.js';
 import Input from './Input.js';
 import { signin, signup } from '../../actions/auth.js';
+import { googleLogin } from '../../api/index.js';
+
+
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
+    const[role, setRole] = useState('guest');
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [ isSignup, setIsSignup ] = useState(false);
@@ -41,15 +45,21 @@ const Auth = () => {
         setShowPassword(false);
     };
 
+    //Find a way to assign a role to the user that just signed in
+    //Currently,
+    //
     const googleSuccess = async (res) => {
         const result = jwt_decode(res?.credential);
         const token = res?.credential;
-
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
-            navigate('/home');
-
+            const{data} = await googleLogin(res?.credential);
+            if(data.result.role ==="admin"){
+                navigate('/admin');
+            }else{
+                navigate('/home');
+            }
         } catch (err) {
             console.log(err);
         }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Grid, Typography, Container, Button, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { getTrails } from '../../actions/trails.js';
 import useStyles from './styles.js';
 import gold from '../../images/gold.png';
@@ -13,12 +13,16 @@ const Admin = () => {
 
     const classes = useStyles();
     const [trail, setTrail] = useState('');
-    const [trails, setTrails] = useState([]);
+    const trails = useSelector((state) => state.trails);
+    const [userRole, setUserRole] = useState('');
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getTrails());
+        const currentUser = JSON.parse(localStorage.getItem("profile"));
+        const currentUserRole = currentUser.result.role;
+        setUserRole(currentUserRole);
     }, [dispatch]);
 
     const handleChange = (event) => {
@@ -52,7 +56,8 @@ const Admin = () => {
                     <Grid className={classes.submit} container direction="column">
                         <Button component={Link} to="" variant="contained" color="primary">Edit CheckPoints </Button><br></br>
                         <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
-                        <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button>
+                        <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button><br></br>
+                        {userRole==="SuperAdmin"?<Button component={Link} to="/adminPrivilege" variant="contained" color="primary">Assign Admin Privilege</Button>:''}
                     </Grid>
                 </Paper>
             </Container></>

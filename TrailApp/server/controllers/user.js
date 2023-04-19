@@ -3,6 +3,9 @@ import jwt from 'jsonwebtoken';
 
 import User from '../models/user.js';
 
+import {IdTokenClient, OAuth2Client} from 'google-auth-library';
+
+
 export const signin = async (req, res) => {
     const { email, password } = req.body;
 
@@ -15,7 +18,7 @@ export const signin = async (req, res) => {
 
         if(!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials." });
 
-        const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, 'test', { expiresIn: "1h" });
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id, role: existingUser.role }, 'test', { expiresIn: "1h" });
 
         res.status(200).json({ result: existingUser, token });
     } catch (err) {
@@ -35,7 +38,7 @@ export const signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 12);
     
-        const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}` });
+        const result = await User.create({ email, password: hashedPassword, name: `${firstName} ${lastName}`, role: ''});
 
         const token = jwt.sign({ email: result.email, id: result._id }, 'test', { expiresIn: "1h" });
 
@@ -43,4 +46,53 @@ export const signup = async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Something went wrong.' });
     }
+}
+
+export const getUsers = async(req, res)=>{
+    try {
+        const users = await User.find().sort({ _id: -1 });
+        res.send(users);
+    } catch(err) {
+        res.status(404).json({ message: err.message });
+    }
+}
+
+export const updateUserRole = async(req, res) =>{
+    const { id: _id } = req.params;
+    const userRole = req.body.role;
+    const updatedUser = await User.findByIdAndUpdate(_id, { role: userRole }, { new: true });
+   
+    res.json(updatedUser);
+}
+//Assign user with role
+export const googleSignIn = async(req, res) =>{
+    try{
+        const CLIENT_ID = '115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
+        const client = new OAuth2Client(CLIENT_ID);
+        const token =Object.keys(req.body)[0];
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID,
+        });
+        const payload = ticket.getPayload();
+        const email = payload.email;
+        const name =  payload.given_name + (payload.family_name? payload.family_name :'');
+        let user = await User.findOne({email});
+        let result;
+        if(!user){
+            const password = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8).toUpperCase() + "!@#$%^&*()_+";
+            const hashedPassword = await bcrypt.hash(password,12);
+            const createdUser = await User.create({email,name,password, role:'user'});
+            result = createdUser;
+            user = createdUser;
+        }
+        const jwtToken = jwt.sign({ email: user.email, id: user._id }, 'test', { expiresIn: "1h" });
+        result = user || createdUser;
+        res.status(200).json({ result, jwtToken });
+        return payload;
+    }catch(err){
+        console.log(err);
+        res.status(500).json({ message: 'Something went wrong.' });
+    }
+ 
 }
