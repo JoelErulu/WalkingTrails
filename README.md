@@ -59,6 +59,7 @@ This project uses the MERN Stack
    npm i jsonwebtoken  
    npm i mongoose  
    npm i nodemon
+   npm i google-auth-library
 
 ### How to Run
 
