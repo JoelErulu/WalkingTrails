@@ -54,7 +54,7 @@ const Gold = () => {
 
     }
     
-    //Path cords
+    //Path cords (PATH IS HARDCODED FUTURE project workers can make it dynamic)
     const lineCords = [
         { lat: 33.9804327949268, lng: -84.00527240759934}, //1
         { lat: 33.980353575203154, lng: -84.005425507664}, //2 

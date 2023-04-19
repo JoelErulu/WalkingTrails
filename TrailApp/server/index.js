@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import OAuth2Client from 'google-auth-library';
 import GoogleAuth from 'google-auth-library';
-import {auth} from 'google-auth-library';
+import {auth} from 'google-auth-library'
 //import dotenv from 'dotenv';
 
 import postRoutes from './routes/posts.js';
