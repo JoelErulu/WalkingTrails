@@ -31,7 +31,7 @@ This project uses the MERN Stack
 
 1. Open the terminal
 2. Move to the "client" directory (cd C:/../WalkingTrailApp/TrailApp/client)
-3. Enter the following commdands:  
+3. Enter the following commands:  
    npm i @material-ui/core  
    npm i @material-ui/icons  
    npm i @material-ui/lab  
@@ -51,7 +51,7 @@ This project uses the MERN Stack
    npm i --legacy-peer-deps
    npm i -S @react-google-maps/api
 4. Move to the "server" directory (cd C:/../WalkingTrailApp/TrailApp/server)
-5. Enter the following commdands:  
+5. Enter the following commands:  
    npm i bcryptjs  
    npm i body-parser  
    npm i cors  
