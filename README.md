@@ -48,7 +48,7 @@ This project uses the MERN Stack
    npm i react-scripts  
    npm i redux  
    npm i redux-thunk  
-   npm i --legacy-peer-deps
+   npm i --legacy-peer-deps  
    npm i -S @react-google-maps/api
 4. Move to the "server" directory (cd C:/../WalkingTrailApp/TrailApp/server)
 5. Enter the following commands:  
