@@ -1,4 +1,4 @@
-import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
 import useStyles from './styles.js';
@@ -10,7 +10,7 @@ const Gold = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     
-    const initialState = { lat: '', lng: '', name: ''};
+    const initialState = { lat: '', lng: '', name: '', img: '', exercise: '',};
 
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
@@ -21,6 +21,7 @@ const Gold = () => {
     const [long, setLong] = useState('');
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
+    const [open, setOpen] = useState(false);
 
     //sets center of map
     useEffect(() => {
@@ -127,10 +128,21 @@ const Gold = () => {
                     <br/>
                     {selectedMarker?.key}
                     <br/>
+                    {selectedMarker?.exercise}
+                    <br/>
                 </Typography>
 
                 <Divider/>
                 
+                <Button 
+                    onClick={() => setOpen(!open)}
+                > Create Checkpoint   
+                {open ?
+                (<Button variant="outlined" color="Secondary"> Close </Button>) : (<Button variant="outlined" color='Primary'> Open  </Button>)
+                }
+                </Button>
+
+                <Collapse in={open}>
                 <form onSubmit={handleSubmit}>
                 <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
                 onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
@@ -138,6 +150,14 @@ const Gold = () => {
                 <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 <br/>
                 <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <br/>
+                <Button type='submit' color="primary" variant="contained">Create</Button>
+                </form>
+                </Collapse>
+
+                <form onSubmit={handleSubmit}>
+                <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.name}
+                onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
                 <br/>
                 <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
