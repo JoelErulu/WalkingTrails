@@ -1,17 +1,19 @@
-import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
 import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
+import FileBase from 'react-file-base64';
+
 
 const Gold = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
     
-    const initialState = { lat: '', lng: '', name: ''};
+    const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
 
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
@@ -19,6 +21,7 @@ const Gold = () => {
     const [markerFormData, setMarkerFormData] = useState(initialState);
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
+    const [open, setOpen] = useState(false);
 
     //sets center of map
     useEffect(() => {
@@ -57,28 +60,47 @@ const Gold = () => {
                 <Typography variant="h6">Gold Trail</Typography>
 
                 <Typography>
+                <CardMedia className={classes.media} image={selectedMarker?.img} />
+                    <br/>
                     {selectedMarker?.name}
+                    <br/>
+                    {selectedMarker?.exercise}
                     <br/>
                     {selectedMarker?.lat}
                     <br/>
-                    {selectedMarker?.lng}
+                    {selectedMarker?.name}
                     <br/>
-                    {selectedMarker?.key}
-                    <br/>
+
                 </Typography>
 
                 <Divider/>
                 
+                <Button 
+                    onClick={() => setOpen(!open)}
+                > Create Checkpoint   
+                {open ?
+                (<Button variant="outlined" color="Secondary"> Close </Button>) : (<Button variant="outlined" color='Primary'> Open  </Button>)
+                }
+                </Button>
+
+                <Collapse in={open}>
                 <form onSubmit={handleSubmit}>
                 <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
                 onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
                 <br/>
+                <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.exercise}
+                onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
+                <br/>
+                <Collapse>
                 <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 <br/>
                 <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                </Collapse>
                 <br/>
+                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64 })}/></div>
                 <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
+                </Collapse>
 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
@@ -112,6 +134,8 @@ const Gold = () => {
                                     lat: marker.lat,
                                     lng: marker.lng,
                                     name: marker.name,
+                                    exercise: marker.exercise,
+                                    img: marker.img,
                                 })}
                             />
                             ))}
