@@ -22,9 +22,10 @@ const Gold = () => {
 
     //sets center of map
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
-        });
+        setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+            
+        // });
     }, []);
 
     //get markers from db
