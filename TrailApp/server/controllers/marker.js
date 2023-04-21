@@ -23,3 +23,21 @@ export const createMarker = async (req, res) => {
         res.status(409).json({ message: err.message});
     }
 }
+
+export const updateMarker = async (req, res) => {
+    const { id: _id } = req.params;
+    const marker = req.body;
+
+
+    const updatedMarker = await Marker.findByIdAndUpdate(_id, { ...marker, _id }, { new: true });
+   
+    res.json(updatedMarker);
+}
+
+export const deleteMarker = async (req, res) => {
+    const { id } = req.params;
+
+    await Marker.findByIdAndRemove(id);
+   
+    res.json({ message: 'Marker deleted successfully' });
+}

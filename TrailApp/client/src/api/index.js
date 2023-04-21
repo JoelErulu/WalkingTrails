@@ -21,3 +21,5 @@ export const deleteTrail = (id) => API.delete(`/trails/${id}`);
 
 export const fetchMarkers = () => API.get('/marker');
 export const createMarker = (newMarker) => API.post('/marker', newMarker);
+export const updateMarker = (id, updatedMarker) => API.patch(`/marker/${id}`, updatedMarker);
+export const deleteMarker = (id) => API.delete(`/marker/${id}`);

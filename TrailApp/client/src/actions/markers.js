@@ -1,4 +1,4 @@
-import { FETCH_ALL, START_LOADING, END_LOADING, CREATE} from '../constants/actionTypes.js';
+import { FETCH_ALL, START_LOADING, END_LOADING, CREATE, UPDATE, DELETE} from '../constants/actionTypes.js';
 import * as api from '../api/index.js';
 
 export const getMarkers = () => async (dispatch) => {
@@ -19,6 +19,26 @@ export const createMarker = (marker) => async (dispatch) => {
         const { data } = await api.createMarker(marker);
 
         dispatch({ type: CREATE, payload: data });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const updateMarker = (id, marker) => async (dispatch) => {
+    try {
+        const { data } = await api.updateMarker(id, marker);
+
+        dispatch({ type: UPDATE, payload: data });
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export const deleteMarker = (id) => async (dispatch) => {
+    try {
+        await api.deleteMarker(id);
+
+        dispatch({ type: DELETE, payload: id });
     } catch (err) {
         console.log(err);
     }
