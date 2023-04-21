@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container, TextField, Icon } from '@material-ui/core';
 import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
@@ -16,13 +16,21 @@ import { googleLogin } from '../../api/index.js';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
-    const[role, setRole] = useState('guest');
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [ isSignup, setIsSignup ] = useState(false);
     const [ formData, setFormData ] = useState(initialState);
+    const [loggedIn, setLoggedIn] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!loggedIn) {
+          setFormData(initialState);
+          setIsSignup(false);
+          setShowPassword(false);
+        }
+      }, [loggedIn]);
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); 
 
@@ -60,6 +68,7 @@ const Auth = () => {
             }else{
                 navigate('/home');
             }
+            setLoggedIn(true);
         } catch (err) {
             console.log(err);
         }

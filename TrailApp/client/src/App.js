@@ -9,15 +9,16 @@ import Auth from './components/Auth/Auth.js';
 import Landing from './components/Landing/Landing.js';
 import Home from './components/Home/Home.js';
 import ManageTrail from './components/ManageTrail/ManageTrail.js';
-import Current from './components/Current/Current.js';
 import AdminPrivilege from './components/Admin/AdminPrivilege.js';
 import Gold from './components/BigTrails/Gold.BigTrails';
 import Green from './components/BigTrails/Green.BigTrails';
 import Gray from './components/BigTrails/Gray.BigTrails';
 import Admin from './components/Admin/Admin.js';
-
+const cacheBuster = Math.floor(Math.random() * 100000);
 const App = () => (
-    <GoogleOAuthProvider clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'>
+    
+    <GoogleOAuthProvider clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'
+    redirectUri={`http://localhost:3000/auth/google/callback?cache_buster=${cacheBuster}`}>
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Navbar />
@@ -31,7 +32,6 @@ const App = () => (
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/trails" element={<ManageTrail />} />
-                    <Route path="/current" element={<Current />} />
                     <Route path="/adminPrivilege" element={<AdminPrivilege />} />
                 </Routes>
             </Container>
