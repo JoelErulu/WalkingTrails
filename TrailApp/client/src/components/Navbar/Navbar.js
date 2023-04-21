@@ -14,7 +14,9 @@ const Navbar = () => {
     const location = useLocation();
 
     const logout = () => {
-        dispatch({ type: 'LOGOUT' });
+        console.log("This is the user: ");
+        console.log(user); //At this point, I have user stored in my state
+        dispatch({ type: 'LOGOUT' }); //Make the call to get rid of it
 
         navigate('/');
 

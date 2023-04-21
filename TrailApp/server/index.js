@@ -22,7 +22,7 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
 app.use('/trails', trailRoutes);
-app.use('/googleLogin', trailRoutes);
+// app.use('/googleLogin', trailRoutes);
 app.use('/marker', markerRoutes);
 
 //const PORT = process.env.PORT || 5000;
