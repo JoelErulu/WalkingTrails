@@ -29,7 +29,7 @@ const Admin = () => {
     const handleChange = (event) => {
         console.log(event);
         setTrail(event.target.value);
-        setCheckpoint(event.target.value);
+        setCheckpoint("/"+event.target.value);
     };
 
     return (
@@ -58,7 +58,7 @@ const Admin = () => {
 
                 <Paper className={classes.paper} elevation={3}>
                     <Grid className={classes.submit} container direction="column">
-                        <Button component={Link} to={"/"+checkpoint} variant="contained" color="primary">Edit CheckPoints </Button><br></br>
+                        <Button component={Link} to={checkpoint} variant="contained" color="primary">Edit CheckPoints </Button><br></br>
                         <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
                         <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button><br></br>
                         {userRole==="SuperAdmin"?<Button component={Link} to="/adminPrivilege" variant="contained" color="primary">Assign Admin Privilege</Button>:''}
