@@ -1,4 +1,4 @@
-import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList, } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
 import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
@@ -60,16 +60,26 @@ const Gold = () => {
                 <Typography variant="h6">Gold Trail</Typography>
 
                 <Typography>
-                <CardMedia className={classes.media} image={selectedMarker?.img} />
+ 
+                    <ImageList >
+                    {selectedMarker?.img.map((img, index) => (
+                    <ImageListItem key={index}>
+                    <img src={img} className={classes.media} />
+                    </ImageListItem>
+                     ))}
+                    </ImageList>
+                    {/* {selectedMarker?.img.map((img, index) => (
+                    <img key={index} src={img} className={classes.media} />
+                    ))}           */}
+                    <br/>
+                    {selectedMarker?.img}
                     <br/>
                     {selectedMarker?.name}
                     <br/>
                     {selectedMarker?.exercise}
                     <br/>
-                    {selectedMarker?.lat}
-                    <br/>
-                    {selectedMarker?.name}
-                    <br/>
+                    {selectedMarker?.img.map((item) => (item))}
+                    
 
                 </Typography>
 
@@ -97,7 +107,7 @@ const Gold = () => {
                 <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 </Collapse>
                 <br/>
-                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64 })}/></div>
+                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64.split(',') })}/></div>
                 <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
                 </Collapse>

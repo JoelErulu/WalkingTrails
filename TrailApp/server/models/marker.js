@@ -5,7 +5,7 @@ const MarkerSchema = mongoose.Schema({
     lng: Number,
     name: String,
     exercise: String,
-    img: String,
+    img: [String],
 });
 
 const Marker = mongoose.model('Marker', MarkerSchema);
