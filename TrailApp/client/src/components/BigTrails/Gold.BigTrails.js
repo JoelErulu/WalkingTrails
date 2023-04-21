@@ -1,17 +1,19 @@
-import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList, } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
 import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
 import { createMarker, getMarkers, updateMarker, deleteMarker} from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
+import FileBase from 'react-file-base64';
+
 
 const Gold = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
     
-    const initialState = { lat: '', lng: '', name: ''};
+    const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
 
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
@@ -19,6 +21,7 @@ const Gold = () => {
     const [markerFormData, setMarkerFormData] = useState(initialState);
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
+    const [open, setOpen] = useState(false);
 
     //sets center of map
     useEffect(() => {
@@ -77,28 +80,57 @@ const Gold = () => {
                 <Typography variant="h6">Gold Trail</Typography>
 
                 <Typography>
+ 
+                    <ImageList >
+                    {selectedMarker?.img.map((img, index) => (
+                    <ImageListItem key={index}>
+                    <img src={img} className={classes.media} />
+                    </ImageListItem>
+                     ))}
+                    </ImageList>
+                    {/* {selectedMarker?.img.map((img, index) => (
+                    <img key={index} src={img} className={classes.media} />
+                    ))}           */}
+                    <br/>
+                    {selectedMarker?.img}
+                    <br/>
                     {selectedMarker?.name}
                     <br/>
-                    {selectedMarker?.lat}
+                    {selectedMarker?.exercise}
                     <br/>
-                    {selectedMarker?.lng}
-                    <br/>
-                    {selectedMarker?.key}
-                    <br/>
+                    {selectedMarker?.img.map((item) => (item))}
+                    
+
                 </Typography>
 
                 <Divider/>
                 
+                <Button 
+                    onClick={() => setOpen(!open)}
+                > Create Checkpoint   
+                {open ?
+                (<Button variant="outlined" color="Secondary"> Close </Button>) : (<Button variant="outlined" color='Primary'> Open  </Button>)
+                }
+                </Button>
+
+                <Collapse in={open}>
                 <form onSubmit={handleSubmit}>
                 <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
                 onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
                 <br/>
+                <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.exercise}
+                onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
+                <br/>
+                <Collapse>
                 <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 <br/>
                 <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                </Collapse>
                 <br/>
-                <Button type='submit' color="primary" variant="contained" >Create</Button>
+                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64.split(',') })}/></div>
+                <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
+                </Collapse>
 
                 <Button type='submit' color="primary" variant="contained" onClick={handleDelete}>Delete</Button>
 
@@ -137,6 +169,8 @@ const Gold = () => {
                                     lat: marker.lat,
                                     lng: marker.lng,
                                     name: marker.name,
+                                    exercise: marker.exercise,
+                                    img: marker.img,
                                 })}
                             />
                             ))}
