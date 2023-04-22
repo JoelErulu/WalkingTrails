@@ -6,4 +6,4 @@ import trails from './trails';
 import users from './user';
 import markers from './markers'
 
-export default combineReducers({ posts, auth, trails,users, markers});
+export default combineReducers({ posts, auth, trails, users, markers});
