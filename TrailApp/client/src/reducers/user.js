@@ -11,7 +11,7 @@ export default (state = { isLoading: true, users: [] }, action) => {
         case CREATE:
             return { ...state, users: [ ...state, action.payload] };
         case DELETE:
-                return { ...state, users: state.filter((users) => users._id !== action.payload) };
+                return { ...state, users: state.users.filter((users) => users._id !== action.payload) };
         case UPDATE:
             return {...state, users: state.users.map((user) => user._id === action.payload._id ? action.payload : user)}; 
         default:

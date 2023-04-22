@@ -15,6 +15,7 @@ const Admin = () => {
     const [trail, setTrail] = useState('');
     const trails = useSelector((state) => state.trails);
     const [userRole, setUserRole] = useState('');
+    const [checkpoint, setCheckpoint] = useState('/home');
 
     const dispatch = useDispatch();
 
@@ -26,7 +27,9 @@ const Admin = () => {
     }, [dispatch]);
 
     const handleChange = (event) => {
+        console.log(event);
         setTrail(event.target.value);
+        setCheckpoint("/"+event.target.value);
     };
 
     return (
@@ -36,6 +39,7 @@ const Admin = () => {
         <Typography className={classes.paper} variant="h5">Admin</Typography>
                 <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={0}>
                 <FormControl variant="filled" fullWidth>
+                    
                         <InputLabel id="demo-simple-select-label">Trails</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
@@ -45,7 +49,7 @@ const Admin = () => {
                             onChange={handleChange}
                         >
                             {trails.map((trail) => (
-                                <MenuItem key ={trail._id} value={trail._id}>{trail.title}</MenuItem>
+                                <MenuItem key ={trail._id} value={trail.title}>{trail.title}</MenuItem>
                                 
                             ))}
                         </Select>
@@ -54,8 +58,8 @@ const Admin = () => {
 
                 <Paper className={classes.paper} elevation={3}>
                     <Grid className={classes.submit} container direction="column">
-                        <Button component={Link} to="" variant="contained" color="primary">Edit CheckPoints </Button><br></br>
-                        <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br>
+                        <Button component={Link} to={checkpoint} variant="contained" color="primary">Edit CheckPoints </Button><br></br>
+                        {/* <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button><br></br> */}
                         <Button component={Link} to="/trails" variant="contained" color="primary">Create / Manage Trails</Button><br></br>
                         {userRole==="SuperAdmin"?<Button component={Link} to="/adminPrivilege" variant="contained" color="primary">Assign Admin Privilege</Button>:''}
                     </Grid>

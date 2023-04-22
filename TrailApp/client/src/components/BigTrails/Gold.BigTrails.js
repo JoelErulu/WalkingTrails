@@ -1,61 +1,58 @@
-import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList, } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import GoogleMapReact from 'google-map-react';
-import useStyles from './styles.js';
-import CurrentMarker from './CurrentMarker.Gold.js';
-import Marker from './Marker.Gold.js';
-import Line from './Line.js';
+import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
+import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
+import { GoldCords } from './Coords.js';
+import FileBase from 'react-file-base64';
+
 
 const Gold = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
     
-    const initialState = { lat: '', lng: '', name: '', color: '' };
+    const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
 
+    //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
 
-    const [markerData, setMarkerData] = useState(initialState);
-    const [map, setMap] = useState(/** @type google.maps.Map */(null));
-    const [lati, setLati] = useState('');
-    const [long, setLong] = useState('');
-    const [center, setCenter] = useState({ lat: 33.979904281519644, lng: -84.00106991202341 });
-    const [selectedMarker, setSelectedMarker] = useState(initialState);
+    const [markerFormData, setMarkerFormData] = useState(initialState);
+    const [center, setCenter] = useState('');
+    const [selectedMarker, setSelectedMarker] = useState(null);
+    const [open, setOpen] = useState(false);
 
+    //sets center of map
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            setCenter({ lat: 33.979904281519644, lng: -84.00106991202341 });
-            setLati(latitude);
-            setLong(longitude);
-        });
+        setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+            
+        // });
     }, []);
 
+    //get markers from db
     useEffect(() => {
         dispatch(getMarkers());
     }, [dispatch])
 
-    function _onClick({x,y,lat,lng, event}) {
-        console.log(x,y,lat,lng,event)
-        setMarkerData({...markerData, lat: lat, lng: lng});
-    }
-
-    function handleMarkerClick(key, props) {
-        setSelectedMarker({...selectedMarker, name: props.name, color: props.color})
+    //click on map to fill in form data
+    const _onClick = (event) => {
+        setMarkerFormData({...markerFormData, lat: event.latLng.lat(), lng: event.latLng.lng()});
     };
 
+    //when marker is clicked
+    const handleMarkerClick = (event) => {
+        setSelectedMarker(event);
+    };
+
+    //submit form to create marker
     const handleSubmit = (e) => {
         // e.preventDefault();
 
-         dispatch(createMarker(markerData));
+         dispatch(createMarker(markerFormData));
 
     }
-    
-    // const lineCoords = [
-    //     { lat: 33.98086540534484, lng: -84.00684184158578},
-
-    // ];
 
     return (
     <Container component="main" maxWidth="xl">
@@ -64,79 +61,110 @@ const Gold = () => {
                 <Typography variant="h6">Gold Trail</Typography>
 
                 <Typography>
+ 
+                    <ImageList >
+                    {selectedMarker?.img.map((img, index) => (
+                    <ImageListItem key={index}>
+                    <img src={img} className={classes.media} />
+                    </ImageListItem>
+                     ))}
+                    </ImageList>
+                    {/* {selectedMarker?.img.map((img, index) => (
+                    <img key={index} src={img} className={classes.media} />
+                    ))}           */}
+                    <br/>
+                    {selectedMarker?.img}
+                    <br/>
                     {selectedMarker?.name}
                     <br/>
-                    {selectedMarker?.color}
+                    {selectedMarker?.exercise}
                     <br/>
-                    {selectedMarker?.lat}
-                    <br/>
-                    {selectedMarker?.lng}
-                    <br/>
+                    {selectedMarker?.img.map((item) => (item))}
+                    
+
                 </Typography>
 
                 <Divider/>
                 
+                <Button 
+                    onClick={() => setOpen(!open)}
+                > Create Checkpoint   
+                {open ?
+                (<Button variant="outlined" color="Secondary"> Close </Button>) : (<Button variant="outlined" color='Primary'> Open  </Button>)
+                }
+                </Button>
+
+                <Collapse in={open}>
                 <form onSubmit={handleSubmit}>
-                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerData.name}
-                onChange={(e) => setMarkerData({...markerData, name: e.target.value})}></TextField>
+                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
+                onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
                 <br/>
-                <TextField name='color' variant="outlined" label="Color" margin="normal"   value={markerData.color}
-                onChange={(e) => setMarkerData({...markerData, color: e.target.value})}></TextField>
+                <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.exercise}
+                onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
                 <br/>
-                <TextField name='lat' variant="outlined" label="Latitude" value = {markerData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <Collapse>
+                <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 <br/>
-                <TextField name='lng' variant="outlined" label="Longitude" value = {markerData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                </Collapse>
                 <br/>
+                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64.split(',') })}/></div>
                 <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
+                </Collapse>
 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
                 <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
-                    <GoogleMapReact
-                        bootstrapURLKeys={{
-                            key: "AIzaSyBWo0kr3jti4QZCS6vyqjHVKEv6L31S2VA",
-                            language: "en",
-                            region: "US"
-                        }}
-                        center={center}
-                        defaultZoom={16}
-                        onClick={_onClick}
-                        onChildClick={handleMarkerClick}
+                    <LoadScript
+                        googleMapsApiKey="AIzaSyBWo0kr3jti4QZCS6vyqjHVKEv6L31S2VA"
                     >
-
-                        <CurrentMarker
-                            lat={lati}
-                            lng={long}
-                            name="Current Location"
-                            color="blue" />
-
-                        {markers.map((marker) => (
-                            <Marker 
-                                key = {marker._id}
-                                lat = {marker.lat}
-                                lng = {marker.lng}
-                                name = {marker.name}
-                                color = {marker.color}
-                            />
-                        ))}
-
-                        {markerData.lat && markerData.lng && (
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={center}
+                            zoom={16}
+                            options={MapID}
+                            onClick={_onClick}
+                        >
+                            {/* Initial Marker */}
                             <Marker
-                                lat = {markerData.lat}
-                                lng = {markerData.lng}
-                                name = {markerData.name}
-                                color = {markerData.color}
+                                position={{lat: 33.9804327949268, lng: -84.00527240759934}}
+                                onClick={() => handleMarkerClick({
+                                    key: 1,
+                                    lat: 33.9804327949268,
+                                    lng: -84.00527240759934,
+                                    name: "First",
+                                })}
                             />
-                        )}
+                            {/* database markers */}
+                            {markers.map((marker) => (
+                            <Marker 
+                                position={{lat: marker.lat, lng: marker.lng}}
+                                onClick={() => handleMarkerClick({
+                                    key: marker._id,
+                                    lat: marker.lat,
+                                    lng: marker.lng,
+                                    name: marker.name,
+                                    exercise: marker.exercise,
+                                    img: marker.img,
+                                })}
+                            />
+                            ))}
 
-                        <Marker 
-                            lat = {33.979904281519644}
-                            lng = {-84.00106991202341}
-                            name = "GGC A Building"
-                            color = "red"
-                        />
-                    </GoogleMapReact>
+                            {/* current marker */}
+                            {markerFormData.lat && markerFormData.lng && (
+                            <Marker 
+                                position={{lat: markerFormData.lat, lng: markerFormData.lng}}
+                                name = {markerFormData.name}
+                            />
+                            )}
+
+                            <Polyline
+                                path = {GoldCords}
+                                options={GoldTrailOptions}
+                            />
+                        </GoogleMap>
+                    </LoadScript>
                 </div>
                 </Grid>
             </Grid>
@@ -146,3 +174,5 @@ const Gold = () => {
 };
 
 export default Gold;
+
+// https://react-google-maps-api-docs.netlify.app/#data
