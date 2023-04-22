@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const MarkerSchema = mongoose.Schema({
+    sTrail: String,
     lat: Number,
     lng: Number,
     name: String,
