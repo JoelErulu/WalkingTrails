@@ -15,12 +15,12 @@ const Home = () => {
 
     const [center, setCenter] = useState('');
 
-    const admin = () => {
+    // const admin = () => {
 
-        navigate('/admin');
+    //     navigate('/admin');
 
-    };
-
+    // };
+    //Keep this in mind
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
@@ -85,8 +85,8 @@ const Home = () => {
                 </div>
                 </Grid>
             </Grid>
-
-            <Button variant="contained" className={classes.admin} color="secondary" onClick={admin}>Admin View</Button>
+{/* 
+            <Button variant="contained" className={classes.admin} color="secondary" onClick={admin}>Admin View</Button> */}
             
         </Container>
     );

@@ -24,6 +24,7 @@ const Auth = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    console.log("Am i signed in: "+ localStorage.getItem('profile'));
     useEffect(() => {
         if (!loggedIn) {
           setFormData(initialState);
@@ -59,6 +60,8 @@ const Auth = () => {
     const googleSuccess = async (res) => {
         const result = jwt_decode(res?.credential);
         const token = res?.credential;
+        console.log(res);
+        console.log(res?.credential);
         try {
             dispatch({type: 'AUTH', data: {result, token}});
 
@@ -104,7 +107,8 @@ const Auth = () => {
                     <GoogleLogin render={(renderProps) => (<Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<icon />} variant="contained">
                             Google Sign In
                         </Button>
-                        )}
+                        )
+                    }
                         onSuccess={googleSuccess}
                         onFailure={googleFailure}
                         cookiePolicy="single_host_origin"

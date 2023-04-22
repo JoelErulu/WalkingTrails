@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import { googleLogout } from '@react-oauth/google';
+// import { GoogleLogout } from '@react-oauth/google';
 
 import useStyles from './styles';
 import GGC from '../../images/GGClogo.jpg';
@@ -18,7 +18,8 @@ const Navbar = () => {
         console.log("This is the user: ");
         console.log(user); //At this point, I have user stored in my state
         dispatch({ type: 'LOGOUT' }); //Make the call to get rid of it
-        googleLogout();
+        console.log("Localstorage: "+localStorage.getItem('profile'));
+        // googleLogout();
         
         console.log("After navigation");
         console.log(user);
@@ -49,7 +50,7 @@ const Navbar = () => {
                         <Avatar className={classes.purple} alt={user.result.name} src={user.result.picture}>{user.result.name.charAt(0)}</Avatar>
                         <Typography className={classes.userName} variant="h6">Welcome, {user.result.name}!</Typography>
                         <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
-                        {/* <GoogleLogin
+                        {/* <GoogleLogout
                         clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'
                         buttonText="Logout"
                         onLogoutSucess={logout}/> */}
