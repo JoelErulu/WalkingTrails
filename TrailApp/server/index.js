@@ -12,6 +12,9 @@ import userRoutes from './routes/users.js';
 import trailRoutes from './routes/trails.js';
 import markerRoutes from './routes/marker.js';
 
+const path = ('path');
+const dotenv = ('dotenv');
+
 const app = express();
 //dotenv.config();
 

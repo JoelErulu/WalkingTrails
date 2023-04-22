@@ -16,7 +16,29 @@ export default makeStyles((theme) => ({
     position: 'absolute', 
     bottom: 10, 
     right: 10
-  }
+  },
+
+  gold: {
+    color: 'gold',
+    fontSize: '40px',
+    '&:hover': {
+      fontSize: '72px',
+    },
+  },
+  green: {
+    color: 'green',
+    fontSize: '40px',
+    '&:hover': {
+      fontSize: '72px',
+    },
+  },
+  grey: {
+    color: 'gray',
+    fontSize: '40px',
+    '&:hover': {
+      fontSize: '72px',
+    },
+  },
 }));
 
 export const goldOptions = {
@@ -36,10 +58,10 @@ export const goldOptions = {
 export const greenOptions = {
   strokeColor: 'green',
   strokeOpacity: 1,
-  strokeWeight: 2,
+  strokeWeight: 6,
   fillColor: 'green',
   fillOpacity: 0.35,
-  clickable: false,
+  clickable: true,
   draggable: false,
   editable: false,
   visible: true,
@@ -50,10 +72,10 @@ export const greenOptions = {
 export const greyOptions = {
   strokeColor: 'gray',
   strokeOpacity: 1,
-  strokeWeight: 2,
+  strokeWeight: 6,
   fillColor: 'gray',
   fillOpacity: 0.35,
-  clickable: false,
+  clickable: true,
   draggable: false,
   editable: false,
   visible: true,
