@@ -57,28 +57,15 @@ const Gold = () => {
     <Container component="main" maxWidth="xl">
         <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                <Typography variant="h6">Gold Trail</Typography>
+                <Typography className={classes.card} variant="h6" textAlign="center">Gold Trail</Typography>
 
-                <Typography>
+                <Typography >
  
-                    <ImageList >
-                    {selectedMarker?.img.map((img, index) => (
-                    <ImageListItem key={index}>
-                    <img src={img} className={classes.media} />
-                    </ImageListItem>
-                     ))}
-                    </ImageList>
-                    {/* {selectedMarker?.img.map((img, index) => (
-                    <img key={index} src={img} className={classes.media} />
-                    ))}           */}
+                <CardMedia className={classes.media} image={selectedMarker?.img} />
+                    <h2 className={classes.title}>{selectedMarker?.name}</h2>
+                    <h3 className={classes.exercise} >Exercises here:</h3>
+                    <p className={classes.workouts}>{selectedMarker?.exercise}</p>
                     <br/>
-                    {selectedMarker?.img}
-                    <br/>
-                    {selectedMarker?.name}
-                    <br/>
-                    {selectedMarker?.exercise}
-                    <br/>
-                    {selectedMarker?.img.map((item) => (item))}
                     
 
                 </Typography>
@@ -107,7 +94,7 @@ const Gold = () => {
                 <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 </Collapse>
                 <br/>
-                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64.split(',') })}/></div>
+                <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64 })}/></div>
                 <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
                 </Collapse>
@@ -146,6 +133,7 @@ const Gold = () => {
                                     name: marker.name,
                                     exercise: marker.exercise,
                                     img: marker.img,
+                                    text: marker.text,
                                 })}
                             />
                             ))}

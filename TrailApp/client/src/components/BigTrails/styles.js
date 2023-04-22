@@ -15,6 +15,34 @@ export default makeStyles((theme) => ({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundBlendMode: 'darken',
   },
+  exercise: {
+    textAlign: "center",
+    marginTop: "50px",
+    marginBottom: "0px",
+    marginLeft: "0px",
+    marginBottom: "0px",
+  },
+  title: {
+    textAlign: "center",
+    marginTop: "0px",
+    marginBottom: "0px",
+    marginLeft: "0px",
+    marginBottom: "0px",
+  },
+  workouts: {
+    textAlign: "center",
+    marginTop: "5px",
+    marginBottom: "0px",
+    marginLeft: "0px",
+    marginBottom: "0px",
+  },
+  card: {
+    textAlign: "center",
+    marginTop: "5px",
+    marginBottom: "0px",
+    marginLeft: "0px",
+    marginBottom: "0px",
+  },
 }));
 
 export  const containerStyle = {
