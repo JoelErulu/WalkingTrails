@@ -14,11 +14,11 @@ import Gold from './components/BigTrails/Gold.BigTrails';
 import Green from './components/BigTrails/Green.BigTrails';
 import Gray from './components/BigTrails/Gray.BigTrails';
 import Admin from './components/Admin/Admin.js';
-const cacheBuster = Math.floor(Math.random() * 100000);
+const oldIdclientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
+// const cacheBuster = Math.floor(Math.random() * 100000);
 const App = () => (
     
-    <GoogleOAuthProvider clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'
-    redirectUri={`http://localhost:3000/auth/google/callback?cache_buster=${cacheBuster}`}>
+    <GoogleOAuthProvider clientId='982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com'>
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Navbar />
