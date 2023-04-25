@@ -27,6 +27,7 @@ app.use('/user', userRoutes);
 app.use('/trails', trailRoutes);
 app.use('/googleLogin', trailRoutes);
 app.use('/marker', markerRoutes);
+app.use('/nutrition', nutritionRoutes);
 
 //const PORT = process.env.PORT || 5000;
 const PORT = 5000;
