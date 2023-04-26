@@ -29,7 +29,7 @@ const Admin = () => {
     const handleChange = (event) => {
         console.log(event);
         setTrail(event.target.value);
-        setCheckpoint("/"+event.target.value);
+        setCheckpoint("/"+event.target.value+"Admin");
     };
 
     return (

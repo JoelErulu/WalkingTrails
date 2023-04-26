@@ -1,11 +1,12 @@
-import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList, } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
 import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
-import { createMarker, getMarkers } from '../../actions/markers.js';
+import { createMarker, getMarkers, updateMarker, deleteMarker} from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Gold = () => {
@@ -36,83 +37,32 @@ const Gold = () => {
         dispatch(getMarkers());
     }, [dispatch])
 
-    //click on map to fill in form data
-    const _onClick = (event) => {
-        setMarkerFormData({...markerFormData, lat: event.latLng.lat(), lng: event.latLng.lng()});
-    };
-
     //when marker is clicked
     const handleMarkerClick = (event) => {
         setSelectedMarker(event);
+        setMarkerFormData({...markerFormData, lat: event.lat, lng: event.lng, name: event.name})
     };
 
-    //submit form to create marker
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-
-         dispatch(createMarker(markerFormData));
-
-    }
 
     return (
     <Container component="main" maxWidth="xl">
         <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                <Typography variant="h6">Gold Trail</Typography>
+                <Typography className={classes.card} variant="h6" textAlign="center">Gold Trail</Typography>
 
-                <Typography>
+                <Typography >
  
-                    <ImageList >
-                    {selectedMarker?.img.map((img, index) => (
-                    <ImageListItem key={index}>
-                    <img src={img} className={classes.media} />
-                    </ImageListItem>
-                     ))}
-                    </ImageList>
-                    {/* {selectedMarker?.img.map((img, index) => (
-                    <img key={index} src={img} className={classes.media} />
-                    ))}           */}
+                <CardMedia className={classes.media} image={selectedMarker?.img} />
+                    <h2 className={classes.title}>{selectedMarker?.name}</h2>
+                    <h3 className={classes.exercise} >Exercises here:</h3>
+                    <p className={classes.workouts}>{selectedMarker?.exercise}</p>
                     <br/>
-                    {selectedMarker?.img}
-                    <br/>
-                    {selectedMarker?.name}
-                    <br/>
-                    {selectedMarker?.exercise}
-                    <br/>
-                    {selectedMarker?.img.map((item) => (item))}
                     
 
                 </Typography>
 
                 <Divider/>
                 
-                <Button 
-                    onClick={() => setOpen(!open)}
-                > Create Checkpoint   
-                {open ?
-                (<Button variant="outlined" color="Secondary"> Close </Button>) : (<Button variant="outlined" color='Primary'> Open  </Button>)
-                }
-                </Button>
-
-                <Collapse in={open}>
-                <form onSubmit={handleSubmit}>
-                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
-                onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
-                <br/>
-                <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.exercise}
-                onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
-                <br/>
-                <Collapse>
-                <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
-                <br/>
-                <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
-                </Collapse>
-                <br/>
-                <div><FileBase type="file" multiple={true} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64.split(',') })}/></div>
-                <Button type='submit' color="primary" variant="contained">Create</Button>
-                </form>
-                </Collapse>
-
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
                 <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
@@ -124,7 +74,6 @@ const Gold = () => {
                             center={center}
                             zoom={16}
                             options={MapID}
-                            onClick={_onClick}
                         >
                             {/* Initial Marker */}
                             <Marker
@@ -140,6 +89,7 @@ const Gold = () => {
                             {markers.map((marker) => (
                             <Marker 
                                 position={{lat: marker.lat, lng: marker.lng}}
+                                key = {marker._id}
                                 onClick={() => handleMarkerClick({
                                     key: marker._id,
                                     lat: marker.lat,
@@ -147,6 +97,7 @@ const Gold = () => {
                                     name: marker.name,
                                     exercise: marker.exercise,
                                     img: marker.img,
+                                    text: marker.text,
                                 })}
                             />
                             ))}

@@ -16,25 +16,12 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const userToken = useSelector((state)=>state.auth.authData);
+    const logout = () => {
+        dispatch({ type: 'LOGOUT' });
+        
+        setUser(null);
 
-    const handleLogout = () => {
-     //At this point, I have user stored in my state
-        dispatch({ type: 'LOGOUT' }); //Make the call to get rid of it
-        //logout(userToken);
-        // localStorage.clear();
-         googleLogout();
-        
-        // console.log("After navigation");
-        // console.log(user);
-         setUser(null);
-         localStorage.clear();
-         sessionStorage.clear();
-         navigate('/auth');
-        
-        console.log("Is user here after state change?");
-        console.log(user);
-        
+        navigate('/auth');
     };
 
     useEffect(() => {
@@ -47,7 +34,7 @@ const Navbar = () => {
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
                 <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">GGC</Typography>
-                <img className={classes.image} src={GGC} alt="gwinnett" height="60" />
+                <img className={classes.image} src={GGC} alt="GGC Bear" height="60" />
             </div>
             {user ? (
                 <Toolbar className={classes.toolbar}>
@@ -55,7 +42,7 @@ const Navbar = () => {
                     <div className={classes.profile}>
                         <Avatar className={classes.purple} alt={user.name} src={user.picture}>{user.name}</Avatar>
                         <Typography className={classes.userName} variant="h6">Welcome, {user.name}!</Typography>
-                        <Button variant="contained" className={classes.logout} color="secondary" onClick={handleLogout}>Logout</Button>
+                        <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                     </div>
                 </Toolbar>
             ) : (

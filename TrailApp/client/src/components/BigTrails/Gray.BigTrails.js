@@ -31,23 +31,11 @@ const Gray = () => {
         dispatch(getMarkers());
     }, [dispatch])
 
-    //click on map to fill in form data
-    const _onClick = (event) => {
-        setMarkerFormData({...markerFormData, lat: event.latLng.lat(), lng: event.latLng.lng()});
-    };
-
     //when marker is clicked
     const handleMarkerClick = (event) => {
         setSelectedMarker(event);
     };
 
-    //submit form to create marker
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-
-         dispatch(createMarker(markerFormData));
-
-    }
 
     return (
     <Container component="main" maxWidth="xl">
@@ -67,17 +55,6 @@ const Gray = () => {
                 </Typography>
 
                 <Divider/>
-                
-                <form onSubmit={handleSubmit}>
-                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
-                onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
-                <br/>
-                <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
-                <br/>
-                <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
-                <br/>
-                <Button type='submit' color="primary" variant="contained">Create</Button>
-                </form>
 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
@@ -90,7 +67,6 @@ const Gray = () => {
                             center={center}
                             zoom={16}
                             options={MapID}
-                            onClick={_onClick}
                         >
                             {/* Initial Marker */}
                             <Marker
