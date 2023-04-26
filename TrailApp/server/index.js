@@ -11,6 +11,10 @@ import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js';
 import trailRoutes from './routes/trails.js';
 import markerRoutes from './routes/marker.js';
+import nutritionRoutes from './routes/nutrition.js';
+
+const path = ('path');
+const dotenv = ('dotenv');
 
 const app = express();
 //dotenv.config();
@@ -24,6 +28,7 @@ app.use('/user', userRoutes);
 app.use('/trails', trailRoutes);
 // app.use('/googleLogin', trailRoutes);
 app.use('/marker', markerRoutes);
+app.use('/nutrition', nutritionRoutes);
 
 //const PORT = process.env.PORT || 5000;
 const PORT = 5000;

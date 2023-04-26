@@ -15,19 +15,11 @@ const Navbar = () => {
     const location = useLocation();
 
     const logout = () => {
-        console.log("This is the user: ");
-        console.log(user); //At this point, I have user stored in my state
-        dispatch({ type: 'LOGOUT' }); //Make the call to get rid of it
-        googleLogout();
+        dispatch({ type: 'LOGOUT' });
         
-        console.log("After navigation");
-        console.log(user);
         setUser(null);
-        navigate('/');
-        
-        console.log("Is user here after state change?");
-        console.log(user);
-        
+
+        navigate('/auth');
     };
 
     useEffect(() => {
@@ -40,7 +32,7 @@ const Navbar = () => {
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
                 <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">GGC</Typography>
-                <img className={classes.image} src={GGC} alt="gwinnett" height="60" />
+                <img className={classes.image} src={GGC} alt="GGC Bear" height="60" />
             </div>
             {user ? (
                 <Toolbar className={classes.toolbar}>
