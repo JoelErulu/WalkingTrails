@@ -1,64 +1,93 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AppBar, Grid, Typography, Container, Button, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { AppBar, Grid, Typography, Container, Button, Paper, FormControl, InputLabel, Select, TextField, ListItem, ListItemText, List, Link, Box} from '@material-ui/core';
 import { useDispatch, useSelector} from 'react-redux';
 import useStyles from './styles.js';
-import { createMarker, getMarkers, updateMarker, deleteMarker} from '../../actions/markers.js';
+import { createNutrition, getNutrition, updateNutrition, deleteNutrition} from '../../actions/nutritions.js';
 import FileBase from 'react-file-base64';
+
 
 const Nutrition = () => {
 
     const classes = useStyles();
+    const initialState = {name: '', description: '', link: ''};
+    const nutritions = useSelector((state) => state.nutrition.nutritions);
+
+
+    //gets nutrition from store
+    // const {nutrition, setNutrition} = useSelector((state) => state.nutrition);
+
+    const [nutritionFormData, setNutritionFormData] = useState(initialState);
+    const [selectedNutrition, setSelectedNutrition] = useState([]);
+    const dispatch = useDispatch();
+
+    //get nutrition from db
+    useEffect(() => {
+        dispatch(getNutrition());
+    }, [dispatch])
+
+
+    //submit form to create nutrition
+    const handleSubmit = (e) => {
+        // e.preventDefault();
+
+        dispatch(createNutrition(nutritionFormData));
+
+        // if (selectedMarker.key) {
+        //     dispatch(updateNutrition(selectedMarker._id, markerFormData));
+        // }
+        // clear();
+        
+    
+    };
+
+    // const handleDelete = (e) => {
+    //     if (selectedMarker.key) {
+    //         dispatch(deleteMarker(selectedMarker.key))
+    //         clear();
+    //     }
+    // };
+
+    const clear = () => {
+        setSelectedNutrition(null)
+        setNutritionFormData(initialState);
+
+    };
+
     
     return (
         <>
         
         <Container component="main" maxWidth="xl">
         
-
-                {/* <Paper className={classes.paper} elevation={3}>
+        <Paper elevation={2}>
+        <Typography> 
+        <List>
+        {nutritions.map((item) => (
+        <ListItem key={item._id}>
+          <ListItemText align="justify">{item.name}</ListItemText>
+          <ListItemText align="justify" ><Box sx={{ p: 2, border: '1px solid grey', width: 700, }}>{item.description}</Box></ListItemText>
+          <Link href={item.link}target="_blank" rel="noreferrer" align="justify"><Button color="secondary" variant="contained">Youtube video</Button></Link>
+        </ListItem>
+        ))}
+        </List>
+        </Typography>
+        </Paper> 
+                <Paper className={classes.paper} elevation={3}>
                 <form onSubmit={handleSubmit}>
-                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
-                onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
+                <TextField name='name' variant="outlined" label="Name" margin="normal" value={nutritionFormData.name}
+                onChange={(e) => setNutritionFormData({...nutritionFormData, name: e.target.value})}></TextField>
                 <br/>
-                <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.exercise}
-                onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
+                <TextField name='name' variant="outlined" label="Description" margin="normal" value={nutritionFormData.description}
+                onChange={(e) => setNutritionFormData({...nutritionFormData, description: e.target.value})}></TextField>
                 <br/>
-                <Collapse>
-                <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <TextField name='name' variant="outlined" label="Link" margin="normal" value={nutritionFormData.link}
+                onChange={(e) => setNutritionFormData({...nutritionFormData, link: e.target.value})}></TextField>
                 <br/>
-                <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
-                </Collapse>
-                <br/>
-                <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64 })}/></div>
                 <Button type='submit' color="primary" variant="contained">Create</Button>
-                </form> */}
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-
-
-                {/* </Paper> */}
+                </form>
+                </Paper>  
+                
+                             
             </Container></>
     );
 };

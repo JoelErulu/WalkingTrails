@@ -4,6 +4,7 @@ import Nutrition from '../models/nutrition.js';
 export const getNutrition = async (req, res) => {
     try {
         const postNutrition = await Nutrition.find().sort({ _id: -1 });
+        console.log(postNutrition);
         res.status(200).json(postNutrition);
     } catch (err) {
         res.status(404).json({ message: err.message });

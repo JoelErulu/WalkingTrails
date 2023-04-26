@@ -11,6 +11,7 @@ import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js';
 import trailRoutes from './routes/trails.js';
 import markerRoutes from './routes/marker.js';
+import nutritionRoutes from './routes/nutrition.js';
 
 const path = ('path');
 const dotenv = ('dotenv');
