@@ -15,6 +15,9 @@ import Green from './components/BigTrails/Green.BigTrails';
 import Gray from './components/BigTrails/Gray.BigTrails';
 import Admin from './components/Admin/Admin.js';
 import Nutrition from './components/Nutrition/Nutrition.js';
+import GoldAdmin from './components/BigTrailsAdmin/GoldAdmin';
+import GreenAdmin from './components/BigTrailsAdmin/GreenAdmin';
+import GrayAdmin from './components/BigTrailsAdmin/GrayAdmin';
 
 const App = () => (
     <GoogleOAuthProvider clientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com'>
@@ -34,6 +37,9 @@ const App = () => (
                     <Route path="/trails" element={<ManageTrail />} />
                     <Route path="/current" element={<Current />} />
                     <Route path="/adminPrivilege" element={<AdminPrivilege />} />
+                    <Route path ="/goldAdmin" element = {<GoldAdmin/>}/>
+                    <Route path ="/greenAdmin" element = {<GreenAdmin/>}/>
+                    <Route path ="/grayAdmin" element = {<GrayAdmin/>}/>
                 </Routes>
             </Container>
         </BrowserRouter>

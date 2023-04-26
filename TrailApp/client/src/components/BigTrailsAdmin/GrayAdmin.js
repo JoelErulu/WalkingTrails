@@ -1,13 +1,12 @@
 import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
-import useStyles, { GreenTrailOptions, containerStyle, MapID } from './styles.js';
+import useStyles, { GreyTrailOptions, containerStyle, MapID } from './styles.js';
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { GreenCoords } from './Coords.js';
+import { GreyCoords } from './Coords.js';
 
-const Green = () => {
-
+const Gray = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     
@@ -23,7 +22,7 @@ const Green = () => {
     //sets center of map
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            setCenter({ lat: 33.9818935074201, lng: -84.00325859457956 });
+            setCenter({ lat: 33.98251828102669, lng: -84.00032686036535 });
         });
     }, []);
 
@@ -32,16 +31,29 @@ const Green = () => {
         dispatch(getMarkers());
     }, [dispatch])
 
+    //click on map to fill in form data
+    const _onClick = (event) => {
+        setMarkerFormData({...markerFormData, lat: event.latLng.lat(), lng: event.latLng.lng()});
+    };
+
     //when marker is clicked
     const handleMarkerClick = (event) => {
         setSelectedMarker(event);
     };
 
+    //submit form to create marker
+    const handleSubmit = (e) => {
+        // e.preventDefault();
+
+         dispatch(createMarker(markerFormData));
+
+    }
+
     return (
     <Container component="main" maxWidth="xl">
         <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                <Typography variant="h6">Green Trail</Typography>
+                <Typography variant="h6">Grey Trail</Typography>
 
                 <Typography>
                     {selectedMarker?.name}
@@ -55,7 +67,17 @@ const Green = () => {
                 </Typography>
 
                 <Divider/>
-            
+                
+                <form onSubmit={handleSubmit}>
+                <TextField name='name' variant="outlined" label="Name" margin="normal" value={markerFormData.name}
+                onChange={(e) => setMarkerFormData({...markerFormData, name: e.target.value})}></TextField>
+                <br/>
+                <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <br/>
+                <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
+                <br/>
+                <Button type='submit' color="primary" variant="contained">Create</Button>
+                </form>
 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
@@ -68,14 +90,15 @@ const Green = () => {
                             center={center}
                             zoom={16}
                             options={MapID}
+                            onClick={_onClick}
                         >
                             {/* Initial Marker */}
                             <Marker
-                                position={{lat: 33.97809098899297, lng: -84.00006969125516}}
+                                position={{lat: 33.97967560437334, lng: -83.99934638811425}}
                                 onClick={() => handleMarkerClick({
                                     key: 1,
-                                    lat: 33.97809098899297,
-                                    lng: -84.00006969125516,
+                                    lat: 33.97967560437334,
+                                    lng: -83.99934638811425,
                                     name: "First",
                                 })}
                             />
@@ -101,8 +124,8 @@ const Green = () => {
                             )}
 
                             <Polyline
-                                path = {GreenCoords}
-                                options={GreenTrailOptions}
+                                path = {GreyCoords}
+                                options={GreyTrailOptions}
                             />
                         </GoogleMap>
                     </LoadScript>
@@ -114,4 +137,4 @@ const Green = () => {
     );
 };
 
-export default Green;
+export default Gray;
