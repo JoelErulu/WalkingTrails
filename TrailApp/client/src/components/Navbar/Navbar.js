@@ -20,15 +20,17 @@ const Navbar = () => {
 
     const handleLogout = () => {
      //At this point, I have user stored in my state
-        // dispatch({ type: 'LOGOUT' }); //Make the call to get rid of it
-        logout(userToken);
-        localStorage.clear();
-        googleLogout();
+        dispatch({ type: 'LOGOUT' }); //Make the call to get rid of it
+        //logout(userToken);
+        // localStorage.clear();
+         googleLogout();
         
-        console.log("After navigation");
-        console.log(user);
-        setUser({});
-        navigate('/');
+        // console.log("After navigation");
+        // console.log(user);
+         setUser(null);
+         localStorage.clear();
+         sessionStorage.clear();
+         navigate('/auth');
         
         console.log("Is user here after state change?");
         console.log(user);

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container, TextField, Icon } from '@material-ui/core';
-import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
@@ -22,16 +22,66 @@ const Auth = () => {
     const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
-    // window.gapi.load('client:auth2', () => {
-    //     window.gapi.client.init({
-    //       clientId,
-    //       scope: 'email',
-    //     });
-    //   });
+
+    useEffect(() =>{
+        googleLogout();
+    })
+
+    // Load the GSI script after the component mounts
+    // useEffect(() => {
+    //  /* global google */
+    //  google.accounts.id.initialize({
+    //     client_id:'982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com',
+    //     callback:login
+    //  });
+
+    //  google.accounts.id.renderButton(
+    //     document.getElementById("signInDiv"),
+    //     {theme:"outline", size:"large"}
+    //  )
+
+    // }, []);
 
 
-  
+
+    // useEffect(() => {
+    //     if (divRef.current) {
+    //         window.google.accounts.id.initialize({
+    //             client_id: 'YOUR_CLIENT_ID',
+    //             callback: async (res, error) => {
+    //                 if (res) {
+    //                     try {
+    //                         const tokenResponse = await login(res.code);
+    //                         console.log(tokenResponse);
+    //                         const response = await googleLogin({ token: tokenResponse.code });
+    //                         console.log(response);
+    //                         const token = response.data.jwtToken;
+    //                         const credential = response.data.result;
+    //                         const payload = response.data.payload;
+    //                         dispatch({ type: 'AUTH', data: { payload, token } });
+    //                         if (response.data.result.role === "admin") {
+    //                             navigate('/admin');
+    //                         } else {
+    //                             navigate('/home');
+    //                         }
+    //                     } catch (error) {
+    //                         console.log(error);
+    //                     }
+    //                 } else {
+    //                     console.log(error);
+    //                 }
+    //             },
+    //         });
+    //         window.google.accounts.id.renderButton(divRef.current, {
+    //             theme: 'filled_blue',
+    //             size: 'medium',
+    //             type: 'standard',
+    //             text: 'continue_with',
+    //         });
+    //     }
+    // }, [divRef.current]);
+
+
 
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -77,13 +127,10 @@ const Auth = () => {
         }
     };
     const login = useGoogleLogin({
-        flow:'auth-code',
+        flow: 'auth-code',
         onSuccess: async tokenResponse => {
             console.log(tokenResponse);
-            const response = await googleLogin({token: tokenResponse.code});
-            // const tokens = await axios.post('http://localhost:3000/auth/google',{
-            //     code:codeResponse.code,
-            // });
+            const response = await googleLogin({ token: tokenResponse.code });
             console.log(response);
             const token = response.data.jwtToken;
             const credential = response.data.result;
@@ -96,7 +143,7 @@ const Auth = () => {
             }
         },
         onError: errorResponse => console.log(errorResponse),
-      });
+    });
 
     const googleFailure = (err) => {
         console.log(err);
@@ -136,6 +183,9 @@ const Auth = () => {
                         onFailure={googleFailure}
                         cookiePolicy="single_host_origin"
                     /> */}
+                    {/* <div id="signInDiv">
+
+                    </div> */}
                     <Button onClick={() => login()}>
                         Sign in with Google 🚀{' '}
 
