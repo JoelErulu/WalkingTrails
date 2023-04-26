@@ -71,16 +71,12 @@ This project uses the MERN Stack
 ### List of working features
 
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
-2. Social Media - Create blog psosts and observe the posts of other users
-3. Trail interaction - Begin a new trail, search up names of trails, track amount of QR codes scanned.
+2. Interactive Map - Admin can create markers that contain content (Excercises, nutrition information, )
+3. Admin view - Admin can assign privleges, create content, update content, delete content.
 
 ### Features for the future
 
-1. Have comments and reviews of trails posted on the blog(manage trails page)
+1. Have comments and reviews of trails posted on the blog
 2. Offline/True GPS tracking (High difficulty, if you want to do this then start immediately or you won't have enough time to complete)
-3. Content pages for trails
-4. Ability to add checkpoints on maps
 
 ### link to the demo of the app running
-
-https://youtu.be/j3sLqDTzJUw
