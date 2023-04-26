@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
 import Navbar from './components/Navbar/Navbar.js';
 import Blog from './components/Blog/Blog.js';
 import Auth from './components/Auth/Auth.js';
