@@ -23,3 +23,8 @@ export const fetchMarkers = () => API.get('/marker');
 export const createMarker = (newMarker) => API.post('/marker', newMarker);
 export const updateMarker = (id, updatedMarker) => API.patch(`/marker/${id}`, updatedMarker);
 export const deleteMarker = (id) => API.delete(`/marker/${id}`);
+
+export const fetchNutrition = () => API.get('/nutrition');
+export const createNutrition = (newNutrition) => API.post('/nutrition', newNutrition);
+export const updateNutrition = (id, updatedNutrition) => API.patch(`/nutrition/${id}`, updatedNutrition);
+export const deleteNutrition = (id) => API.delete(`/nutrition/${id}`);

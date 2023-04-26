@@ -1,4 +1,4 @@
-import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList, } from '@material-ui/core';
+import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
 import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
@@ -6,6 +6,7 @@ import { createMarker, getMarkers, updateMarker, deleteMarker} from '../../actio
 import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Gold = () => {
@@ -25,9 +26,10 @@ const Gold = () => {
 
     //sets center of map
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
-        });
+        setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+            
+        // });
     }, []);
 
     //get markers from db
@@ -120,6 +122,11 @@ const Gold = () => {
                 </Collapse>
 
                 <Button type='submit' color="primary" variant="contained" onClick={handleDelete}>Delete</Button>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <Link to ="/nutrition"><Button variant="contained" color="success">Nutrition</Button></Link>
 
 
 
