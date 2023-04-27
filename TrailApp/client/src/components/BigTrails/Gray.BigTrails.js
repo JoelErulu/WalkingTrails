@@ -5,6 +5,9 @@ import useStyles, { GreyTrailOptions, containerStyle, MapID } from './styles.js'
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GreyCoords } from './Coords.js';
+import FileBase from 'react-file-base64';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Gray = () => {
     const classes = useStyles();
@@ -56,6 +59,12 @@ const Gray = () => {
 
                 <Divider/>
 
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <Link to ="/nutrition"><Button variant="contained" color="success">Nutrition</Button></Link>
+
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
                 <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
@@ -79,7 +88,7 @@ const Gray = () => {
                                 })}
                             />
                             {/* database markers */}
-                            {markers.map((marker) => (
+                            {/* {markers.map((marker) => (
                             <Marker 
                                 position={{lat: marker.lat, lng: marker.lng}}
                                 onClick={() => handleMarkerClick({
@@ -89,7 +98,7 @@ const Gray = () => {
                                     name: marker.name,
                                 })}
                             />
-                            ))}
+                            ))} */}
 
                             {/* current marker */}
                             {markerFormData.lat && markerFormData.lng && (
