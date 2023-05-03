@@ -5,11 +5,16 @@ import { googleLogin } from '../../api';
 import { useDispatch } from 'react-redux';
 
 jest.mock('@react-oauth/google');
-jest.mock('react-router-dom');
+// jest.mock('react-router-dom');
+jest.mock('react-router-dom', () => ({ navigate: jest.fn() }));
 jest.mock('../../api');
 jest.mock('react-redux');
 
 describe('Login component', () => {
+  beforeEach(() => {
+    navigate.mockClear();
+  });
+
   it('should navigate to admin page if user is an admin', async () => {
     const response = {
       data: {
@@ -28,16 +33,13 @@ describe('Login component', () => {
         const credential = response.data.result;
         const payload = response.data.payload;
         dispatch({ type: 'AUTH', data: { payload, token } });
-        if (response.data.result.role === 'admin') {
-          navigate('/admin');
-        } else {
-          navigate('/home');
-        }
+        navigate(response.data.result.role === 'admin' ? '/admin' : '/home');
       },
       onError: errorResponse => console.log(errorResponse),
     });
-    const { result, waitForNextUpdate } = renderHook(() => useGoogleLogin());
-    //await waitForNextUpdate();
+    renderHook(() => useGoogleLogin());
+    expect(navigate).toHaveBeenCalledWith('/admin');
+    console.log(navigate.mock.calls);
     expect(navigate).toHaveBeenCalledWith('/admin');
   });
 
@@ -59,16 +61,11 @@ describe('Login component', () => {
         const credential = response.data.result;
         const payload = response.data.payload;
         dispatch({ type: 'AUTH', data: { payload, token } });
-        if (response.data.result.role === 'admin') {
-          navigate('/admin');
-        } else {
-          navigate('/home');
-        }
+        navigate(response.data.result.role === 'admin' ? '/admin' : '/home');
       },
       onError: errorResponse => console.log(errorResponse),
     });
-    const { result, waitForNextUpdate } = renderHook(() => useGoogleLogin());
-    await waitForNextUpdate();
+    renderHook(() => useGoogleLogin());
     expect(navigate).toHaveBeenCalledWith('/home');
   });
 });

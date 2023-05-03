@@ -33,7 +33,7 @@ const AdminPrivilege = () => {
   return (
     <Grid container justifyContent="center" spacing={2}>
       <Grid item xs={12} md={8} lg={6}>
-        <Card className={classes.card}>
+        <Card>
           <CardContent>
             <Typography variant="h4" align="center" style={{color:'#000629', textDecoration: 'underline'}} gutterBottom>
               Assign Admin Privileges
