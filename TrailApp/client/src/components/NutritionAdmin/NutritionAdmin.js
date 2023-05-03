@@ -72,6 +72,21 @@ const Nutrition = () => {
         </List>
         </Typography>
         </Paper> 
+                <Paper className={classes.paper} elevation={3}>
+                <form onSubmit={handleSubmit}>
+                <TextField name='name' variant="outlined" label="Name" margin="normal" value={nutritionFormData.name}
+                onChange={(e) => setNutritionFormData({...nutritionFormData, name: e.target.value})}></TextField>
+                <br/>
+                <TextField name='name' variant="outlined" label="Description" margin="normal" value={nutritionFormData.description}
+                onChange={(e) => setNutritionFormData({...nutritionFormData, description: e.target.value})}></TextField>
+                <br/>
+                <TextField name='name' variant="outlined" label="Link" margin="normal" value={nutritionFormData.link}
+                onChange={(e) => setNutritionFormData({...nutritionFormData, link: e.target.value})}></TextField>
+                <br/>
+                <Button type='submit' color="primary" variant="contained">Create</Button>
+                </form>
+                </Paper>  
+                
                              
         </Container></>
     );

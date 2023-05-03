@@ -16,6 +16,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    const [userRole, setUserRole] = useState('');
+
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
         
@@ -26,15 +28,25 @@ const Navbar = () => {
 
     useEffect(() => {
         // const token = user?.token;
-        const profile = JSON.parse(localStorage.getItem('profile'));
-        setUser(profile?.payload);
+
+        const currentUser = JSON.parse(localStorage.getItem("profile"));
+        const currentUserRole = currentUser?.result?.role;
+        setUserRole(currentUserRole);
+
+        setUser(JSON.parse(localStorage.getItem('profile')))
     }, [location]);
+
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <div className={classes.brandContainer}>
+            <div className={classes.brandContainer} >
                 <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">GGC</Typography>
-                <img className={classes.image} src={GGC} alt="GGC Bear" height="60" />
+                <Link to={ user ? "/home" : "/" }>
+                <img className={classes.image} src={GGC} alt="GGC Bear" height="60"/>
+                </Link>
+            </div>
+            <div>
+                {userRole==="admin"?<Link to="/admin"><Button variant="contained" color="secondary">Admin</Button></Link>:''}
             </div>
             {user ? (
                 <Toolbar className={classes.toolbar}>
