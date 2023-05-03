@@ -18,6 +18,8 @@ const Home = () => {
     const [openGreen, setOpenGreen] = useState(false);
     const [openGrey, setOpenGrey] = useState(false);
 
+    // };
+    //Keep this in mind
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });

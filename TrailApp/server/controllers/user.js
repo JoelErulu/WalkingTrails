@@ -5,6 +5,10 @@ import User from '../models/user.js';
 
 import {IdTokenClient, OAuth2Client} from 'google-auth-library';
 
+const CLIENT_ID = '982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com';
+        const clientSecret ='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';
+        const client = new OAuth2Client(CLIENT_ID,clientSecret, 'postmessage'); 
+
 
 export const signin = async (req, res) => {
     const { email, password } = req.body;
@@ -67,13 +71,18 @@ export const updateUserRole = async(req, res) =>{
 //Assign user with role
 export const googleSignIn = async(req, res) =>{
     try{
-        const CLIENT_ID = '115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
-        const client = new OAuth2Client(CLIENT_ID);
-        const token =Object.keys(req.body)[0];
+        //const CLIENT_ID = '115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
+        
+        const token =await client.getToken(req.body.token);
+        // console.log("Check out token: ");
+        // console.log(token);
+        //const idToken = req.body.access_token;
         const ticket = await client.verifyIdToken({
-            idToken: token,
+            idToken: token.tokens.id_token,
             audience: CLIENT_ID,
         });
+        // console.log("Watch out ticket incoming");
+        // console.log(ticket);
         const payload = ticket.getPayload();
         const email = payload.email;
         const name =  payload.given_name + (payload.family_name? payload.family_name :'');
@@ -82,17 +91,33 @@ export const googleSignIn = async(req, res) =>{
         if(!user){
             const password = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8).toUpperCase() + "!@#$%^&*()_+";
             const hashedPassword = await bcrypt.hash(password,12);
-            const createdUser = await User.create({email,name,password, role:'user'});
+            const createdUser = await User.create({email,name,hashedPassword, role:'user'});
             result = createdUser;
             user = createdUser;
         }
         const jwtToken = jwt.sign({ email: user.email, id: user._id }, 'test', { expiresIn: "1h" });
         result = user || createdUser;
-        res.status(200).json({ result, jwtToken });
+        res.status(200).json({ payload, result, jwtToken });
         return payload;
     }catch(err){
         console.log(err);
         res.status(500).json({ message: 'Something went wrong.' });
     }
  
+}
+
+export const logout = async(req,res) =>{
+    console.log(req.body);
+    const token =Object.keys(req.body)[0];
+    // const{token} = req.session;
+    if (token) {
+        try {
+          await client.revokeToken(token);
+        } catch (error) {
+          console.error(error);
+        }
+    } 
+    // req.session.destroy();
+    res.redirect('/');
+     
 }

@@ -26,7 +26,7 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/user', userRoutes);
 app.use('/trails', trailRoutes);
-app.use('/googleLogin', trailRoutes);
+// app.use('/googleLogin', trailRoutes);
 app.use('/marker', markerRoutes);
 app.use('/nutrition', nutritionRoutes);
 
