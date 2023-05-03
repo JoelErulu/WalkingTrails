@@ -62,6 +62,12 @@ const Gold = () => {
                 </Typography>
 
                 <Divider/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <Link to ="/nutrition"><Button variant="contained" color="success">Nutrition</Button></Link>
                 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>

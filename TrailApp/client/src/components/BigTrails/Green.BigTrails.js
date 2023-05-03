@@ -5,6 +5,9 @@ import useStyles, { GreenTrailOptions, containerStyle, MapID } from './styles.js
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GreenCoords } from './Coords.js';
+import FileBase from 'react-file-base64';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const Green = () => {
 
@@ -56,6 +59,12 @@ const Green = () => {
 
                 <Divider/>
             
+            
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <Link to ="/nutrition"><Button variant="contained" color="success">Nutrition</Button></Link>
 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>

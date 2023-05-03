@@ -18,6 +18,7 @@ import Nutrition from './components/Nutrition/Nutrition.js';
 import GoldAdmin from './components/BigTrailsAdmin/GoldAdmin';
 import GreenAdmin from './components/BigTrailsAdmin/GreenAdmin';
 import GrayAdmin from './components/BigTrailsAdmin/GrayAdmin';
+import NutritionAdmin from './components/NutritionAdmin/NutritionAdmin.js';
 
 const cacheBuster = Math.floor(Math.random() * 100000);
 const App = () => (
@@ -42,6 +43,7 @@ const App = () => (
                     <Route path ="/goldAdmin" element = {<GoldAdmin/>}/>
                     <Route path ="/greenAdmin" element = {<GreenAdmin/>}/>
                     <Route path ="/grayAdmin" element = {<GrayAdmin/>}/>
+                    <Route path="/nutritionAdmin" element={<NutritionAdmin />} />
                 </Routes>
             </Container>
         </BrowserRouter>
