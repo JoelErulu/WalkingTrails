@@ -1,57 +1,139 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Paper, Grid, Typography, Container, InputLabel, MenuItem, FormControl, Select, SelectChangeEvent } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTrails } from '../../actions/trails.js';
-import useStyles from './styles.js';
+import { Link, useNavigate } from 'react-router-dom';
+import { Grid, Typography, Container, Button, Divider, Collapse} from '@material-ui/core';
+import useStyles, {goldOptions, greenOptions, greyOptions, containerStyle, exampleMapStyles} from './styles.js';
+import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api';
+import { GoldCords, GreenCoords, GreyCoords} from '../BigTrails/Coords.js'
+import gold from '../../images/gold.png';
+import green from '../../images/green.png';
+import gray from '../../images/gray.png';
 
 const Home = () => {
-    const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('profile')));
-    const [ trail, settrail ] = useState();
-    const [ currentId, setCurrentId ] = useState(null);
-    const trails = useSelector((state) => state.trails);
+
     const classes = useStyles();
-    const displayFirstName = user.result.name.split(' ');
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        settrail(e.target.value);
-    }
+    const [center, setCenter] = useState('');
+    const [openGold, setOpenGold] = useState(false);
+    const [openGreen, setOpenGreen] = useState(false);
+    const [openGrey, setOpenGrey] = useState(false);
 
+    // };
+    //Keep this in mind
     useEffect(() => {
-        dispatch(getTrails());
-    }, [currentId, dispatch]);
+        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+            setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
+        });
+    }, []);
+
+    const goGold = (e) => {
+        navigate('/gold')
+    };
+
+    const goGreen = (e) => {
+        navigate('/green')
+    };
+
+    const goGrey = (e) => {
+        navigate('/gray')
+    };
+
+    const mapID = {
+        mapId: "1ed395dbcf77ef66"
+    };
+
 
     return (
-        <Container component="main" maxWidth="xs">
-            <Paper className={classes.paper} elevation={3}>
-                <Typography variant="h5">Hello, {displayFirstName[0]}</Typography>
-                <Typography component={Link} to="/blog" variant="h3">Blog</Typography>
-                <Typography variant="h6">{trail}</Typography>
-                
-                <Grid className={classes.submit} container direction="column">
-                    <FormControl variant="filled" fullWidth>
-                        <InputLabel id="demo-simple-select-label">Trails</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={trail}
-                            label="Trails"
-                            onChange={handleChange}
-                        >
-                            {trails.map((trail) => (
-                                <MenuItem value={trail._id}>{trail.title}</MenuItem>
-                                
-                            ))}
-                        </Select>
-                    </FormControl><br></br>
-                    <Button component={Link} to="/trails" variant="contained" color="primary">Manage Trails</Button><br></br>
-                    <Button component={Link} to="/current" variant="contained" color="primary">Start Workout</Button><br></br>
-                    <Button component={Link} to="/blog" variant="contained" color="primary">My Trails</Button>
+        <Container component="main" maxWidth="xl">
+            <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                <Grid item xs={12} sm={6} md={4} style={{ background: '#ffffff' }}>
+                    <div style={{textAlign: "center"}}>
+
+                        <Typography className = {classes.gold} onClick = {() => setOpenGold(!openGold)}>Gold Trail</Typography>
+                        <Collapse in={openGold}>
+                            <Link to ="/gold">
+                                <img className={classes.image} src={gold} alt="Gold Trail"/>
+                            </Link>
+                        </Collapse>
+                        <Divider/>
+
+                        <Typography className = {classes.green} onClick = {() => setOpenGreen(!openGreen)}>Green Trail</Typography>
+                        <Collapse Collapse in={openGreen}>
+                            <Link to ="/green">
+                            <img className={classes.image} src={green} alt="Green Trail"/>
+                            </Link>
+                        </Collapse>
+                        <Divider/>
+
+                        <Typography className = {classes.grey} onClick = {() => setOpenGrey(!openGrey)}>Gray Trail</Typography>
+                        <Collapse Collapse in={openGrey}>
+                            <Link to ="/gray">
+                            <img className={classes.image} src={gray} alt="Gray Trail"/>
+                            </Link>
+                        </Collapse>
+                        <Divider/>
+
+                    </div>
                 </Grid>
-            </Paper>
+                <Grid item xs={12} sm={6} md={8} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
+
+
+                {/* <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                    <Typography variant="h5">Gold Trail</Typography>
+                    <Link to ="/gold">
+                        <img className={classes.image} src={gold} alt="Gold Trail"/>
+                    </Link>
+                </Grid>
+                <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                    <Typography variant="h5">Green Trail</Typography>
+                    <Link to ="/green">
+                        <img className={classes.image} src={green} alt="Green Trail"/>
+                    </Link>
+                </Grid>
+                <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                    <Typography variant="h5">Gray Trail</Typography>
+                    <Link to ="/gray">
+                        <img className={classes.image} src={gray} alt="Gray Trail"/>
+                    </Link>
+                </Grid> */}
+
+
+
+                    <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
+                    <LoadScript
+                        googleMapsApiKey="AIzaSyBWo0kr3jti4QZCS6vyqjHVKEv6L31S2VA"
+                    >
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={center}
+                            zoom={16}
+                            options={mapID}
+                        >
+                            <Polyline
+                                path = {GoldCords}
+                                options={goldOptions}
+                                onClick={goGold}
+                            />
+                            <Polyline
+                                path = {GreenCoords}
+                                options={greenOptions}
+                                onClick={goGreen}
+                            />
+                            <Polyline 
+                                path = {GreyCoords}
+                                options={greyOptions}
+                                onClick={goGrey}
+                            />
+                        </GoogleMap>
+                    </LoadScript>
+                </div>
+                </Grid>
+            </Grid>
+            
         </Container>
     );
 };
 
 export default Home;
+
+// https://react-google-maps-api-docs.netlify.app/#data
