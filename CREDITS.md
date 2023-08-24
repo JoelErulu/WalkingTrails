@@ -9,10 +9,22 @@
 
 ## TTrail 2023
 
-### Team Members 2023
+### Team Members Spring 2023
 
 1. **Nathan** - _Lead Programmer (Primary), Team Manager , Client Liason (secondaries)_ :ghost:
 
 2. **Peter** - _Data Modeler, Testing Lead_ :mage_man:
 
 3. **Daniel** - _UI/UX, Documentation_ :bat:
+
+## Name Pending...
+
+### Team Members Fall 2023
+
+1. **Khales** - _Lead Programmer, Team Manager
+
+2. **Drew** -
+
+3. **Rahul** -
+
+4. **Greg** - 
