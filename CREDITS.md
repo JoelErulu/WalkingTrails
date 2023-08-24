@@ -21,7 +21,7 @@
 
 ### Team Members Fall 2023
 
-1. **Khales** - _Lead Programmer, Team Manager
+1. **Khales** - _Lead Programmer, Team Manager_
 
 2. **Drew** -
 
