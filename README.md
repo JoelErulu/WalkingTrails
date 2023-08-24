@@ -68,6 +68,10 @@ This project uses the MERN Stack
 3. Move to the "server" directory inside of the TrailApp foler
 4. Enter "npm start" in the terminal
 
+### Team Roles
+Fall 2023
+1. Khales Rahman: Team Manager / Lead programmer 
+
 ### List of working features
 
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
