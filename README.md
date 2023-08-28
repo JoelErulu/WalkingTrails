@@ -70,7 +70,8 @@ This project uses the MERN Stack
 
 ### Team Roles
 Fall 2023
-1. Khales Rahman: Team Manager / Lead programmer 
+1. Khales Rahman: Team Manager / Lead programmer
+2. Drew Kuykendall: Testing Lead / Data Modeler
 
 ### List of working features
 
