@@ -25,6 +25,6 @@
 
 2. **Drew** - _Data Modeling Lead, Testing Lead_
 
-3. **Rahul** -
+3. **Rahul** - _Code architecture, Documentation lead_
 
 4. **Greg** - 
