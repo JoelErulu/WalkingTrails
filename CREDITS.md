@@ -23,7 +23,7 @@
 
 1. **Khales** - _Lead Programmer, Team Manager_
 
-2. **Drew** -
+2. **Drew** - _Data Modeling Lead, Testing Lead_
 
 3. **Rahul** -
 
