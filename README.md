@@ -73,6 +73,7 @@ Fall 2023
 1. Khales Rahman: Team Manager / Lead programmer
 2. Drew Kuykendall: Testing Lead / Data Modeler
 3. Greg Smith: UI/UX / Client Liason
+4. Rahul Biswas: Documentation lead / Code architecture
 ### List of working features
 
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
