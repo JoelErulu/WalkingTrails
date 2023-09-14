@@ -17,7 +17,7 @@
 
 3. **Daniel** - _UI/UX, Documentation_ :bat:
 
-## Name Pending...
+## The W.A.L.K.E.R.S
 
 ### Team Members Fall 2023
 
