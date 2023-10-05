@@ -5,8 +5,8 @@ import User from '../models/user.js';
 
 import {IdTokenClient, OAuth2Client} from 'google-auth-library';
 
-const CLIENT_ID = '982597960982-erndgoimsr551q1vki7nhm9r75jovej5.apps.googleusercontent.com';
-        const clientSecret ='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';
+const CLIENT_ID = '878139115396-80u645bmd8u9sbprvu7427cskqsufiok.apps.googleusercontent.com';
+        const clientSecret ='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';
         const client = new OAuth2Client(CLIENT_ID,clientSecret, 'postmessage'); 
 
 
