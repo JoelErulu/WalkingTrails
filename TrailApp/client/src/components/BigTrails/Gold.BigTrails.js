@@ -71,16 +71,20 @@ const Gold = () => {
     <Container component="main" maxWidth="xl">
         <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                <Typography className={classes.card} variant="h6" textAlign="center">Gold Trail</Typography>
+                <Typography className={classes.card} variant="h4" textAlign="center">Gold Trail</Typography>
 
                 <Typography >
+
+                {!selectedMarker && !isVideoOpen && (
+                            <p>CLICK MARKER TO VIEW VIDEO</p>
+                )}
  
                 {selectedMarker && isVideoOpen && (
                     <div>
-                        <video width="400px" height="auto" controls="controls">
+                        <video width="400px" height="auto" controls="controls" autoPlay>
                             <source src={video} type="video/mp4" />
                         </video>
-                        <h2>{selectedMarker.name}</h2>
+                        <h5>{selectedMarker.name}</h5>
                         <p>{selectedMarker.exercise}</p>
                         <Button onClick={closeVideo} variant="contained" color="secondary">
                             Close Video
@@ -100,7 +104,7 @@ const Gold = () => {
                 <br/>
                 <br/>
                 <br/>
-                <Link to ="/nutrition"><Button variant="contained" color="success">Nutrition</Button></Link>
+                {/* <Link to ="/nutrition"><Button variant="contained" color="success">Nutrition</Button></Link> */}
                 
             </Grid>
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
@@ -121,7 +125,7 @@ const Gold = () => {
                                     key: 1,
                                     lat: 33.9804327949268,
                                     lng: -84.00527240759934,
-                                    name: "First",
+                                    name: "B Building Marker",
                                 })}
                             />
                             {/* database markers */}
