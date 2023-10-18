@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
+import video from '/Users/khales/Desktop/School/Soft Dev II/Walking Trail App/WalkingTrailApp/TrailApp/client/src/videos/ProjectVideo1.mp4';
 
 
 const Gold = () => {
@@ -15,6 +16,7 @@ const Gold = () => {
     const dispatch = useDispatch();
     
     const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
+    const [isVideoOpen, setIsVideoOpen] = useState(false);
 
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
@@ -39,9 +41,30 @@ const Gold = () => {
 
     //when marker is clicked
     const handleMarkerClick = (event) => {
-        setSelectedMarker(event);
-        setMarkerFormData({...markerFormData, lat: event.lat, lng: event.lng, name: event.name})
+        if (selectedMarker && selectedMarker.key === event.key) {
+            // If the same marker is clicked, close the video
+            setSelectedMarker(null);
+            setIsVideoOpen(false);
+        } else {
+            setSelectedMarker(event);
+            setMarkerFormData({
+                lat: event.lat,
+                lng: event.lng,
+                name: event.name,
+                exercise: event.exercise,
+                img: event.img,
+                text: event.text,
+            });
+            setIsVideoOpen(true);
+        }
     };
+
+    const closeVideo = () => {
+        setSelectedMarker(null);
+        setIsVideoOpen(false);
+    };
+
+    
 
 
     return (
@@ -52,11 +75,21 @@ const Gold = () => {
 
                 <Typography >
  
-                <CardMedia className={classes.media} image={selectedMarker?.img} />
-                    <h2 className={classes.title}>{selectedMarker?.name}</h2>
-                    <h3 className={classes.exercise} >Exercises here:</h3>
-                    <p className={classes.workouts}>{selectedMarker?.exercise}</p>
-                    <br/>
+                {selectedMarker && isVideoOpen && (
+                    <div>
+                        <video width="400px" height="auto" controls="controls">
+                            <source src={video} type="video/mp4" />
+                        </video>
+                        <h2>{selectedMarker.name}</h2>
+                        <p>{selectedMarker.exercise}</p>
+                        <Button onClick={closeVideo} variant="contained" color="secondary">
+                            Close Video
+                        </Button>
+                       <br/>
+                       <br/>
+                    
+                    </div>
+                )}
                     
 
                 </Typography>
