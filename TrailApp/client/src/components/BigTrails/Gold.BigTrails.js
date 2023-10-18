@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
-import video from '/Users/khales/Desktop/School/Soft Dev II/Walking Trail App/WalkingTrailApp/TrailApp/client/src/videos/ProjectVideo1.mp4';
+import video from '../../videos/ProjectVideo1.mp4';
 
 
 const Gold = () => {
