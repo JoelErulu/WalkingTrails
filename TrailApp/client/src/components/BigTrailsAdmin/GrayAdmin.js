@@ -83,7 +83,7 @@ const Gray = () => {
             <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
                 <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
                     <LoadScript
-                        googleMapsApiKey="AIzaSyBWo0kr3jti4QZCS6vyqjHVKEv6L31S2VA"
+                        googleMapsApiKey="AIzaSyCKEd9gY2vA4IAZdBmZkhvrrfofT2KZfyU"
                     >
                         <GoogleMap
                             mapContainerStyle={containerStyle}
