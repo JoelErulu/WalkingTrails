@@ -11,5 +11,5 @@
 1. Update interface
 
 # Other Possible Updates
-# Stop using Google Map API 
-1. Possible replacement is Open Street Map Api because it does not require API Key and has more free to use features
+## Stop using Google Map API 
+1. Possible replacement is Open Street Map API because it does not require API Key and has more free to use features
