@@ -9,3 +9,7 @@
 2. Ensure efficient data retrieval for user experience.
 ## Blog
 1. Update interface
+
+# Other Possible Updates
+# Stop using Google Map API 
+1. Possible replacement is Open Street Map Api because it does not require API Key and has more free to use features
