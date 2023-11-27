@@ -9,7 +9,7 @@ const Landing = () => {
 
     return (
  
-        <Container>
+        <container>
             <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -33,7 +33,7 @@ const Landing = () => {
 
                     <title>WALKERS</title>
                 </head>
-                <body>
+                <body class ="">
                    {/*  <!-- Navbar -->*/}{/*
                     <nav class="navbar navbar-expand-lg bg-success navbar-dark py-3 fixed-top">
                         <div class="container">
@@ -71,11 +71,11 @@ const Landing = () => {
                         <div class="container">
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <div>
-                                    <h1>Gwinnett Trails App </h1>
+                                    <h1>Walking Trails App </h1>
                                 <p class="lead my-4">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, enim.
                                 </p>
-                                <Button component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
+                                <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained"  className={classes.submit}>Sign In</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
@@ -87,14 +87,14 @@ const Landing = () => {
                 </section>
 
                 {/*<!-- Newsletter -->*/}
-                <section class="bg-success text-light p-5">
+                <section class="bg-secondary text-light p-5">
                     <div class="container">
                         <div class="d-md-flex justify-content-between align-items-center">
                             <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
 
                             <div class="input-group news-input">
                                 <input type="text" class="form-control" placeholder="Enter Email" />
-                                <button class="btn btn-dark btn-lg" type="button">Submit</button>
+                                <button class="btn btn-primary btn-lg" type="button">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -105,37 +105,37 @@ const Landing = () => {
                     <div class="container">
                         <div class="row text-center g-4">
                             <div class="col-md">
-                                <div class="card bg-success text-light">
+                                <div class="card bg-dark text-light">
                                     <div class="card-body text-center">
                                         <div class="h1 mb-3">
-                                            <i class="bi bi-person-arms-up"></i>
+                                            <i class="bi bi-people"></i>
                                         </div>
                                         <h3 class="card-title mb-3">Gwinnett</h3>
                                         <p class="card-text">
                                             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                             Iure, quas quidem possimus dolorum esse eligendi?
                                         </p>
-                                        <a href="#" class="btn btn-dark">Read More</a>
+                                        <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md">
-                                <div class="card bg-success text-light">
+                                <div class="card bg-dark text-light">
                                     <div class="card-body text-center">
                                         <div class="h1 mb-3">
-                                            <i class="bi bi-person-walking"></i>
+                                            <i class="bi bi-people"></i>
                                         </div>
                                         <h3 class="card-title mb-3">GGC</h3>
                                         <p class="card-text">
                                             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                             Iure, quas quidem possimus dolorum esse eligendi?
                                         </p>
-                                        <a href="#" class="btn btn-dark">Read More</a>
+                                        <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md">
-                                <div class="card bg-success text-light">
+                                <div class="card bg-dark text-light">
                                     <div class="card-body text-center">
                                         <div class="h1 mb-3">
                                             <i class="bi bi-people"></i>
@@ -145,7 +145,7 @@ const Landing = () => {
                                             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                                             Iure, quas quidem possimus dolorum esse eligendi?
                                         </p>
-                                        <a href="#" class="btn btn-dark">Read More</a>
+                                        <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@ const Landing = () => {
                                     quae similique laboriosam iste minus placeat odit velit quos,
                                     nulla architecto amet voluptates?
                                 </p>
-                                <a href="#" class="btn btn-light mt-3">
+                                <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
                             </div>
@@ -567,7 +567,7 @@ const Landing = () => {
             </body>
         </html>
 
-</Container >
+</container >
 
 
 

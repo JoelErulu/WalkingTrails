@@ -81,7 +81,7 @@ const Gold = () => {
  
                 {selectedMarker && isVideoOpen && (
                     <div>
-                        <video width="400px" height="auto" controls="controls" autoPlay>
+                        <video width="405px" height="auto" controls="controls" autoPlay>
                             <source src={video} type="video/mp4" />
                         </video>
                         <h5>{selectedMarker.name}</h5>
@@ -128,8 +128,30 @@ const Gold = () => {
                                     name: "B Building Marker",
                                 })}
                             />
+
+                            {/* Initial Marker */}
+                            <Marker
+                                position={{lat: 33.979179, lng:-84.007273}}
+                                onClick={() => handleMarkerClick({
+                                    key: 1,
+                                    lat: 33.979179,
+                                    lng:  -84.007273,
+                                    name: "B Building Marker",
+                                })}
+                            />
+
+                            {/* Initial Marker */}
+                            <Marker
+                                position={{lat: 33.982496, lng:-84.000953}}
+                                onClick={() => handleMarkerClick({
+                                    key: 1,
+                                    lat: 33.982496,
+                                    lng:  -84.000953,
+                                    name: "B Building Marker",
+                                })}
+                            />
                             {/* database markers */}
-                            {markers.map((marker) => (
+                            {/* {markers.map((marker) => (
                             <Marker 
                                 position={{lat: marker.lat, lng: marker.lng}}
                                 key = {marker._id}
@@ -143,7 +165,7 @@ const Gold = () => {
                                     text: marker.text,
                                 })}
                             />
-                            ))}
+                            ))} */}
 
                             {/* current marker */}
                             {markerFormData.lat && markerFormData.lng && (
