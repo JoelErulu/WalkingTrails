@@ -40,10 +40,10 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer} >
-                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">GGC</Typography>
-                <Link to={ user ? "/home" : "/" }>
+                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">Walking Trails</Typography>
+               {/* <Link to={ user ? "/home" : "/" }>
                 <img className={classes.image} src={GGC} alt="GGC Bear" height="60"/>
-                </Link>
+                </Link> */}
             </div>
             <div>
                 {userRole==="admin"?<Link to="/admin"><Button variant="contained" color="secondary">Admin</Button></Link>:''}
