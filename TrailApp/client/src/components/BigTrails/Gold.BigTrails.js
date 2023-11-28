@@ -71,12 +71,12 @@ const Gold = () => {
  
                 {selectedMarker && isVideoOpen && (
                     <div>
-                        <video width="405px" height="auto" controls="controls" autoPlay>
-                            <source src={video} type="video/mp4" />
+                        <video width="325px" height="auto" controls="controls" autoPlay>
+                            <source src={videoSource} type="video/mp4" />
                         </video>
                         <h5>{selectedMarker.name}</h5>
                         <p>{selectedMarker.exercise}</p>
-                        <Button onClick={closeVideo} variant="contained" color="secondary">
+                        <Button onClick={closeVideo} variant="contained" color="primary">
                             Close Video
                         </Button>
                        <br/>

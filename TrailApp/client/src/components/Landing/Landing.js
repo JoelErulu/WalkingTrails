@@ -195,7 +195,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
-                <hr></hr>
+                
                 <section id="learn" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="row align-items-center justify-content-between">
