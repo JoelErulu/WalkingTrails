@@ -72,14 +72,14 @@ const Landing = () => {
                             <div class="d-lg-flex align-items-center justify-content-between">
                                 <div class = "p-5">
                                     <h1>Walking Trails App </h1>
-                                <p class="lead my-4">
+                                <h2 class="lead my-4">
                                     Discover wellness with every step on our scenic walking trails.
-                                </p>
-                                <Button class = "btn btn-primary"component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
+                                </h2>
+                                <Button class = "btn btn-primary"component={Link} to="/Home" variant="contained" color="primary" className={classes.submit}>Maps</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
-                                src="img/trailpic.jpg"
+                                src="images/trailpic.jpg"
                                 alt=""
                             />
                         </div>
