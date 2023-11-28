@@ -23,7 +23,7 @@ import NutritionAdmin from './components/NutritionAdmin/NutritionAdmin.js';
 
 const App = () => (
     
-    <GoogleOAuthProvider clientId='878139115396-80u645bmd8u9sbprvu7427cskqsufiok.apps.googleusercontent.com'>
+    <GoogleOAuthProvider clientId='222736919095-8clp3t7ndllhnf6jt0n1buveh6a97i62.apps.googleusercontent.com'>
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Navbar />

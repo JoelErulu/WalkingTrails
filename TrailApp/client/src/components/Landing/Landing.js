@@ -9,7 +9,7 @@ const Landing = () => {
 
     return (
  
-        <container>
+        <Container>
             <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -33,7 +33,7 @@ const Landing = () => {
 
                     <title>WALKERS</title>
                 </head>
-                <body class ="">
+                <body>
                    {/*  <!-- Navbar -->*/}{/*
                     <nav class="navbar navbar-expand-lg bg-success navbar-dark py-3 fixed-top">
                         <div class="container">
@@ -63,23 +63,45 @@ const Landing = () => {
                             </div>
                         </div>
                     </nav>
-    */}
+              */}
+
+<nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+                <div className="container">
+                    
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item">
+                                <Link to="/auth" className="nav-link btn bg-dark text-white">Sign In</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+              
                     {/*} <!-- Showcase -->*/}
                     <section
-                        class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+                        class="bg-dark text-light p-5 pb-5 p-lg-0 pt-lg-5 text-center text-sm-start"
                     >
                         <div class="container">
-                            <div class="d-sm-flex align-items-center justify-content-between">
-                                <div>
+                            <div class="d-lg-flex align-items-center justify-content-between">
+                                <div class = "p-3">
                                     <h1>Walking Trails App </h1>
-                                <p class="lead my-4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, enim.
-                                </p>
-                                <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained"  className={classes.submit}>Sign In</Button>
+                                <h2 class="lead my-4">
+                                    Discover wellness with every step on our scenic walking trails.
+                                </h2>
+                                <Button class = "btn btn-primary" component={Link} to="/Home" variant="contained" color="primary" className={classes.submit}>Maps</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
-                                src="img/trailpic.jpg"
+                                src="images/trailpic.jpg"
                                 alt=""
                             />
                         </div>
@@ -112,8 +134,8 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">Gwinnett</h3>
                                         <p class="card-text">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                            Iure, quas quidem possimus dolorum esse eligendi?
+                                        Gwinnett County, with its blend of growth and grace, progress and heritage, 
+                                        stands as a beacon of what the future can hold.
                                         </p>
                                         <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
@@ -127,8 +149,8 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">GGC</h3>
                                         <p class="card-text">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                            Iure, quas quidem possimus dolorum esse eligendi?
+                                        Gwinnett College, a beacon of learning and aspiration, 
+                                        stands proudly as a crucible of knowledge.
                                         </p>
                                         <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
@@ -142,10 +164,9 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">Other</h3>
                                         <p class="card-text">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                            Iure, quas quidem possimus dolorum esse eligendi?
+                                        "Education is the most powerful weapon which you can use to change the world." – Nelson Mandela?
                                         </p>
-                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <a href="#" class="btn btn-primary">Just Quotes</a>
                                     </div>
                                 </div>
                             </div>
@@ -154,32 +175,27 @@ const Landing = () => {
                 </section>
 
                 {/* <!-- Learn Sections -->*/}
-                <section id="learn" class="p-5">
+                <section id="learn" class="p-5 bg-secondary text-light">
                     <div class="container">
-                        <div class="row align-items-center justify-content-between">
+                        <div class="text-white row align-items-center justify-content-between">
                             <div class="col-md">
                                 <img src="img/fundamentals.svg" class="img-fluid" alt="" />
                             </div>
                             <div class="col-md p-5">
                                 <h2>Personalized Workouts/Workout spaces</h2>
                                 <p class="lead">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Similique deleniti possimus magnam corporis ratione facere!
+                                Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness. 
+                                This concept transcends the one-size-fits-all model, recognizing that each body is unique, each fitness journey distinct, and every goal personal.
                                 </p>
-                                <p>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-                                    reiciendis eius autem eveniet mollitia, at asperiores suscipit
-                                    quae similique laboriosam iste minus placeat odit velit quos,
-                                    nulla architecto amet voluptates?
-                                </p>
-                                <a href="#" class="btn btn-light mt-3">
+                               
+                                <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
                             </div>
                         </div>
                     </div>
                 </section>
-
+                <hr></hr>
                 <section id="learn" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="row align-items-center justify-content-between">
@@ -200,16 +216,16 @@ const Landing = () => {
                                 </a>
                             </div>
                             <div class="col-md">
-                                <img src="img/react.svg" class="img-fluid" alt="" />
+                                <img src="WalkingTrailApp/TrailApp/client/src/images/handshake.jpg" class="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>
                 </section>
-
+                
                 {/*<!-- Question Accordion -->*/}
                 <section id="questions" class="p-5">
                     <div class="container">
-                        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+                        <h2 class="text-white text-center mb-4">Frequently Asked Questions</h2>
                         <div class="accordion accordion-flush" id="questions">
                             {/*} <!-- Item 1 -->*/}
                             <div class="accordion-item">
@@ -355,7 +371,7 @@ const Landing = () => {
                     </div>
                 </section>
 
-                <section id="instructors" class="p-5 bg-success">
+                <section id="instructors" class="p-5 bg-dark">
                     <div class="container">
                         <h2 class="text-center text-white">Our Team</h2>
                         <p class="lead text-center text-white mb-5">
@@ -455,7 +471,7 @@ const Landing = () => {
                     <div class="container">
                         <div class="row g-4">
                             <div class="col-md">
-                                <h2 class="text-center mb-4">Contact Info</h2>
+                                <h2 class="text-white text-center mb-4">Contact Info</h2>
                                 <ul class="list-group list-group-flush lead">
                                     <li class="list-group-item">
                                         <span class="fw-bold">Main Location:</span> Lorem ipsum dolor sit amet.
@@ -567,7 +583,7 @@ const Landing = () => {
             </body>
         </html>
 
-</container >
+</Container >
 
 
 

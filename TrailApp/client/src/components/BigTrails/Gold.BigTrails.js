@@ -7,54 +7,44 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
-import video from '../../videos/ProjectVideo1.mp4';
+import video1 from '../../videos/ProjectVideo1.mp4';
+import video2 from '../../videos/ProjectVideo2.mp4';
+import video3 from '../../videos/ProjectVideo3.mp4';
 
 
 const Gold = () => {
-
     const classes = useStyles();
     const dispatch = useDispatch();
-    
-    const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
+    const initialState = { lat: '', lng: '', name: '', exercise: '', img: '', };
     const [isVideoOpen, setIsVideoOpen] = useState(false);
-
-    //gets markers from store
-    const {markers, isLoading} = useSelector((state) => state.markers);
-
+    const { markers, isLoading } = useSelector((state) => state.markers);
     const [markerFormData, setMarkerFormData] = useState(initialState);
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
-    const [open, setOpen] = useState(false);
+    const [videoSource, setVideoSource] = useState(null);
 
-    //sets center of map
     useEffect(() => {
         setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
-        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            
-        // });
-    }, []);
-
-    //get markers from db
-    useEffect(() => {
         dispatch(getMarkers());
-    }, [dispatch])
+    }, [dispatch]);
 
-    //when marker is clicked
-    const handleMarkerClick = (event) => {
-        if (selectedMarker && selectedMarker.key === event.key) {
+    const handleMarkerClick = (marker) => {
+        if (selectedMarker && selectedMarker.key === marker.key) {
             // If the same marker is clicked, close the video
             setSelectedMarker(null);
             setIsVideoOpen(false);
         } else {
-            setSelectedMarker(event);
+            // Close the current video before opening a new one
+            setSelectedMarker(marker);
             setMarkerFormData({
-                lat: event.lat,
-                lng: event.lng,
-                name: event.name,
-                exercise: event.exercise,
-                img: event.img,
-                text: event.text,
+                lat: marker.lat,
+                lng: marker.lng,
+                name: marker.name,
+                exercise: marker.exercise,
+                img: marker.img,
+                text: marker.text,
             });
+            setVideoSource(marker.videoSource);
             setIsVideoOpen(true);
         }
     };
@@ -81,12 +71,12 @@ const Gold = () => {
  
                 {selectedMarker && isVideoOpen && (
                     <div>
-                        <video width="405px" height="auto" controls="controls" autoPlay>
-                            <source src={video} type="video/mp4" />
+                        <video width="325px" height="auto" controls="controls" autoPlay>
+                            <source src={videoSource} type="video/mp4" />
                         </video>
                         <h5>{selectedMarker.name}</h5>
                         <p>{selectedMarker.exercise}</p>
-                        <Button onClick={closeVideo} variant="contained" color="secondary">
+                        <Button onClick={closeVideo} variant="contained" color="primary">
                             Close Video
                         </Button>
                        <br/>
@@ -118,54 +108,45 @@ const Gold = () => {
                             zoom={16}
                             options={MapID}
                         >
-                            {/* Initial Marker */}
-                            <Marker
-                                position={{lat: 33.9804327949268, lng: -84.00527240759934}}
-                                onClick={() => handleMarkerClick({
-                                    key: 1,
-                                    lat: 33.9804327949268,
-                                    lng: -84.00527240759934,
-                                    name: "B Building Marker",
-                                })}
-                            />
+                            {/* Markers with different video sources */}
+            <Marker
+                position={{ lat: 33.9804327949268, lng: -84.00527240759934 }}
+                onClick={() =>
+                    handleMarkerClick({
+                        key: 1,
+                        lat: 33.9804327949268,
+                        lng: -84.00527240759934,
+                        name: "B Building Marker",
+                        videoSource: video1,
+                    })
+                }
+            />
 
-                            {/* Initial Marker */}
-                            <Marker
-                                position={{lat: 33.979179, lng:-84.007273}}
-                                onClick={() => handleMarkerClick({
-                                    key: 1,
-                                    lat: 33.979179,
-                                    lng:  -84.007273,
-                                    name: "B Building Marker",
-                                })}
-                            />
+            <Marker
+                position={{ lat: 33.979179, lng: -84.007273 }}
+                onClick={() =>
+                    handleMarkerClick({
+                        key: 2,
+                        lat: 33.979179,
+                        lng: -84.007273,
+                        name: "Basketball Court Marker",
+                        videoSource: video2,
+                    })
+                }
+            />
 
-                            {/* Initial Marker */}
-                            <Marker
-                                position={{lat: 33.982496, lng:-84.000953}}
-                                onClick={() => handleMarkerClick({
-                                    key: 1,
-                                    lat: 33.982496,
-                                    lng:  -84.000953,
-                                    name: "B Building Marker",
-                                })}
-                            />
-                            {/* database markers */}
-                            {/* {markers.map((marker) => (
-                            <Marker 
-                                position={{lat: marker.lat, lng: marker.lng}}
-                                key = {marker._id}
-                                onClick={() => handleMarkerClick({
-                                    key: marker._id,
-                                    lat: marker.lat,
-                                    lng: marker.lng,
-                                    name: marker.name,
-                                    exercise: marker.exercise,
-                                    img: marker.img,
-                                    text: marker.text,
-                                })}
-                            />
-                            ))} */}
+            <Marker
+                position={{ lat: 33.982496, lng: -84.000953 }}
+                onClick={() =>
+                    handleMarkerClick({
+                        key: 3,
+                        lat: 33.982496,
+                        lng: -84.000953,
+                        name: "University Center Ln Marker",
+                        videoSource: video3,
+                    })
+                }
+            />
 
                             {/* current marker */}
                             {markerFormData.lat && markerFormData.lng && (
