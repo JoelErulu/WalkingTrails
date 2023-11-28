@@ -25,8 +25,15 @@ const Gold = () => {
 
     useEffect(() => {
         setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+            
+        // });
+    }, []);
+
+    //get markers from db
+    useEffect(() => {
         dispatch(getMarkers());
-    }, [dispatch]);
+    }, [dispatch])
 
     const handleMarkerClick = (marker) => {
         if (selectedMarker && selectedMarker.key === marker.key) {
