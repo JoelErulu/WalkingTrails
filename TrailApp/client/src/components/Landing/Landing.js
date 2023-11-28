@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
-
+import pic1 from '../../images/handshake.jpg';
 
 const Landing = () => {
     const classes = useStyles();
@@ -65,7 +65,7 @@ const Landing = () => {
                     </nav>
               */}
 
-<nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+{/* <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
                 <div className="container">
                     
                     <button
@@ -79,12 +79,12 @@ const Landing = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <Link to="/auth" className="nav-link btn bg-dark text-white">Sign In</Link>
+                                
                             </li>
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> */}
               
                     {/*} <!-- Showcase -->*/}
                     <section
@@ -97,19 +97,19 @@ const Landing = () => {
                                 <h2 class="lead my-4">
                                     Discover wellness with every step on our scenic walking trails.
                                 </h2>
-                                <Button class = "btn btn-primary" component={Link} to="/Home" variant="contained" color="primary" className={classes.submit}>Maps</Button>
+                                <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
-                                src="images/trailpic.jpg"
+                                src="pic1"
                                 alt=""
                             />
                         </div>
                     </div>
                 </section>
-
+                <hr></hr>
                 {/*<!-- Newsletter -->*/}
-                <section class="bg-secondary text-light p-5">
+                <section class="bg-dark text-light p-5">
                     <div class="container">
                         <div class="d-md-flex justify-content-between align-items-center">
                             <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
@@ -175,7 +175,7 @@ const Landing = () => {
                 </section>
 
                 {/* <!-- Learn Sections -->*/}
-                <section id="learn" class="p-5 bg-secondary text-light">
+                <section id="learn" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="text-white row align-items-center justify-content-between">
                             <div class="col-md">
