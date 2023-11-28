@@ -33,7 +33,7 @@ const Landing = () => {
 
                     <title>WALKERS</title>
                 </head>
-                <body class ="">
+                <body>
                    {/*  <!-- Navbar -->*/}{/*
                     <nav class="navbar navbar-expand-lg bg-success navbar-dark py-3 fixed-top">
                         <div class="container">
@@ -75,7 +75,7 @@ const Landing = () => {
                                 <p class="lead my-4">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, enim.
                                 </p>
-                                <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained"  className={classes.submit}>Sign In</Button>
+                                <Button component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
@@ -172,7 +172,7 @@ const Landing = () => {
                                     quae similique laboriosam iste minus placeat odit velit quos,
                                     nulla architecto amet voluptates?
                                 </p>
-                                <a href="#" class="btn btn-light mt-3">
+                                <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
                             </div>
@@ -355,7 +355,7 @@ const Landing = () => {
                     </div>
                 </section>
 
-                <section id="instructors" class="p-5 bg-success">
+                <section id="instructors" class="p-5 bg-dark">
                     <div class="container">
                         <h2 class="text-center text-white">Our Team</h2>
                         <p class="lead text-center text-white mb-5">
