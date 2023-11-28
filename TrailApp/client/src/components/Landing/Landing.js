@@ -63,7 +63,29 @@ const Landing = () => {
                             </div>
                         </div>
                     </nav>
-    */}
+              */}
+
+<nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+                <div className="container">
+                    
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item">
+                                <Link to="/auth" className="nav-link btn bg-dark text-white">Sign In</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+              
                     {/*} <!-- Showcase -->*/}
                     <section
                         class="bg-dark text-light p-5 pb-5 p-lg-0 pt-lg-5 text-center text-sm-start"
@@ -112,8 +134,8 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">Gwinnett</h3>
                                         <p class="card-text">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                            Iure, quas quidem possimus dolorum esse eligendi?
+                                        Gwinnett County, with its blend of growth and grace, progress and heritage, 
+                                        stands as a beacon of what the future can hold.
                                         </p>
                                         <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
@@ -127,8 +149,8 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">GGC</h3>
                                         <p class="card-text">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                            Iure, quas quidem possimus dolorum esse eligendi?
+                                        Gwinnett College, a beacon of learning and aspiration, 
+                                        stands proudly as a crucible of knowledge.
                                         </p>
                                         <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
@@ -142,10 +164,9 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">Other</h3>
                                         <p class="card-text">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                            Iure, quas quidem possimus dolorum esse eligendi?
+                                        "Education is the most powerful weapon which you can use to change the world." – Nelson Mandela?
                                         </p>
-                                        <a href="#" class="btn btn-primary">Read More</a>
+                                        <a href="#" class="btn btn-primary">Just Quotes</a>
                                     </div>
                                 </div>
                             </div>
@@ -163,15 +184,10 @@ const Landing = () => {
                             <div class="col-md p-5">
                                 <h2>Personalized Workouts/Workout spaces</h2>
                                 <p class="lead">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Similique deleniti possimus magnam corporis ratione facere!
+                                Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness. 
+                                This concept transcends the one-size-fits-all model, recognizing that each body is unique, each fitness journey distinct, and every goal personal.
                                 </p>
-                                <p>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-                                    reiciendis eius autem eveniet mollitia, at asperiores suscipit
-                                    quae similique laboriosam iste minus placeat odit velit quos,
-                                    nulla architecto amet voluptates?
-                                </p>
+                               
                                 <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
