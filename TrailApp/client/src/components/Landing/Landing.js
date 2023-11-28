@@ -79,7 +79,8 @@ const Landing = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <Link to="/auth" className="nav-link btn bg-dark text-white">Sign In</Link>
+                                <Link to="/auth" className="nav-link btn bg-dark text-white">Sign In</Link> 
+                                 {/*  This is the code for the sign in button, if the button is clicked it would go the authencation page*/}
                             </li>
                         </ul>
                     </div>
@@ -136,7 +137,8 @@ const Landing = () => {
                                         <p class="card-text">
                                         Gwinnett County, with its blend of growth and grace, progress and heritage, 
                                         stands as a beacon of what the future can hold.
-                                        </p>
+                                        </p> {/*  In this section there is information about gwinnett county, information about gwinnett college,
+                                                  there is simple qutoes */}
                                         <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
                                 </div>
@@ -202,15 +204,11 @@ const Landing = () => {
                             <div class="col-md p-5">
                                 <h2>Community Partners</h2>
                                 <p class="lead">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Similique deleniti possimus magnam corporis ratione facere!
+                                A community partner is a cornerstone of collaborative progress, embodying the spirit of unity and shared purpose.
+                                 These vital allies, whether they are local businesses, non-profit organizations, 
+                                educational institutions, or individual activists, play a pivotal role in weaving the social fabric of a community.
                                 </p>
-                                <p>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-                                    reiciendis eius autem eveniet mollitia, at asperiores suscipit
-                                    quae similique laboriosam iste minus placeat odit velit quos,
-                                    nulla architecto amet voluptates?
-                                </p>
+                               
                                 <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
@@ -236,7 +234,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-one"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        Where is Gwinnett county located at?
                                     </button>
                                 </h2>
                                 <div
@@ -264,7 +262,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-two"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How many minute does it take to run 1 mile?
                                     </button>
                                 </h2>
                                 <div
@@ -292,7 +290,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-three"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How big is Georgia Gwinnett College?
                                     </button>
                                 </h2>
                                 <div
@@ -320,7 +318,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-four"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How to do push ups with one hand?
                                     </button>
                                 </h2>
                                 <div
@@ -348,7 +346,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-five"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How big is the gold trail?
                                     </button>
                                 </h2>
                                 <div

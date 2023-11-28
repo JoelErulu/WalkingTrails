@@ -36,7 +36,8 @@ const Gold = () => {
 
     //get markers from db
     useEffect(() => {
-        dispatch(getMarkers());
+        dispatch(getMarkers());       {/*  In this section it demonstarting how the gold trail works with the google map features
+                                           implented in it */}
     }, [dispatch])
 
     //when marker is clicked
