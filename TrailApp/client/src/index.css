@@ -1,7 +1,8 @@
 body {
-    /* background-image: url(photo1.jpg); */
+    
+    background-image: url(photo1.jpg); 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-color: #00704a;
+    /*background-color: #6c757d;*/
 }

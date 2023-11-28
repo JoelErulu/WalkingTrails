@@ -9,7 +9,7 @@ const Landing = () => {
 
     return (
  
-        <container>
+        <Container>
             <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -66,16 +66,16 @@ const Landing = () => {
     */}
                     {/*} <!-- Showcase -->*/}
                     <section
-                        class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+                        class="bg-dark text-light p-5 pb-5 p-lg-0 pt-lg-5 text-center text-sm-start"
                     >
                         <div class="container">
-                            <div class="d-sm-flex align-items-center justify-content-between">
-                                <div>
+                            <div class="d-lg-flex align-items-center justify-content-between">
+                                <div class = "p-5">
                                     <h1>Walking Trails App </h1>
                                 <p class="lead my-4">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, enim.
+                                    Discover wellness with every step on our scenic walking trails.
                                 </p>
-                                <Button component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
+                                <Button class = "btn btn-primary"component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
@@ -154,9 +154,9 @@ const Landing = () => {
                 </section>
 
                 {/* <!-- Learn Sections -->*/}
-                <section id="learn" class="p-5">
-                    <div class="container">
-                        <div class="row align-items-center justify-content-between">
+                <section id="learn" class="p-5 bg-secondary text-light">
+                    <div class="container ">
+                        <div class="text-white row align-items-center justify-content-between">
                             <div class="col-md">
                                 <img src="img/fundamentals.svg" class="img-fluid" alt="" />
                             </div>
@@ -567,7 +567,7 @@ const Landing = () => {
             </body>
         </html>
 
-</container >
+</Container >
 
 
 
