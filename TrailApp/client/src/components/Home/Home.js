@@ -101,7 +101,7 @@ const Home = () => {
 
                     <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
                     <LoadScript
-                        googleMapsApiKey="AIzaSyBWo0kr3jti4QZCS6vyqjHVKEv6L31S2VA"
+                        googleMapsApiKey="AIzaSyCKEd9gY2vA4IAZdBmZkhvrrfofT2KZfyU"
                     >
                         <GoogleMap
                             mapContainerStyle={containerStyle}
