@@ -92,12 +92,12 @@ const Landing = () => {
                     >
                         <div class="container">
                             <div class="d-lg-flex align-items-center justify-content-between">
-                                <div class = "p-5">
+                                <div class = "p-3">
                                     <h1>Walking Trails App </h1>
                                 <h2 class="lead my-4">
                                     Discover wellness with every step on our scenic walking trails.
                                 </h2>
-                                <Button class = "btn btn-primary"component={Link} to="/Home" variant="contained" color="primary" className={classes.submit}>Maps</Button>
+                                <Button class = "btn btn-primary" component={Link} to="/Home" variant="contained" color="primary" className={classes.submit}>Maps</Button>
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
@@ -176,7 +176,7 @@ const Landing = () => {
 
                 {/* <!-- Learn Sections -->*/}
                 <section id="learn" class="p-5 bg-secondary text-light">
-                    <div class="container ">
+                    <div class="container">
                         <div class="text-white row align-items-center justify-content-between">
                             <div class="col-md">
                                 <img src="img/fundamentals.svg" class="img-fluid" alt="" />
@@ -195,7 +195,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
-
+                <hr></hr>
                 <section id="learn" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="row align-items-center justify-content-between">
@@ -216,16 +216,16 @@ const Landing = () => {
                                 </a>
                             </div>
                             <div class="col-md">
-                                <img src="img/react.svg" class="img-fluid" alt="" />
+                                <img src="WalkingTrailApp/TrailApp/client/src/images/handshake.jpg" class="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>
                 </section>
-
+                
                 {/*<!-- Question Accordion -->*/}
                 <section id="questions" class="p-5">
                     <div class="container">
-                        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+                        <h2 class="text-white text-center mb-4">Frequently Asked Questions</h2>
                         <div class="accordion accordion-flush" id="questions">
                             {/*} <!-- Item 1 -->*/}
                             <div class="accordion-item">
@@ -471,7 +471,7 @@ const Landing = () => {
                     <div class="container">
                         <div class="row g-4">
                             <div class="col-md">
-                                <h2 class="text-center mb-4">Contact Info</h2>
+                                <h2 class="text-white text-center mb-4">Contact Info</h2>
                                 <ul class="list-group list-group-flush lead">
                                     <li class="list-group-item">
                                         <span class="fw-bold">Main Location:</span> Lorem ipsum dolor sit amet.
