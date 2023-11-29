@@ -21,9 +21,9 @@ const Home = () => {
     // };
     //Keep this in mind
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
-        });
+        // });
     }, []);
 
     const goGold = (e) => {
