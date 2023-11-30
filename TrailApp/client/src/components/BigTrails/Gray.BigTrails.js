@@ -43,10 +43,24 @@ const Gray = () => {
 
     //when marker is clicked
     const handleMarkerClick = (marker) => {
-        setSelectedMarker(marker);
-        
-        setIsVideoOpen(true);
-        setVideoSource(marker.videoSource);
+        if (selectedMarker && selectedMarker.key === marker.key) {
+            // If the same marker is clicked, close the video
+            setSelectedMarker(null);
+            setIsVideoOpen(false);
+        } else {
+            // Close the current video before opening a new one
+            setSelectedMarker(marker);
+            setMarkerFormData({
+                lat: marker.lat,
+                lng: marker.lng,
+                name: marker.name,
+                exercise: marker.exercise,
+                img: marker.img,
+                text: marker.text,
+            });
+            setVideoSource(marker.videoSource);
+            setIsVideoOpen(true);
+        }
     };
 
     const closeVideo = () => {
@@ -69,7 +83,7 @@ const Gray = () => {
                 {selectedMarker && isVideoOpen && (
                     <div>
                         <video width="325px" height="auto" controls="controls" autoPlay>
-                            <source src={videoSource} type="video4/mp4" />
+                            <source src={videoSource} type="video/mp4" />
                         </video>
                         <h5>{selectedMarker.name}</h5>
                         <p>{selectedMarker.exercise}</p>
@@ -113,7 +127,7 @@ const Gray = () => {
                                     key: 1,
                                     lat: 33.97967560437334,
                                     lng: -83.99934638811425,
-                                    name: "Video",
+                                    name: "D Building Marker",
                                     videoSource: video4,
                                 })}
                             />
