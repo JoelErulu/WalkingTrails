@@ -81,18 +81,50 @@ const Navbar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
                 >
-                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Home</MenuItem>
-                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Personalized Workout</MenuItem>
-                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Community Partners</MenuItem>
-                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Our Team</MenuItem>
+                <MenuItem onClick={handleMenuClose} component={Link} to="/">Home</MenuItem>
+                {/* <MenuItem onClick={handleMenuClose} component={Link} to="/#workout">Personalized Workout</MenuItem>
+                <MenuItem onClick={handleMenuClose} component={Link} to="/#community">Community Partners</MenuItem>
+                <MenuItem onClick={handleMenuClose} component={Link} to="/#questions">F.A.Q</MenuItem>
+                <MenuItem onClick={handleMenuClose} component={Link} to="/#instructors">Our Team</MenuItem> */}
+                {/* need to fix links so they work even when you are not on the landing page */}
+                <MenuItem
+                    onClick={() => {
+                        handleMenuClose();
+                        document.getElementById('workout').scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    Personalized Workout
+                </MenuItem>
+                <MenuItem
+                    onClick={() => {
+                        handleMenuClose();
+                        document.getElementById('community').scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    Community Partners
+                </MenuItem>
+                <MenuItem
+                    onClick={() => {
+                        handleMenuClose();
+                        document.getElementById('questions').scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    F.A.Q
+                </MenuItem>
+                <MenuItem
+                    onClick={() => {
+                        handleMenuClose();
+                        document.getElementById('instructors').scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    Our Team
+                </MenuItem>
+
                 {user ? (
-               
-               
-               <MenuItem onClick={logout}>Logout</MenuItem>
-                
-            ) : (
-                <MenuItem onClick={handleMenuClose} component={Link} to="/auth">Sign in / Sign up</MenuItem>
-            )}
+                <MenuItem onClick={logout}>Logout</MenuItem>   
+                    ) : (
+                        <MenuItem onClick={handleMenuClose} component={Link} to="/auth">Sign in / Sign up</MenuItem>
+                )}
             </Menu>
         </AppBar>
    );
