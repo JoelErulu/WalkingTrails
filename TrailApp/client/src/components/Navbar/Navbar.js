@@ -82,8 +82,9 @@ const Navbar = () => {
                 onClose={handleMenuClose}
                 >
                 <MenuItem onClick={handleMenuClose} component={Link} to="/#">Home</MenuItem>
-                <MenuItem onClick={handleMenuClose} component={Link} to="/settings">Settings</MenuItem>
-                
+                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Personalized Workout</MenuItem>
+                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Community Partners</MenuItem>
+                <MenuItem onClick={handleMenuClose} component={Link} to="/#">Our Team</MenuItem>
                 {user ? (
                
                

@@ -49,7 +49,9 @@ export default makeStyles((theme) => ({
     },
   },
   logout: {
-    marginLeft: '20px',
+    marginLeft: '50px',
+    padding: '5px 10px', 
+    justifyContent: 'flex-end',
   },
   userName: {
     display: 'flex',

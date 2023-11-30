@@ -180,7 +180,7 @@ const Landing = () => {
                 </section>
 
                 {/* <!-- Learn Sections -->*/}
-                <section id="learn" class="p-5 bg-dark text-light">
+                <section id="workout" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="text-white row align-items-center justify-content-between">
                             <div class="col-md d-sm-none d-lg-block">
@@ -201,7 +201,7 @@ const Landing = () => {
                     </div>
                 </section>
                 
-                <section id="learn" class="p-5 bg-dark text-light">
+                <section id="community" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="row align-items-center justify-content-between">
                             <div class="col-md p-5">
