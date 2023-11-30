@@ -83,7 +83,15 @@ const Navbar = () => {
                 >
                 <MenuItem onClick={handleMenuClose} component={Link} to="/#">Home</MenuItem>
                 <MenuItem onClick={handleMenuClose} component={Link} to="/settings">Settings</MenuItem>
-                <MenuItem onClick={logout}>Logout</MenuItem>
+                
+                {user ? (
+               
+               
+               <MenuItem onClick={logout}>Logout</MenuItem>
+                
+            ) : (
+                <MenuItem onClick={handleMenuClose} component={Link} to="/auth">Sign in / Sign up</MenuItem>
+            )}
             </Menu>
         </AppBar>
    );
