@@ -15,9 +15,8 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-
     const [userRole, setUserRole] = useState('');
-
+    // const pages = ['Products', 'Pricing', 'Blog'];
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
         
@@ -40,8 +39,7 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer} >
-                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="left">Walking Trails</Typography>
-                
+                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">Walking Trails</Typography>
                 {/* <Link class = "align-right btn btn-primary" component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Link>
                {/* <Link to={ user ? "/home" : "/" }>
                 <img className={classes.image} src={GGC} alt="GGC Bear" height="60"/>
@@ -62,8 +60,12 @@ const Navbar = () => {
             ) : (
                 <Typography></Typography>
             )}
+            <div>
+                   {/* <Typography component={Link} to={ user ? "/home" : "/" } className={classes.nonHeading} variant="h6" align="right">loser</Typography> */}
+                
+            </div>
         </AppBar>
-    );
+   );
 };
 
 export default Navbar;
