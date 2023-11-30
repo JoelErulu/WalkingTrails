@@ -31,9 +31,9 @@ const Gray = () => {
 
     //sets center of map
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCenter({ lat: 33.98251828102669, lng: -84.00032686036535 });
-        });
+        // });
     }, []);
 
     //get markers from db
