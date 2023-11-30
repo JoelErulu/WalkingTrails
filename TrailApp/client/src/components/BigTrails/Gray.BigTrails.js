@@ -7,11 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GreyCoords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
+import video4 from '../../videos/ProjectVideo4.mp4';
 
 
 const Gray = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+
+    
     
     const initialState = { lat: '', lng: '', name: ''};
 
@@ -21,6 +24,10 @@ const Gray = () => {
     const [markerFormData, setMarkerFormData] = useState(initialState);
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
+
+
+    const [isVideoOpen, setIsVideoOpen] = useState(false);//video opener
+    const [videoSource, setVideoSource] = useState(null);
 
     //sets center of map
     useEffect(() => {
@@ -35,8 +42,16 @@ const Gray = () => {
     }, [dispatch])
 
     //when marker is clicked
-    const handleMarkerClick = (event) => {
-        setSelectedMarker(event);
+    const handleMarkerClick = (marker) => {
+        setSelectedMarker(marker);
+        
+        setIsVideoOpen(true);
+        setVideoSource(marker.videoSource);
+    };
+
+    const closeVideo = () => {
+        setSelectedMarker(null);
+        setIsVideoOpen(false);
     };
 
 
@@ -47,14 +62,28 @@ const Gray = () => {
                 <Typography variant="h6">Grey Trail</Typography>
 
                 <Typography>
-                    {selectedMarker?.name}
-                    <br/>
-                    {selectedMarker?.lat}
-                    <br/>
-                    {selectedMarker?.lng}
-                    <br/>
-                    {selectedMarker?.key}
-                    <br/>
+                {!selectedMarker && !isVideoOpen && (
+                            <p>CLICK MARKER TO VIEW VIDEO</p>
+                )}
+
+                {selectedMarker && isVideoOpen && (
+                    <div>
+                        <video width="325px" height="auto" controls="controls" autoPlay>
+                            <source src={videoSource} type="video4/mp4" />
+                        </video>
+                        <h5>{selectedMarker.name}</h5>
+                        <p>{selectedMarker.exercise}</p>
+                        <Button onClick={closeVideo} variant="contained" color="primary">
+                            Close Video
+                        </Button>
+                       <br/>
+                       <br/>
+                    
+                    </div>
+                )}
+
+
+
                 </Typography>
 
                 <Divider/>
@@ -84,7 +113,8 @@ const Gray = () => {
                                     key: 1,
                                     lat: 33.97967560437334,
                                     lng: -83.99934638811425,
-                                    name: "First",
+                                    name: "Video",
+                                    videoSource: video4,
                                 })}
                             />
                             {/* database markers */}

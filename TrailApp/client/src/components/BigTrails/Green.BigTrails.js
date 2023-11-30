@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GreenCoords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
+import video5 from '../../videos/ProjectVideo5.mp4';
 
 
 const Green = () => {                   
@@ -23,6 +24,9 @@ const Green = () => {
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
 
+    const [isVideoOpen, setIsVideoOpen] = useState(false);//video opener
+    const [videoSource, setVideoSource] = useState(null);
+
     //sets center of map
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -36,8 +40,16 @@ const Green = () => {
     }, [dispatch])
 
     //when marker is clicked
-    const handleMarkerClick = (event) => {
-        setSelectedMarker(event);
+    const handleMarkerClick = (marker) => {
+        setSelectedMarker(marker);
+
+        setIsVideoOpen(true);
+        setVideoSource(marker.videoSource);
+    };
+
+    const closeVideo = () => {
+        setSelectedMarker(null);
+        setIsVideoOpen(false);
     };
 
     return (
@@ -47,14 +59,26 @@ const Green = () => {
                 <Typography variant="h6">Green Trail</Typography>
 
                 <Typography>
-                    {selectedMarker?.name}
-                    <br/>
-                    {selectedMarker?.lat}
-                    <br/>
-                    {selectedMarker?.lng}
-                    <br/>
-                    {selectedMarker?.key}
-                    <br/>
+                {!selectedMarker && !isVideoOpen && (
+                            <p>CLICK MARKER TO VIEW VIDEO</p>
+                )}
+
+                {selectedMarker && isVideoOpen && (
+                    <div>
+                        <video width="325px" height="auto" controls="controls" autoPlay>
+                            <source src={videoSource} type="video5/mp4" />
+                        </video>
+                        <h5>{selectedMarker.name}</h5>
+                        <p>{selectedMarker.exercise}</p>
+                        <Button onClick={closeVideo} variant="contained" color="primary">
+                            Close Video
+                        </Button>
+                       <br/>
+                       <br/>
+                    
+                    </div>
+                )}
+                   
                 </Typography>
 
                 <Divider/>
@@ -86,6 +110,7 @@ const Green = () => {
                                     lat: 33.97809098899297,
                                     lng: -84.00006969125516,
                                     name: "First",
+                                    videoSource: video5,
                                 })}
                             />
                             {/* database markers */}
