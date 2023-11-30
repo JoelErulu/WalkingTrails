@@ -9,10 +9,15 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    padding: '10px 5px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
+  },
+  drop:{
+    right: '0',
+    display: 'flex',
+    padding: '5px 10px',
   },
   heading: {
     color: theme.palette.primary.main,

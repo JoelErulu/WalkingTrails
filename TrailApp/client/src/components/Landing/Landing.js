@@ -498,9 +498,9 @@ const Landing = () => {
                 </section>
 
                 {/*<-- Footer -->*/}
-                <footer class="p-5 bg-dark text-white text-center position-relative">
-                    <div class="container">
-                        <p class="lead">Copyright &copy; Gwinnett Trails</p>
+                <footer class="rounded shadow-lg p-5 bg-white text-primary text-center position-relative">
+                    <div>
+                        <h1 class="lead">Copyright &copy; Walking Trails</h1>
 
                         <a href="#" class="position-absolute bottom-0 end-0 p-5">
                             <i class="bi bi-arrow-up-circle h1"></i>
@@ -509,7 +509,7 @@ const Landing = () => {
                 </footer>
 
                {/*} <!-- Modal -->*/}
-                <div
+                {/* <div
                     class="modal fade"
                     id="enroll"
                     tabindex="-1"
@@ -562,7 +562,7 @@ const Landing = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 {/*ignore this}
                 {/*}  <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

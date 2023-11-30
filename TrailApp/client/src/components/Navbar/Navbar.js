@@ -4,7 +4,7 @@ import { AppBar, Avatar, Button, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { googleLogout } from '@react-oauth/google';
 import { logout } from '../../api/index.js';
-
+import {MenuItem} from '@material-ui/core';
 import useStyles from './styles';
 import GGC from '../../images/GGClogo.jpg';
 
@@ -16,7 +16,7 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [userRole, setUserRole] = useState('');
-    // const pages = ['Products', 'Pricing', 'Blog'];
+    const pages = ['Products', 'Pricing', 'Blog'];
     const logout = () => {
         dispatch({ type: 'LOGOUT' });
         
@@ -54,16 +54,13 @@ const Navbar = () => {
                     <div className={classes.profile}>
                         <Avatar className={classes.purple} alt={user.name} src={user.picture}>{user.name}</Avatar>
                         <Typography className={classes.userName} variant="h6">Welcome, {user.name}!</Typography>
-                        <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+                        <Button variant="contained" className={classes.logout} color="primary" onClick={logout}>Logout</Button>
                     </div>
                 </Toolbar>
             ) : (
-                <Typography></Typography>
+                <MenuItem className={classes.drop} variant="h2" align="right">Hello</MenuItem>
             )}
-            <div>
-                   {/* <Typography component={Link} to={ user ? "/home" : "/" } className={classes.nonHeading} variant="h6" align="right">loser</Typography> */}
-                
-            </div>
+           
         </AppBar>
    );
 };
