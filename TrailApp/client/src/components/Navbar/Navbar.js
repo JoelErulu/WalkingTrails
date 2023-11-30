@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { googleLogout } from '@react-oauth/google';
 import { logout } from '../../api/index.js';
 import {MenuItem} from '@material-ui/core';
+// import {AdbIcon} from '@material-ui/core';
 import useStyles from './styles';
 import GGC from '../../images/GGClogo.jpg';
 
@@ -58,9 +59,12 @@ const Navbar = () => {
                     </div>
                 </Toolbar>
             ) : (
-                <MenuItem className={classes.drop} variant="h2" align="right">Hello</MenuItem>
-            )}
-           
+                
+                <MenuItem className={classes.drop} variant="h2" align="right"></MenuItem>
+               
+          
+           )}
+          
         </AppBar>
    );
 };

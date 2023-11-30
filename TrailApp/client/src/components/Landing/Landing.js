@@ -96,13 +96,13 @@ const Landing = () => {
                             <div class="d-lg-flex align-items-center justify-content-between">
                                 <div class = "p-3">
                                     <h1>Walking Trails App </h1>
-                                <h2 class="lead my-4">
-                                    Discover wellness with every step on our scenic walking trails.
-                                </h2>
+                                <p class="lead my-4">
+                                Embark on a journey of well-being as you explore our picturesque walking trails. Each step unveils a path to wellness, inviting you to immerse yourself in nature's tranquility. Our scenic trails are more than a route; they are a gateway to a healthier, revitalized you.
+                                </p>
                                 <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                             </div>
                             <img
-                                class="img-fluid w-50 d-none d-sm-block"
+                                class="img-fluid w-50 p-5 d-sm-none d-lg-block"
                                 src={pic1}
                                 alt=""
                             />
@@ -182,7 +182,7 @@ const Landing = () => {
                 <section id="learn" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="text-white row align-items-center justify-content-between">
-                            <div class="col-md">
+                            <div class="col-md d-sm-none d-lg-block">
                                 <img src={pic2} class="img-fluid" alt="" />
                             </div>
                             <div class="col-md p-5">
@@ -216,7 +216,7 @@ const Landing = () => {
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
                             </div>
-                            <div class="col-md">
+                            <div class="col-md d-sm-none d-lg-block">
                                 <img src={pic3} class="img-fluid" alt="" />
                             </div>
                         </div>
