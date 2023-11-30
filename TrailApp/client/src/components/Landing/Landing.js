@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
-import pic1 from '../../images/handshake.jpg';
+import pic1 from '../../images/trailpic.png';
+import pic2 from '../../images/personalized.jpg';
+import pic3 from '../../images/handshake1.jpg';
 
 const Landing = () => {
     const classes = useStyles();
@@ -101,7 +103,7 @@ const Landing = () => {
                             </div>
                             <img
                                 class="img-fluid w-50 d-none d-sm-block"
-                                src="pic1"
+                                src={pic1}
                                 alt=""
                             />
                         </div>
@@ -180,7 +182,7 @@ const Landing = () => {
                     <div class="container">
                         <div class="text-white row align-items-center justify-content-between">
                             <div class="col-md">
-                                <img src="img/fundamentals.svg" class="img-fluid" alt="" />
+                                <img src={pic2} class="img-fluid" alt="" />
                             </div>
                             <div class="col-md p-5">
                                 <h2>Personalized Workouts/Workout spaces</h2>
@@ -213,7 +215,7 @@ const Landing = () => {
                                 </a>
                             </div>
                             <div class="col-md">
-                                <img src="WalkingTrailApp/TrailApp/client/src/images/handshake.jpg" class="img-fluid" alt="" />
+                                <img src={pic3} class="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>
