@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
+import Footer from '../../components/Navbar/Footer.js';
 import pic1 from '../../images/trailpic.png';
 import pic2 from '../../images/personalized.jpg';
 import pic3 from '../../images/handshake1.jpg';
@@ -11,7 +12,7 @@ const Landing = () => {
 
     return (
  
-        <Container>
+        <Container maxWidth="xl">
             <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -198,7 +199,6 @@ const Landing = () => {
                             </div>
                         </div>
                     </div>
-                    <hr></hr>
                 </section>
                 
                 <section id="learn" class="p-5 bg-dark text-light">
@@ -498,7 +498,7 @@ const Landing = () => {
                 </section>
 
                 {/*<-- Footer -->*/}
-                <footer class="rounded shadow-lg p-5 bg-white text-primary text-center position-relative">
+                {/* <footer class="rounded shadow-lg p-5 bg-white text-primary text-center position-relative">
                     <div>
                         <h1 class="lead">Copyright &copy; Walking Trails</h1>
 
@@ -506,7 +506,7 @@ const Landing = () => {
                             <i class="bi bi-arrow-up-circle h1"></i>
                         </a>
                     </div>
-                </footer>
+                </footer> */}
 
                {/*} <!-- Modal -->*/}
                 {/* <div
@@ -583,7 +583,7 @@ const Landing = () => {
     </script>*/}
             </body>
         </html>
-
+<Footer />
 </Container >
 
 
