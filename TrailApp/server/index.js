@@ -32,7 +32,7 @@ app.use('/nutrition', nutritionRoutes);
 
 //const PORT = process.env.PORT || 5000;
 const PORT = 5000;
-const CONNECTION_URL = 'mongodb+srv://drew:LdOab2WPL0h4lOJX>@trails.uhojira.mongodb.net/?retryWrites=true&w=majority'
+const CONNECTION_URL = 'mongodb+srv://gsmith32:Gregory1247@trails.uhojira.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))

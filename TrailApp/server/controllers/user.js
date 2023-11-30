@@ -12,7 +12,7 @@ const CLIENT_ID = '222736919095-8clp3t7ndllhnf6jt0n1buveh6a97i62.apps.googleuser
 
 export const signin = async (req, res) => {
     const { email, password } = req.body;
-
+    console.log(email);
     try {
         const existingUser = await User.findOne({ email });
 
@@ -84,14 +84,17 @@ export const googleSignIn = async(req, res) =>{
         // console.log("Watch out ticket incoming");
         // console.log(ticket);
         const payload = ticket.getPayload();
+        
         const email = payload.email;
         const name =  payload.given_name + (payload.family_name? payload.family_name :'');
         let user = await User.findOne({email});
+        
         let result;
         if(!user){
             const password = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8).toUpperCase() + "!@#$%^&*()_+";
             const hashedPassword = await bcrypt.hash(password,12);
-            const createdUser = await User.create({email,name,hashedPassword, role:'user'});
+            
+            const createdUser = await User.create({email,name,password:hashedPassword, role:'user'});
             result = createdUser;
             user = createdUser;
         }

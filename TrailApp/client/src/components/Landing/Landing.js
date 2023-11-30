@@ -2,14 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
-
+import Footer from '../../components/Navbar/Footer.js';
+import pic1 from '../../images/trailpic.png';
+import pic2 from '../../images/personalized.jpg';
+import pic3 from '../../images/handshake1.jpg';
 
 const Landing = () => {
     const classes = useStyles();
 
     return (
  
-        <Container>
+        <Container maxWidth="xl">
             <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -65,7 +68,7 @@ const Landing = () => {
                     </nav>
               */}
 
-<nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+{/* <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
                 <div className="container">
                     
                     <button
@@ -79,12 +82,12 @@ const Landing = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <Link to="/auth" className="nav-link btn bg-dark text-white">Sign In</Link>
+                                
                             </li>
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> */}
               
                     {/*} <!-- Showcase -->*/}
                     <section
@@ -94,22 +97,23 @@ const Landing = () => {
                             <div class="d-lg-flex align-items-center justify-content-between">
                                 <div class = "p-3">
                                     <h1>Walking Trails App </h1>
-                                <h2 class="lead my-4">
-                                    Discover wellness with every step on our scenic walking trails.
-                                </h2>
-                                <Button class = "btn btn-primary" component={Link} to="/Home" variant="contained" color="primary" className={classes.submit}>Maps</Button>
+                                <p class="lead my-4">
+                                Embark on a journey of well-being as you explore our picturesque walking trails. Each step unveils a path to wellness, inviting you to immerse yourself in nature's tranquility. Our scenic trails are more than a route; they are a gateway to a healthier, revitalized you.
+                                </p>
+                                <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                             </div>
                             <img
-                                class="img-fluid w-50 d-none d-sm-block"
-                                src="images/trailpic.jpg"
+                                class="img-fluid w-50 p-5 d-sm-none d-lg-block"
+                                src={pic1}
                                 alt=""
                             />
                         </div>
                     </div>
+                    <hr></hr>
                 </section>
-
+                
                 {/*<!-- Newsletter -->*/}
-                <section class="bg-secondary text-light p-5">
+                <section class="bg-dark text-light p-5">
                     <div class="container">
                         <div class="d-md-flex justify-content-between align-items-center">
                             <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
@@ -136,7 +140,8 @@ const Landing = () => {
                                         <p class="card-text">
                                         Gwinnett County, with its blend of growth and grace, progress and heritage, 
                                         stands as a beacon of what the future can hold.
-                                        </p>
+                                        </p> {/*  In this section there is information about gwinnett county, information about gwinnett college,
+                                                  there is simple qutoes */}
                                         <a href="#" class="btn btn-primary">Read More</a>
                                     </div>
                                 </div>
@@ -175,11 +180,11 @@ const Landing = () => {
                 </section>
 
                 {/* <!-- Learn Sections -->*/}
-                <section id="learn" class="p-5 bg-secondary text-light">
+                <section id="workout" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="text-white row align-items-center justify-content-between">
-                            <div class="col-md">
-                                <img src="img/fundamentals.svg" class="img-fluid" alt="" />
+                            <div class="col-md d-sm-none d-lg-block">
+                                <img src={pic2} class="img-fluid" alt="" />
                             </div>
                             <div class="col-md p-5">
                                 <h2>Personalized Workouts/Workout spaces</h2>
@@ -195,28 +200,24 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
-                <hr></hr>
-                <section id="learn" class="p-5 bg-dark text-light">
+                
+                <section id="community" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="row align-items-center justify-content-between">
                             <div class="col-md p-5">
                                 <h2>Community Partners</h2>
                                 <p class="lead">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Similique deleniti possimus magnam corporis ratione facere!
+                                A community partner is a cornerstone of collaborative progress, embodying the spirit of unity and shared purpose.
+                                 These vital allies, whether they are local businesses, non-profit organizations, 
+                                educational institutions, or individual activists, play a pivotal role in weaving the social fabric of a community.
                                 </p>
-                                <p>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
-                                    reiciendis eius autem eveniet mollitia, at asperiores suscipit
-                                    quae similique laboriosam iste minus placeat odit velit quos,
-                                    nulla architecto amet voluptates?
-                                </p>
+                               
                                 <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
                             </div>
-                            <div class="col-md">
-                                <img src="WalkingTrailApp/TrailApp/client/src/images/handshake.jpg" class="img-fluid" alt="" />
+                            <div class="col-md d-sm-none d-lg-block">
+                                <img src={pic3} class="img-fluid" alt="" />
                             </div>
                         </div>
                     </div>
@@ -236,7 +237,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-one"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        Where is Gwinnett county located at?
                                     </button>
                                 </h2>
                                 <div
@@ -264,7 +265,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-two"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How many minute does it take to run 1 mile?
                                     </button>
                                 </h2>
                                 <div
@@ -292,7 +293,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-three"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How big is Georgia Gwinnett College?
                                     </button>
                                 </h2>
                                 <div
@@ -320,7 +321,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-four"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How to do push ups with one hand?
                                     </button>
                                 </h2>
                                 <div
@@ -348,7 +349,7 @@ const Landing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#question-five"
                                     >
-                                        Lorem ipsum dolor sit amet.
+                                        How big is the gold trail?
                                     </button>
                                 </h2>
                                 <div
@@ -497,18 +498,18 @@ const Landing = () => {
                 </section>
 
                 {/*<-- Footer -->*/}
-                <footer class="p-5 bg-dark text-white text-center position-relative">
-                    <div class="container">
-                        <p class="lead">Copyright &copy; Gwinnett Trails</p>
+                {/* <footer class="rounded shadow-lg p-5 bg-white text-primary text-center position-relative">
+                    <div>
+                        <h1 class="lead">Copyright &copy; Walking Trails</h1>
 
                         <a href="#" class="position-absolute bottom-0 end-0 p-5">
                             <i class="bi bi-arrow-up-circle h1"></i>
                         </a>
                     </div>
-                </footer>
+                </footer> */}
 
                {/*} <!-- Modal -->*/}
-                <div
+                {/* <div
                     class="modal fade"
                     id="enroll"
                     tabindex="-1"
@@ -561,7 +562,7 @@ const Landing = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 {/*ignore this}
                 {/*}  <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -582,7 +583,7 @@ const Landing = () => {
     </script>*/}
             </body>
         </html>
-
+<Footer />
 </Container >
 
 

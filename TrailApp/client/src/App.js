@@ -3,6 +3,7 @@ import { Container } from '@material-ui/core';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Navbar from './components/Navbar/Navbar.js';
+import Footer from './components/Navbar/Footer.js';
 import Blog from './components/Blog/Blog.js';
 import Auth from './components/Auth/Auth.js';
 import Landing from './components/Landing/Landing.js';
@@ -45,6 +46,7 @@ const App = () => (
                     <Route path ="/grayAdmin" element = {<GrayAdmin/>}/>
                     <Route path="/nutritionAdmin" element={<NutritionAdmin />} />
                 </Routes>
+                {/* <Footer /> */}
             </Container>
         </BrowserRouter>
     </GoogleOAuthProvider>

@@ -9,10 +9,15 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    padding: '10px 5px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
+  },
+  drop:{
+    right: '0',
+    display: 'flex',
+    padding: '5px 10px',
   },
   heading: {
     color: theme.palette.primary.main,
@@ -44,7 +49,9 @@ export default makeStyles((theme) => ({
     },
   },
   logout: {
-    marginLeft: '20px',
+    marginLeft: '50px',
+    padding: '5px 10px', 
+    justifyContent: 'flex-end',
   },
   userName: {
     display: 'flex',
@@ -58,5 +65,9 @@ export default makeStyles((theme) => ({
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
+  },
+  footerText: {
+    flexGrow: 1,
+    textAlign: 'center',
   },
 }));
