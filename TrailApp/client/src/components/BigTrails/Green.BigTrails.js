@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GreenCoords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
+import video5 from '../../videos/ProjectVideo5.mp4';
 
 
 const Green = () => {                   
@@ -23,11 +24,14 @@ const Green = () => {
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
 
+    const [isVideoOpen, setIsVideoOpen] = useState(false);//video opener
+    const [videoSource, setVideoSource] = useState(null);
+
     //sets center of map
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+        // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCenter({ lat: 33.9818935074201, lng: -84.00325859457956 });
-        });
+        // });
     }, []);
 
     //get markers from db
@@ -36,8 +40,30 @@ const Green = () => {
     }, [dispatch])
 
     //when marker is clicked
-    const handleMarkerClick = (event) => {
-        setSelectedMarker(event);
+    const handleMarkerClick = (marker) => {
+        if (selectedMarker && selectedMarker.key === marker.key) {
+            // If the same marker is clicked, close the video
+            setSelectedMarker(null);
+            setIsVideoOpen(false);
+        } else {
+            // Close the current video before opening a new one
+            setSelectedMarker(marker);
+            setMarkerFormData({
+                lat: marker.lat,
+                lng: marker.lng,
+                name: marker.name,
+                exercise: marker.exercise,
+                img: marker.img,
+                text: marker.text,
+            });
+            setVideoSource(marker.videoSource);
+            setIsVideoOpen(true);
+        }
+    };
+
+    const closeVideo = () => {
+        setSelectedMarker(null);
+        setIsVideoOpen(false);
     };
 
     return (
@@ -47,14 +73,26 @@ const Green = () => {
                 <Typography variant="h6">Green Trail</Typography>
 
                 <Typography>
-                    {selectedMarker?.name}
-                    <br/>
-                    {selectedMarker?.lat}
-                    <br/>
-                    {selectedMarker?.lng}
-                    <br/>
-                    {selectedMarker?.key}
-                    <br/>
+                {!selectedMarker && !isVideoOpen && (
+                            <p>CLICK MARKER TO VIEW VIDEO</p>
+                )}
+
+                {selectedMarker && isVideoOpen && (
+                    <div>
+                        <video width="325px" height="auto" controls="controls" autoPlay>
+                            <source src={videoSource} type="video/mp4" />
+                        </video>
+                        <h5>{selectedMarker.name}</h5>
+                        <p>{selectedMarker.exercise}</p>
+                        <Button onClick={closeVideo} variant="contained" color="primary">
+                            Close Video
+                        </Button>
+                       <br/>
+                       <br/>
+                    
+                    </div>
+                )}
+                   
                 </Typography>
 
                 <Divider/>
@@ -85,11 +123,12 @@ const Green = () => {
                                     key: 1,
                                     lat: 33.97809098899297,
                                     lng: -84.00006969125516,
-                                    name: "First",
+                                    name: "WRC Marker",
+                                    videoSource: video5,
                                 })}
                             />
                             {/* database markers */}
-                            {markers.map((marker) => (
+                            {/* {markers.map((marker) => (
                             <Marker 
                                 position={{lat: marker.lat, lng: marker.lng}}
                                 onClick={() => handleMarkerClick({
@@ -99,7 +138,7 @@ const Green = () => {
                                     name: marker.name,
                                 })}
                             />
-                            ))}
+                            ))} */}
 
                             {/* current marker */}
                             {markerFormData.lat && markerFormData.lng && (

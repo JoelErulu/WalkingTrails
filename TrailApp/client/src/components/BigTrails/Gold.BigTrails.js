@@ -116,44 +116,44 @@ const Gold = () => {
                             options={MapID}
                         >
                             {/* Markers with different video sources */}
-            <Marker
-                position={{ lat: 33.9804327949268, lng: -84.00527240759934 }}
-                onClick={() =>
-                    handleMarkerClick({
-                        key: 1,
-                        lat: 33.9804327949268,
-                        lng: -84.00527240759934,
-                        name: "B Building Marker",
-                        videoSource: video1,
-                    })
-                }
-            />
+                            <Marker
+                                position={{ lat: 33.9804327949268, lng: -84.00527240759934 }}
+                                onClick={() =>
+                                    handleMarkerClick({
+                                        key: 1,
+                                        lat: 33.9804327949268,
+                                        lng: -84.00527240759934,
+                                        name: "B Building Marker",
+                                        videoSource: video1,
+                                    })
+                                }
+                            />
 
-            <Marker
-                position={{ lat: 33.979179, lng: -84.007273 }}
-                onClick={() =>
-                    handleMarkerClick({
-                        key: 2,
-                        lat: 33.979179,
-                        lng: -84.007273,
-                        name: "Basketball Court Marker",
-                        videoSource: video2,
-                    })
-                }
-            />
+                            <Marker
+                                position={{ lat: 33.979179, lng: -84.007273 }}
+                                onClick={() =>
+                                    handleMarkerClick({
+                                        key: 2,
+                                        lat: 33.979179,
+                                        lng: -84.007273,
+                                        name: "Basketball Court Marker",
+                                        videoSource: video2,
+                                    })
+                                }
+                            />
 
-            <Marker
-                position={{ lat: 33.982496, lng: -84.000953 }}
-                onClick={() =>
-                    handleMarkerClick({
-                        key: 3,
-                        lat: 33.982496,
-                        lng: -84.000953,
-                        name: "University Center Ln Marker",
-                        videoSource: video3,
-                    })
-                }
-            />
+                            <Marker
+                                position={{ lat: 33.982496, lng: -84.000953 }}
+                                onClick={() =>
+                                    handleMarkerClick({
+                                        key: 3,
+                                        lat: 33.982496,
+                                        lng: -84.000953,
+                                        name: "University Center Ln Marker",
+                                        videoSource: video3,
+                                    })
+                                }
+                            />
 
                             {/* current marker */}
                             {markerFormData.lat && markerFormData.lng && (
