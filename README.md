@@ -87,4 +87,4 @@ Fall 2023
 
 ### link to the demo of the app running
 
-https://youtu.be/kh5tvO762no
+https://www.youtube.com/watch?v=8drI70lBk_8 
