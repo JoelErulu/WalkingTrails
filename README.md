@@ -2,7 +2,7 @@
 
 [Repo URL](https://github.com/GGC-SD/WalkingTrailApp.git)
 
-Run app Spring 2023: [Walking App, Spring 2023 version](ggctrail.onrender.com/)
+Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrender.com/)
 
 ### Description
 
