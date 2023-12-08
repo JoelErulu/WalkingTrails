@@ -2,6 +2,8 @@
 
 [Repo URL](https://github.com/GGC-SD/WalkingTrailApp.git)
 
+Run app Spring 2023: [Walking App, Spring 2023 version](ggctrail.onrender.com/)
+
 ### Description
 
 A fitness app which allows users to experience trails through a digital experience. Users in the future will be able to scan QR codes to learn about trails they are exploring, create blog posts, and begin personalized workouts
