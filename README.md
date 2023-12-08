@@ -69,21 +69,26 @@ This project uses the MERN Stack
 4. Enter "npm start" in the terminal
 
 ### Team Roles
+
 Fall 2023
 1. Khales Rahman: Team Manager / Lead programmer
 2. Drew Kuykendall: Testing Lead / Data Modeler
 3. Greg Smith: UI/UX / Client Liason
 4. Rahul Biswas: Documentation lead / Code architecture
+
 ### List of working features
 
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
-2. Interactive Map - Admin can create markers that contain content (Excercises, nutrition information, )
+2. Interactive Map - markers that contain content 
 3. Admin view - Admin can assign privleges, create content, update content, delete content.
 
 ### Features for the future
 
 1. Have comments and reviews of trails posted on the blog
 2. Offline/True GPS tracking (High difficulty, if you want to do this then start immediately or you won't have enough time to complete)
+3. Simple portal for admins to add media and markers
+4. Functioning database to store media and marker information
+5. Possibly newsletter functinality as per requested by the clients 
 
 ### link to the demo of the app running
 
