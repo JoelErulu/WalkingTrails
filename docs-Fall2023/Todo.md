@@ -9,6 +9,8 @@
 2. Ensure efficient data retrieval for user experience.
 ## Blog
 1. Update interface
+## Admin Portal
+2. Allows the admin to ad videos and markers without having to worrying about the code
 
 # Other Possible Updates
 ## Stop using Google Map API 
