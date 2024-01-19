@@ -72,11 +72,8 @@ This project uses the MERN Stack
 
 ### Team Roles
 
-Fall 2023
-1. Khales Rahman: Team Manager / Lead programmer
-2. Drew Kuykendall: Testing Lead / Data Modeler
-3. Greg Smith: UI/UX / Client Liason
-4. Rahul Biswas: Documentation lead / Code architecture
+**Spring 2024**
+1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
 
 ### List of working features
 
