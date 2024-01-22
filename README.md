@@ -74,6 +74,7 @@ This project uses the MERN Stack
 
 **Spring 2024**
 1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
+2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison 
 
 ### List of working features
 
