@@ -74,12 +74,12 @@ This project uses the MERN Stack
 
 **Spring 2024**
 1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
-2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison 
-
+2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison*
+3. Kiet Ly - *Lead Programmer/Team Manager*
 ### List of working features
 
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
-2. Interactive Map - markers that contain content 
+2. Interactive Map - markers that contain content
 3. Admin view - Admin can assign privleges, create content, update content, delete content.
 
 ### Features for the future
@@ -88,7 +88,7 @@ This project uses the MERN Stack
 2. Offline/True GPS tracking (High difficulty, if you want to do this then start immediately or you won't have enough time to complete)
 3. Simple portal for admins to add media and markers
 4. Functioning database to store media and marker information
-5. Possibly newsletter functinality as per requested by the clients 
+5. Possibly newsletter functinality as per requested by the clients
 
 ### link to the demo of the app running
 
