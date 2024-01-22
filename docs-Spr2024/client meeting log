@@ -1,4 +1,10 @@
 First meeting @Teams
 Date: Jan 19th 2024, 12:00PM ～ 12:45PM
-Attendees: Dr.Kristie, Dr.Karen, Khadija, Luke, Kiet 
------------------------------------------------------
+Attendees: Dr.Kristie, Dr.Karen, Khadija, Luke, Kiet
+Key Points:
+1- Working on developing a database to store and manage various types of media, including images, videos, and QR codes.
+2- GPS tracking is not currently a priority feature, but could be considered for future implementation.
+3- Current focus is to develop the core functionalities of the app, such as registration form, feedback system, and video thumbs-up/thumbs-down feature.
+4- Testing and deployment are also high priorities.
+5- Separate login for administrator is also needed for security measure and key feature like adding markers/ports to the map on the trail.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
