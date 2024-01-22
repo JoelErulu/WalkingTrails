@@ -1,6 +1,35 @@
 # WalkingTrailApp
 
+### Semester
+
+Spring 2024
+
+### Team Name
+
+Diamonds
+
+### Project Name
+
+Walking Trail - GGC Trail Guide
+
+### Repository Location URL:
+
 [Repo URL](https://github.com/GGC-SD/WalkingTrailApp.git)
+
+### Progress Tracking Tool and URL
+
+Jira
+
+### Secondary Communication Tool
+
+GroupMe
+
+### Team Roles
+
+**Spring 2024**
+1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
+2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison*
+3. Kiet Ly - *Lead Programmer/Team Manager*
 
 Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrender.com/)
 
@@ -70,12 +99,6 @@ This project uses the MERN Stack
 3. Move to the "server" directory inside of the TrailApp foler
 4. Enter "npm start" in the terminal
 
-### Team Roles
-
-**Spring 2024**
-1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
-2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison*
-3. Kiet Ly - *Lead Programmer/Team Manager*
 ### List of working features
 
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
