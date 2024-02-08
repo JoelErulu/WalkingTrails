@@ -93,6 +93,7 @@ export const googleSignIn = async(req, res) =>{
         if(!user){
             const password = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8).toUpperCase() + "!@#$%^&*()_+";
             const hashedPassword = await bcrypt.hash(password,12);
+            
             const createdUser = await User.create({email,name,password:hashedPassword, role:'user'});
             result = createdUser;
             user = createdUser;

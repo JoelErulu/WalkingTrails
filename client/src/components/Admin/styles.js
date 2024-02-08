@@ -11,10 +11,8 @@ export default makeStyles((theme) => ({
   select: {
     margin: theme.spacing(0, 0, 2),
   },
-  submitButton: { // Changed the name to avoid duplication
+  submit: {
     margin: theme.spacing(3, 0, 2),
-    padding: theme.spacing(1), // Added padding
-    top: '5%',
   },
   media: {
     height: 0,
@@ -66,7 +64,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   gridContainer: {
-    flexDirection: 'row',
+      flexDirection: 'row',
   },
   gridItem: {
     textAlign: 'center',
@@ -76,8 +74,12 @@ export default makeStyles((theme) => ({
     height: 'auto',
     objectFit: 'cover',
   },
+  submit: {
+    padding: theme.spacing(1),
+    top: '5%',
+  },
   welcomeAdmin: {
-    border: 'solid',
+    border: 'soild',
     background: 'white',
     textAlign: 'center',
     fontSize: 40,

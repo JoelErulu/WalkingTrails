@@ -11,7 +11,7 @@ const Landing = () => {
     const classes = useStyles();
 
     return (
-
+ 
         <Container maxWidth="xl">
             <html lang="en">
                 <head>
@@ -70,7 +70,7 @@ const Landing = () => {
 
 {/* <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
                 <div className="container">
-
+                    
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -82,13 +82,13 @@ const Landing = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-
+                                
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav> */}
-
+              
                     {/*} <!-- Showcase -->*/}
                     <section
                         class="bg-dark text-light p-5 pb-5 p-lg-0 pt-lg-5 text-center text-sm-start"
@@ -111,7 +111,7 @@ const Landing = () => {
                     </div>
                     <hr></hr>
                 </section>
-
+                
                 {/*<!-- Newsletter -->*/}
                 <section class="bg-dark text-light p-5">
                     <div class="container">
@@ -138,7 +138,7 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">Gwinnett</h3>
                                         <p class="card-text">
-                                        Gwinnett County, with its blend of growth and grace, progress and heritage,
+                                        Gwinnett County, with its blend of growth and grace, progress and heritage, 
                                         stands as a beacon of what the future can hold.
                                         </p> {/*  In this section there is information about gwinnett county, information about gwinnett college,
                                                   there is simple qutoes */}
@@ -154,7 +154,7 @@ const Landing = () => {
                                         </div>
                                         <h3 class="card-title mb-3">GGC</h3>
                                         <p class="card-text">
-                                        Gwinnett College, a beacon of learning and aspiration,
+                                        Gwinnett College, a beacon of learning and aspiration, 
                                         stands proudly as a crucible of knowledge.
                                         </p>
                                         <a href="#" class="btn btn-primary">Read More</a>
@@ -189,10 +189,10 @@ const Landing = () => {
                             <div class="col-md p-5">
                                 <h2>Personalized Workouts/Workout spaces</h2>
                                 <p class="lead">
-                                Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness.
+                                Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness. 
                                 This concept transcends the one-size-fits-all model, recognizing that each body is unique, each fitness journey distinct, and every goal personal.
                                 </p>
-
+                               
                                 <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
@@ -200,7 +200,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
-
+                
                 <section id="community" class="p-5 bg-dark text-light">
                     <div class="container">
                         <div class="row align-items-center justify-content-between">
@@ -208,10 +208,10 @@ const Landing = () => {
                                 <h2>Community Partners</h2>
                                 <p class="lead">
                                 A community partner is a cornerstone of collaborative progress, embodying the spirit of unity and shared purpose.
-                                 These vital allies, whether they are local businesses, non-profit organizations,
+                                 These vital allies, whether they are local businesses, non-profit organizations, 
                                 educational institutions, or individual activists, play a pivotal role in weaving the social fabric of a community.
                                 </p>
-
+                               
                                 <a href="#" class="btn btn-primary mt-3">
                                     <i class="bi bi-chevron-right"></i> Read More
                                 </a>
@@ -222,7 +222,7 @@ const Landing = () => {
                         </div>
                     </div>
                 </section>
-
+                
                 {/*<!-- Question Accordion -->*/}
                 <section id="questions" class="p-5">
                     <div class="container">

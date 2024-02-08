@@ -3,7 +3,6 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { navigate } from 'react-router-dom';
 import { googleLogin } from '../../api';
 import { useDispatch } from 'react-redux';
-import * as jest from "node/test";
 
 jest.mock('@react-oauth/google');
 // jest.mock('react-router-dom');
