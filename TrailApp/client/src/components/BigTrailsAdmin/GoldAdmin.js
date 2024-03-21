@@ -14,7 +14,7 @@ const Gold = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     
-    const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
+    const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',  video: '', };
 
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
@@ -110,6 +110,11 @@ const Gold = () => {
                 <TextField name='exersice' variant="outlined" label="Exercise" margin="normal" value={markerFormData.exercise}
                 onChange={(e) => setMarkerFormData({...markerFormData, exercise: e.target.value})}></TextField>
                 <br/>
+                <br/>
+                    <div>
+                        <FileBase type="file" multiple={false} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, video: base64 })}/>
+                        <label htmlFor="video-upload">Upload Video</label>
+                    </div>
                 <Collapse>
                 <TextField name='lat' variant="outlined" label="Latitude" value = {markerFormData.lat} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 <br/>

@@ -34,12 +34,12 @@ const Admin = () => {
 
     return (
         <>
-        
+
         <Container component="main" maxWidth="xl">
         <Typography className={classes.paper} variant="h5">Admin</Typography>
                 <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={0}>
                 <FormControl variant="filled" fullWidth>
-                    
+
                         <InputLabel id="demo-simple-select-label">Trails</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
@@ -50,7 +50,7 @@ const Admin = () => {
                         >
                             {trails.map((trail) => (
                                 <MenuItem key ={trail._id} value={trail.title}>{trail.title}</MenuItem>
-                                
+
                             ))}
                         </Select>
                     </FormControl><br></br>
@@ -69,4 +69,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default Admin; 

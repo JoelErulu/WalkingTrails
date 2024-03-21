@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+const Grid = require('gridfs-stream');
+
 import OAuth2Client from 'google-auth-library';
 import GoogleAuth from 'google-auth-library';
 import {auth} from 'google-auth-library'
@@ -12,6 +14,8 @@ import userRoutes from './routes/users.js';
 import trailRoutes from './routes/trails.js';
 import markerRoutes from './routes/marker.js';
 import nutritionRoutes from './routes/nutrition.js';
+import videoRoutes from './routes/video.js';
+
 
 const path = ('path');
 const dotenv = ('dotenv');
@@ -29,11 +33,15 @@ app.use('/trails', trailRoutes);
 // app.use('/googleLogin', trailRoutes);
 app.use('/marker', markerRoutes);
 app.use('/nutrition', nutritionRoutes);
+app.use('/videos', videoRoutes);
 
 //const PORT = process.env.PORT || 5000;
 const PORT = 5000;
-const CONNECTION_URL = 'mongodb+srv://gsmith32:Gregory1247@trails.uhojira.mongodb.net/?retryWrites=true&w=majority'
+const CONNECTION_URL = 'mongodb+srv://gsmith32:Gregory1247@trails.uhojira.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
+    .then(() => {const db = mongoose.connection;
+                 const grid = new Grid(db.db, mongoose.mongo);
+                 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));})
+
     .catch((error) => console.log(error.message));

@@ -12,6 +12,8 @@ import userRoutes from './routes/users.js';
 import trailRoutes from './routes/trails.js';
 import markerRoutes from './routes/marker.js';
 import nutritionRoutes from './routes/nutrition.js';
+import videoRoutes from './routes/video.js';
+
 
 const path = ('path');
 const dotenv = ('dotenv');
@@ -29,6 +31,8 @@ app.use('/trails', trailRoutes);
 // app.use('/googleLogin', trailRoutes);
 app.use('/marker', markerRoutes);
 app.use('/nutrition', nutritionRoutes);
+app.use('/videos', videoRoutes); // Use the video routes
+
 
 //const PORT = process.env.PORT || 5000;
 const PORT = 5000;

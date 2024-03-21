@@ -11,9 +11,6 @@ export default makeStyles((theme) => ({
   select: {
     margin: theme.spacing(0, 0, 2),
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
   media: {
     height: 0,
     paddingTop: '56.25%',
