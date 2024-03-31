@@ -13,6 +13,10 @@ import { googleLogin } from '../../api/index.js';
 
 
 
+
+
+
+
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {

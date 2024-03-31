@@ -34,8 +34,8 @@ app.use('/nutrition', nutritionRoutes);
 app.use('/videos', videoRoutes); // Use the video routes
 
 
-//const PORT = process.env.PORT || 5000;
-const PORT = 5000;
+//const PORT = process.env.PORT || 5001;
+const PORT = 5001;
 const CONNECTION_URL = 'mongodb+srv://gsmith32:Gregory1247@trails.uhojira.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
