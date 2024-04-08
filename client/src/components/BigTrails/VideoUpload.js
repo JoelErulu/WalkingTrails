@@ -20,14 +20,14 @@ const VideoUpload = ({ onUpload }) => {
         if (!response.ok) {
           throw new Error('Failed to upload video');
         }
-        return response.json(); // Assuming your server returns some data after successful upload
+        return response.json();
       })
       .then(data => {
         console.log('Video uploaded successfully:', data);
-        // Optionally, you can perform any additional actions after successful upload
-        // For example, you can update the UI or notify the user
+        // Optionally,we can perform any additional actions after successful upload
+        // For example, we can update the UI or notify the user
         if (typeof onUpload === 'function') {
-          onUpload(data); // You can pass any relevant data to the parent component
+          onUpload(data); // pass any relevant data to the parent component
         }
       })
       .catch(error => {

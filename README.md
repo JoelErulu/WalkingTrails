@@ -104,6 +104,7 @@ This project uses the MERN Stack
 1. Authentication - Create an account, store credentials in Mongoose, and access user-specific data. Log in to existsing accounts.
 2. Interactive Map - markers that contain content
 3. Admin view - Admin can assign privleges, create content, update content, delete content.
+4. Video upload - Users can upload video to markers, and video is stored on MongoDB
 
 ### Features for the future
 
@@ -112,6 +113,7 @@ This project uses the MERN Stack
 3. Simple portal for admins to add media and markers
 4. Functioning database to store media and marker information
 5. Possibly newsletter functinality as per requested by the clients
+6. Like and dislike function to videos
 
 ### link to the demo of the app running
 

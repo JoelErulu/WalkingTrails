@@ -1,5 +1,7 @@
 import { Readable } from 'stream';
 import mongoose from 'mongoose';
+// import { ObjectId } from 'mongodb';
+
 
 // Connect to MongoDB and get the database connection
 const conn = mongoose.connection;
@@ -7,7 +9,7 @@ let gfs;
 conn.once('open', () => {
   // Initialize GridFS Bucket
   gfs = new mongoose.mongo.GridFSBucket(conn.db, {
-    bucketName: 'videos' // The name of the bucket. Use 'videos' or whatever name you prefer
+    bucketName: 'videos' 
   });
 });
 
@@ -42,7 +44,6 @@ export const uploadVideo = (req, res) => {
   });
 };
 
-import { ObjectId } from 'mongodb';
 
 // Function to get video by ID
 export const getVideoById = (req, res) => {
@@ -74,7 +75,7 @@ export const likeVideo = async (req, res) => {
     if (!video) {
       return res.status(404).json({ message: 'Video not found' });
     }
-    video.likes += 1; // Increment the likes
+    video.likes += 1; 
     await video.save();
     res.json(video); // Send back the updated video data
   } catch (error) {
@@ -91,7 +92,7 @@ export const dislikeVideo = async (req, res) => {
     if (!video) {
       return res.status(404).json({ message: 'Video not found' });
     }
-    video.dislikes += 1; // Increment the dislikes
+    video.dislikes += 1; 
     await video.save();
     res.json(video); // Send back the updated video data
   } catch (error) {
