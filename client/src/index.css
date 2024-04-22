@@ -4,6 +4,6 @@ body {
     background-repeat: repeat-y;
     background-attachment: fixed;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     /*background-color: #6c757d;*/
 }
