@@ -10,9 +10,10 @@ import {auth} from 'google-auth-library'
 import postRoutes from './routes/posts.js';
 import userRoutes from './routes/users.js';
 import trailRoutes from './routes/trails.js';
-import markerRoutes from './routes/marker.js';
+import markerRoutes from './routes/markers.js';
 import nutritionRoutes from './routes/nutrition.js';
 import videoRoutes from './routes/video.js';
+import {initializeTrails} from "./controllers/trails.js";
 
 
 const path = ('path');
@@ -39,5 +40,12 @@ const PORT = 5000;
 const CONNECTION_URL = 'mongodb+srv://gsmith32:Gregory1247@trails.uhojira.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
-    .catch((error) => console.log(error.message));
+    .then(() => {
+        app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+        initializeTrails().then(() => {
+            console.log('Trails initialized successfully.');
+        }).catch(err => {
+            console.error('Failed to initialize trails:', err);
+        });
+    })
+    .catch((error) => console.error('Database connection failed:', error.message));

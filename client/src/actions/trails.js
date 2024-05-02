@@ -40,3 +40,11 @@ export const deleteTrail = (id) => async (dispatch) => {
         console.log(err);
     }
 }
+export const getTrailByName = (name) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchTrailByName(name);
+        dispatch({ type: 'FETCH_TRAIL', payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};

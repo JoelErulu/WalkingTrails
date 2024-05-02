@@ -1,13 +1,14 @@
 import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
-import useStyles, { GreenTrailOptions, containerStyle, MapID } from './styles.js';
+import useStyles, {GreenTrailOptions, containerStyle, MapID, GreyTrailOptions} from './styles.js';
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GreenCoords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
 import video5 from '../../videos/ProjectVideo5.mp4';
+import { getTrails } from '../../actions/trails';
 
 
 const Green = () => {                   
@@ -26,6 +27,8 @@ const Green = () => {
 
     const [isVideoOpen, setIsVideoOpen] = useState(false);//video opener
     const [videoSource, setVideoSource] = useState(null);
+    const trails = useSelector(state => state.trails);
+    const [selectedTrail, setSelectedTrail] = useState(null);
 
     //sets center of map
     useEffect(() => {
@@ -38,6 +41,17 @@ const Green = () => {
     useEffect(() => {
         dispatch(getMarkers());
     }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getTrails());
+    }, [dispatch]);
+
+    useEffect(() => {
+        const greenTrail = trails.find(trail => trail.name === 'Green Trail');
+        if (greenTrail) {
+            setSelectedTrail(greenTrail);
+        }
+    }, [trails]);
 
     //when marker is clicked
     const handleMarkerClick = (marker) => {
@@ -148,10 +162,14 @@ const Green = () => {
                             />
                             )}
 
-                            <Polyline
-                                path = {GreenCoords}
-                                options={GreenTrailOptions}
-                            />
+                            {selectedTrail && (
+                                <Polyline path={selectedTrail.path.coordinates.map(coord => ({
+                                    lat: coord[1],
+                                    lng: coord[0]
+                                }))}
+                                          options={GreenTrailOptions}
+                                />
+                            )}
                         </GoogleMap>
                     </LoadScript>
                 </div>

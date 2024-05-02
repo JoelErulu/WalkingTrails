@@ -7,35 +7,59 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
+import { getTrails } from '../../actions/trails';
+import formData from "multer/lib/multer-error"; // Import the action to fetch trails
+
 
 
 const Gold = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
-    
+
     const initialState = { lat: '', lng: '', name: '', exercise: '',  img: '',};
 
+    const clearForm = () => {
+        setMarkerFormData(initialState);
+    };
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
 
     const [markerFormData, setMarkerFormData] = useState(initialState);
-    const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
     const [open, setOpen] = useState(false);
+    const trails = useSelector(state => state.trails);
+    const [selectedTrail, setSelectedTrail] = useState(null);
+    const [center, setCenter] = useState({ lat: 33.9804327949268, lng: -84.00527240759934 });
 
     //sets center of map
     useEffect(() => {
         setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
         // navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-            
+
         // });
     }, []);
 
     //get markers from db
     useEffect(() => {
         dispatch(getMarkers());
-    }, [dispatch])
+        dispatch(getTrails());
+    }, [])  // Removed dispatch from dependency array
+
+
+    useEffect(() => {
+        const goldTrail = trails.find(trail => trail.name === 'Gold Trail');
+        if (goldTrail) {
+            setSelectedTrail(goldTrail);
+        }
+    }, [trails]);
+
+    useEffect(() => {
+        console.log("Markers: ", markers);
+    }, [markers]);
+
+
+
 
     //click on map to fill in form data
     const _onClick = (event) => {
@@ -49,17 +73,40 @@ const Gold = () => {
     };
 
     //submit form to create marker
-    const handleSubmit = (e) => {
-        // e.preventDefault();
+    // const handleSubmit = (e) => {
+    //     // e.preventDefault();
+    //
+    //     dispatch(createMarker(markerFormData));
+    //
+    //     if (selectedMarker.key) {
+    //         dispatch(updateMarker(selectedMarker.key, markerFormData));
+    //     }
+    //     clear();
+    //
+    //
+    // };
 
-        dispatch(createMarker(markerFormData));
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const markerData = {
+            name: markerFormData.name,
+            lat: markerFormData.lat,
+            lng: markerFormData.lng,
+            description: markerFormData.description,
+            videoUrl: markerFormData.videoUrl,
+            trailId: selectedTrail._id
+        };
 
-        if (selectedMarker.key) {
-            dispatch(updateMarker(selectedMarker.key, markerFormData));
+        console.log("Submitting Marker Data:", markerData);
+
+        try {
+            await dispatch(createMarker(markerData));
+            alert('Marker created successfully!');
+            clearForm();
+        } catch (error) {
+            console.error('Failed to create marker:', error);
+            alert('Failed to create marker. Please try again.');
         }
-        clear();
-        
-    
     };
 
     const handleDelete = (e) => {
@@ -75,6 +122,34 @@ const Gold = () => {
 
     };
 
+    const [video, setVideo] = useState(null);
+    const [uploadSuccess, setUploadSuccess] = useState(false);
+
+    const handleVideoUpload = file => {
+        const formData = new FormData();
+        formData.append('video', file);
+
+        fetch('/videos/upload-video', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to upload video');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Video uploaded successfully:', data);
+                alert('Video uploaded successfully!');
+                setUploadSuccess(true);
+            })
+            .catch(error => {
+                console.error('Error uploading video:', error);
+                alert('Failed to upload video. Please try again later.');
+            });
+    };
+
     return (
     <Container component="main" maxWidth="xl">
         <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
@@ -82,21 +157,21 @@ const Gold = () => {
                 <Typography className={classes.card} variant="h6" textAlign="center">Gold Trail</Typography>
 
                 <Typography >
- 
+
                 <CardMedia className={classes.media} image={selectedMarker?.img} />
                     <h2 className={classes.title}>{selectedMarker?.name}</h2>
                     <h3 className={classes.exercise} >Exercises here:</h3>
                     <p className={classes.workouts}>{selectedMarker?.exercise}</p>
                     <br/>
-                    
+
 
                 </Typography>
 
                 <Divider/>
-                
-                <Button 
+
+                <Button
                     onClick={() => setOpen(!open)}
-                > Create Checkpoint   
+                > Create Checkpoint
                 {open ?
                 (<Button variant="outlined" color="Secondary"> Close </Button>) : (<Button variant="outlined" color='Primary'> Open  </Button>)
                 }
@@ -116,7 +191,13 @@ const Gold = () => {
                 <TextField name='lng' variant="outlined" label="Longitude" value = {markerFormData.lng} InputLabelProps={{ shrink: true }} margin="normal"></TextField>
                 </Collapse>
                 <br/>
-                <div><FileBase type="file" multiple={false} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64 })}/></div>
+                {/*<div><FileBase type="file" multiple={false} onDone={({ base64 }) => setMarkerFormData({ ...markerFormData, img: base64 })}/></div>*/}
+                    <Typography variant="h6">Upload Video for Gold Trail</Typography>
+                    <Button variant="contained" color="primary" component="label">
+                        Upload Video
+                        <input type="file" accept="video/*" style={{ display: "none" }} onChange={(e) => handleVideoUpload(e.target.files[0])} />
+                    </Button>
+                    {uploadSuccess && <p>Video Uploaded Successfully!</p>}
                 <Button type='submit' color="primary" variant="contained">Create</Button>
                 </form>
                 </Collapse>
@@ -153,35 +234,43 @@ const Gold = () => {
                                     name: "First",
                                 })}
                             />
-                            {/* database markers */}
-                            {markers.map((marker) => (
-                            <Marker 
-                                position={{lat: marker.lat, lng: marker.lng}}
-                                key = {marker._id}
-                                onClick={() => handleMarkerClick({
-                                    key: marker._id,
-                                    lat: marker.lat,
-                                    lng: marker.lng,
-                                    name: marker.name,
-                                    exercise: marker.exercise,
-                                    img: marker.img,
-                                    text: marker.text,
-                                })}
-                            />
-                            ))}
+                            {/* Dynamic markers from state */}
+                            {markers && markers.map((marker) => {
+                                const lat = Number(marker.lat);
+                                const lng = Number(marker.lng);
+                                if (!isNaN(lat) && !isNaN(lng)) {
+                                    return (
+                                        <Marker
+                                            key={marker._id}
+                                            position={{ lat, lng }}
+                                            onClick={() => handleMarkerClick({
+                                                key: marker._id,
+                                                lat: marker.lat,
+                                                lng: marker.lng,
+                                                name: marker.name,
+                                                exercise: marker.exercise,
+                                                img: marker.img,
+                                                text: marker.text,
+                                            })}
+                                        />
+                                    );
+                                } else {
+                                    console.error("Invalid marker coordinates for marker", marker._id, ": ", marker);
+                                    return null;
+                                }
+                            })}
 
-                            {/* current marker */}
-                            {markerFormData.lat && markerFormData.lng && (
-                            <Marker 
-                                position={{lat: markerFormData.lat, lng: markerFormData.lng}}
-                                name = {markerFormData.name}
-                            />
+
+
+                            {selectedTrail && (
+                                <Polyline
+                                    path={selectedTrail.path.coordinates.map(coord => ({
+                                        lat: coord[1], // Assuming coordinates are [longitude, latitude]
+                                        lng: coord[0]
+                                    }))}
+                                    options={GoldTrailOptions}
+                                />
                             )}
-
-                            <Polyline
-                                path = {GoldCords}
-                                options={GoldTrailOptions}
-                            />
                         </GoogleMap>
                     </LoadScript>
                 </div>

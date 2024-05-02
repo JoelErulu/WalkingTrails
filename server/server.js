@@ -1,76 +1,79 @@
-// Import necessary libraries
 import express from 'express';
 import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 import multer from 'multer';
 import { GridFSBucket } from 'mongodb';
+import dotenv from 'dotenv';
 
-// Connect to MongoDB using Mongoose
-mongoose.connect('mongodb+srv://gsmith32:Gregory1247@trails.uhojira.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-const conn = mongoose.connection;
+import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js';
+import trailRoutes from './routes/trails.js';
+import markerRoutes from './routes/markers.js';
+import nutritionRoutes from './routes/nutrition.js';
+import videoRoutes from './routes/video.js';
+import TrailDetail from './models/trailDetail'; // Ensure this is the correct path to your Trail model
 
-// Initiate GridFS stream
-let gfs;
-conn.once('open', () => {
-  gfs = new GridFSBucket(conn.db);
-  gfs.collection('videos'); // Specify the collection name for storing videos
-});
+dotenv.config();
 
-// Set up Multer storage
-const storage = multer.memoryStorage(); // Use memory storage for handling file uploads
-
-// Set up Multer upload middleware
-const upload = multer({ storage });
-
-// Define the Video model and schema using Mongoose
-const videoSchema = new mongoose.Schema({
-  title: String,
-  filename: String,
-  originalname: String,
-  // Add any additional fields you need for your video documents
-});
-
-const Video = mongoose.model('Video', videoSchema);
-
-// Express app
 const app = express();
+const PORT = process.env.PORT || 5000;
+const CONNECTION_URL = process.env.MONGODB_URI;
 
-// Route for uploading a video
-app.post('/upload-video', upload.single('video'), async (req, res) => {
-  try {
-    // Access uploaded video file information from req.file
-    const { originalname, buffer } = req.file;
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(cors());
 
-    // Create a writable stream to store the video file in GridFS
-    const writeStream = gfs.openUploadStream(originalname);
+app.use('/posts', postRoutes);
+app.use('/users', userRoutes);
+app.use('/trails', trailRoutes);
+app.use('/markers', markerRoutes);
+app.use('/nutrition', nutritionRoutes);
+app.use('/videos', videoRoutes);
 
-    // Pipe the file buffer to the GridFS write stream
-    buffer.pipe(writeStream);
+// Database connection and app initialization
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      console.log(`MongoDB connected and server running on port: ${PORT}`);
+      app.listen(PORT);
+    })
+    .catch((error) => console.error(error.message));
 
-    // Once the write stream is finished, save the file metadata to your database
-    writeStream.on('close', (file) => {
-      const newVideo = new Video({
-        title: req.body.title,
-        filename: file.filename,
-        originalname: originalname,
-        // Add any additional metadata fields as needed
-      });
+// GridFS setup for handling file uploads
+const conn = mongoose.createConnection(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-      // Save the new document to MongoDB
-      newVideo.save()
-        .then(() => {
-          res.status(201).json(newVideo);
-        })
-        .catch((error) => {
-          res.status(500).json({ message: 'Could not upload video.', error: error.message });
+conn.once('open', () => {
+  const gfs = new GridFSBucket(conn.db, {
+    bucketName: 'videos'
+  });
+  const storage = multer.memoryStorage();
+  const upload = multer({ storage });
+
+  app.post('/upload-video', upload.single('video'), async (req, res) => {
+    try {
+      const { originalname, buffer } = req.file;
+      const writeStream = gfs.openUploadStream(originalname);
+      const stream = require('stream');
+      const bufferStream = new stream.PassThrough();
+      bufferStream.end(buffer);
+      bufferStream.pipe(writeStream).on('finish', async (file) => {
+        const Video = mongoose.model('Video', new mongoose.Schema({
+          title: String,
+          filename: String,
+          originalname: String,
+        }));
+
+        const newVideo = new Video({
+          title: req.body.title,
+          filename: file.filename,
+          originalname: originalname,
         });
-    });
-  } catch (error) {
-    res.status(500).json({ message: 'Could not upload video.', error: error.message });
-  }
-});
 
-// Start the server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+        await newVideo.save();
+        res.status(201).json(newVideo);
+      });
+    } catch (error) {
+      res.status(500).json({ message: 'Could not upload video.', error: error.message });
+    }
+  });
 });

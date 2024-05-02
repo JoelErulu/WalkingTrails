@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 const videoSchema = new mongoose.Schema({
   filename: { type: String, required: true },
   contentType: { type: String, required: true },

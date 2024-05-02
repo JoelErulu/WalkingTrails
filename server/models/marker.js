@@ -1,14 +1,17 @@
 import mongoose from 'mongoose';
 
-const MarkerSchema = mongoose.Schema({
-    sTrail: String,
+const markerSchema = new mongoose.Schema({
+    name: String,
     lat: Number,
     lng: Number,
-    name: String,
-    exercise: String,
-    img: [String],
+    // description: String,
+    // videoUrl: String,
+    trail: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Trail'
+    }
 });
 
-const Marker = mongoose.model('Marker', MarkerSchema);
+const Marker = mongoose.model('Marker', markerSchema);
 
 export default Marker;

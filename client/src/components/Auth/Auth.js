@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
+import { Avatar, Button, Paper, Grid, Typography, Container, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './styles.js';
 import Input from './Input.js';
@@ -9,24 +9,23 @@ import { signin, signup } from '../../actions/auth.js';
 
 const initialState = {
     firstName: '', lastName: '', email: '', password: '', confirmPassword: '',
-    gender: '', ethnicity: '', age: ''
+    gender: '', ethnicity: '', birthYear: '', isGGCMember: ''
 };
 
 const Auth = () => {
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
-    const [isSignup, setIsSignup] = useState(false);
+    const [isSignup, setIsSignup] = useState(true); // Assuming default is signup
     const [formData, setFormData] = useState(initialState);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         if (isSignup) {
-            dispatch(signup({ ...formData }, navigate));
+            dispatch(signup(formData, navigate));
         } else {
-            dispatch(signin({ ...formData }, navigate));
+            dispatch(signin(formData, navigate));
         }
     };
 
@@ -35,7 +34,7 @@ const Auth = () => {
     };
 
     const switchMode = () => {
-        setIsSignup((prevIsSignup) => !prevIsSignup);
+        setIsSignup(!isSignup);
         setShowPassword(false);
     };
 
@@ -54,7 +53,21 @@ const Auth = () => {
                                 <Input name="lastName" label="Last Name" handleChange={handleChange} half />
                                 <Input name="gender" label="Gender" handleChange={handleChange} type="text" />
                                 <Input name="ethnicity" label="Ethnicity" handleChange={handleChange} type="text" />
-                                <Input name="age" label="Age" handleChange={handleChange} type="number" />
+                                <Input name="birthYear" label="Birth Year" handleChange={handleChange} type="number" />
+                                <FormControl fullWidth>
+                                    <InputLabel id="ggc-member-label">Part of GGC/Local Community?</InputLabel>
+                                    <Select
+                                        labelId="ggc-member-label"
+                                        id="ggc-member-select"
+                                        value={formData.isGGCMember}
+                                        label="Part of GGC/Local Community?"
+                                        onChange={handleChange}
+                                        name="isGGCMember"
+                                    >
+                                        <MenuItem value={true}>Yes</MenuItem>
+                                        <MenuItem value={false}>No</MenuItem>
+                                    </Select>
+                                </FormControl>
                             </>
                         )}
                         <Input name="email" label="Email Address" handleChange={handleChange} type="email" />

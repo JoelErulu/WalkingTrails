@@ -1,10 +1,10 @@
 import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
-import useStyles, { GreenTrailOptions, containerStyle, MapID } from './styles.js';
+import useStyles, {GreenTrailOptions, containerStyle, MapID} from './styles.js';
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { GreenCoords } from './Coords.js';
+import { getTrails } from '../../actions/trails'; // Import the action to fetch trails
 
 const Green = () => {
 
@@ -19,6 +19,8 @@ const Green = () => {
     const [markerFormData, setMarkerFormData] = useState(initialState);
     const [center, setCenter] = useState('');
     const [selectedMarker, setSelectedMarker] = useState(null);
+    const trails = useSelector(state => state.trails);
+    const [selectedTrail, setSelectedTrail] = useState(null);
 
     //sets center of map
     useEffect(() => {
@@ -31,6 +33,17 @@ const Green = () => {
     useEffect(() => {
         dispatch(getMarkers());
     }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getTrails());
+    }, [dispatch]);
+
+    useEffect(() => {
+        const greenTrail = trails.find(trail => trail.name === 'Green Trail');
+        if (greenTrail) {
+            setSelectedTrail(greenTrail);
+        }
+    }, [trails]);
 
     //click on map to fill in form data
     const _onClick = (event) => {
@@ -124,10 +137,15 @@ const Green = () => {
                             />
                             )}
 
-                            <Polyline
-                                path = {GreenCoords}
-                                options={GreenTrailOptions}
-                            />
+                            {selectedTrail && (
+                                <Polyline
+                                    path={selectedTrail.path.coordinates.map(coord => ({
+                                        lat: coord[1], // Assuming coordinates are [longitude, latitude]
+                                        lng: coord[0]
+                                    }))}
+                                    options={GreenTrailOptions}
+                                />
+                            )}
                         </GoogleMap>
                     </LoadScript>
                 </div>

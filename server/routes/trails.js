@@ -1,7 +1,5 @@
 import express from 'express';
-
 import { getTrails, createTrail, updateTrail, deleteTrail } from '../controllers/trails.js';
-import auth from '../middleware/auth.js';
 
 const router = express.Router();
 

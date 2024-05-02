@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api';
 import { Button, Container, Grid, TextField, Typography } from '@material-ui/core';
-import useStyles, { GreyTrailOptions, containerStyle, MapID } from './styles.js';
+import useStyles, {GreyTrailOptions, containerStyle, MapID, GoldTrailOptions} from './styles.js';
 import { createMarker, deleteMarker, getMarkers, updateMarker } from '../../actions/markers.js';
 import { GreyCoords } from './Coords.js';
+import { getTrails } from '../../actions/trails'; // Import the action to fetch trails
 
 const Gray = () => {
     const classes = useStyles();
@@ -14,13 +15,23 @@ const Gray = () => {
     const [markerFormData, setMarkerFormData] = useState({ lat: '', lng: '', name: '', exercise: '' });
     const [center, setCenter] = useState({ lat: 33.98251828102669, lng: -84.00032686036535 });
     const [open, setOpen] = useState(false);
+    const trails = useSelector(state => state.trails);
+    const [selectedTrail, setSelectedTrail] = useState(null);
 
     useEffect(() => {
         dispatch(getMarkers());
     }, [dispatch]);
 
-    // No need for setCenter function call inside useEffect as state is already set above
+    useEffect(() => {
+        dispatch(getTrails());
+    }, [dispatch]);
 
+    useEffect(() => {
+        const grayTrail = trails.find(trail => trail.name === 'Gray Trail');
+        if (grayTrail) {
+            setSelectedTrail(grayTrail);
+        }
+    }, [trails]);
     const handleMarkerClick = (marker) => {
         setSelectedMarker(marker);
         setMarkerFormData(marker);
@@ -100,7 +111,15 @@ const Gray = () => {
                                         onClick={() => handleMarkerClick(marker)}
                                     />
                                 ))}
-                                <Polyline path={GreyCoords} options={GreyTrailOptions} />
+                                {selectedTrail && (
+                                    <Polyline
+                                        path={selectedTrail.path.coordinates.map(coord => ({
+                                            lat: coord[1], // Assuming coordinates are [longitude, latitude]
+                                            lng: coord[0]
+                                        }))}
+                                        options={GreyTrailOptions}
+                                    />
+                                )}
                             </GoogleMap>
                         </LoadScript>
                     </div>

@@ -1,17 +1,24 @@
 import { FETCH_ALL, START_LOADING, END_LOADING, CREATE, UPDATE, DELETE} from '../constants/actionTypes.js';
 import * as api from '../api/index.js';
 
-export const getMarkers = () => async (dispatch) => {
+export const getMarkers = (trailId) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });
-        const { data } = await api.fetchMarkers();
-
-        dispatch({ type: FETCH_ALL, payload: data });
+        const { data } = await api.fetchMarkers(trailId);
+        const cleanedData = data.map(marker => ({
+            ...marker,
+            lat: Number(marker.lat.$numberDouble),
+            lng: Number(marker.lng.$numberDouble)
+        }));
+        dispatch({ type: FETCH_ALL, payload: cleanedData });
         dispatch({ type: END_LOADING });
     } catch (err) {
-        console.log(err);
+        console.log("Error fetching markers:", err);
+        dispatch({ type: END_LOADING });
     }
 }
+
+
 
 export const createMarker = (marker) => async (dispatch) => {
     try {

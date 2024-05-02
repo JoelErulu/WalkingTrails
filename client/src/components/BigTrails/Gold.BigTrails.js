@@ -1,16 +1,16 @@
 import { Button, Grid, Typography, Container, Divider, TextField, Collapse, CardMedia, Hidden, ImageListItem, ImageList} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api';
-import useStyles, { GoldTrailOptions, containerStyle, MapID } from './styles.js';
+import useStyles, {GoldTrailOptions, containerStyle, MapID, GreyTrailOptions} from './styles.js';
 import { createMarker, getMarkers, updateMarker, deleteMarker} from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
-import { GoldCords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
 import VideoUpload from './VideoUpload'; // Import the VideoUpload component
 import video1 from '../../videos/ProjectVideo1.mp4';
 import video2 from '../../videos/ProjectVideo2.mp4';
 import video3 from '../../videos/ProjectVideo3.mp4';
+import { getTrails } from '../../actions/trails'; // Import the action to fetch trails
 
 
 const Gold = () => {
@@ -27,6 +27,15 @@ const Gold = () => {
     const [dislikes, setDislikes] = useState(0);
     const [hasLiked, setHasLiked] = useState(false);
     const [hasDisliked, setHasDisliked] = useState(false);
+    const trails = useSelector(state => state.trails);
+    const [selectedTrail, setSelectedTrail] = useState(null);
+
+    const testMarkers = [
+        { _id: '1', lat: 33.9804327949268, lng: -84.00527240759934 },
+        { _id: '2', lat: 33.980353575203154, lng: -84.005425507664 }
+    ];
+
+
 
     useEffect(() => {
         setCenter({ lat: 33.9804327949268, lng: -84.00527240759934 });
@@ -36,6 +45,25 @@ const Gold = () => {
     useEffect(() => {
         dispatch(getMarkers());
     }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getTrails());
+    }, [dispatch]);
+
+    useEffect(() => {
+        const goldTrail = trails.find(trail => trail.name === 'Gold Trail');
+        if (goldTrail) {
+            setSelectedTrail(goldTrail);
+        }
+    }, [trails]);
+
+    useEffect(() => {
+        if (selectedTrail) {
+            dispatch(getMarkers(selectedTrail._id));
+        }
+    }, [selectedTrail, dispatch]);
+
+
 
     const handleMarkerClick = (marker) => {
         if (selectedMarker && selectedMarker.key === marker.key) {
@@ -58,6 +86,8 @@ const Gold = () => {
             setHasDisliked(false);
         }
     };
+
+
 
     const closeVideo = () => {
         setSelectedMarker(null);
@@ -147,10 +177,7 @@ const Gold = () => {
                                 <Button onClick={handleDislike} variant="contained" color="primary" disabled={hasDisliked}>
                                     Dislike ({dislikes})
                                 </Button>
-                                <Button variant="contained" color="primary" component="label">
-                                    Upload Video
-                                    <input type="file" accept="video/*" style={{ display: "none" }} onChange={(e) => handleVideoUpload(e.target.files[0])} />
-                                </Button>
+
                                 <br/>
                                 <br/>
                                 {/* Font Awesome like/dislike icons */}
@@ -214,10 +241,22 @@ const Gold = () => {
                                         })
                                     }
                                 />
-                                <Polyline
-                                    path={GoldCords}
-                                    options={GoldTrailOptions}
-                                />
+
+                                {testMarkers.map((marker) => (
+                                    <Marker
+                                        key={marker._id}
+                                        position={{ lat: marker.lat, lng: marker.lng }}
+                                    />
+                                ))}
+                                    {selectedTrail && (
+                                        <Polyline
+                                            path={selectedTrail.path.coordinates.map(coord => ({
+                                                lat: coord[1], // Assuming coordinates are [longitude, latitude]
+                                                lng: coord[0]
+                                            }))}
+                                        options={GoldTrailOptions}
+                                    />
+                                )}
                             </GoogleMap>
                         </LoadScript>
                     </div>

@@ -15,16 +15,20 @@ export const fetchUsers = () => API.get('/user/users');
 export const updateUserRole = (id, role) => API.patch(`/user/${id}`, role);
 export const googleLogin = (token) => API.post('user/googleLogin', token);
 
+// Trails
 export const fetchTrails = () => API.get('/trails');
 export const createTrail = (newTrail) => API.post('/trails', newTrail);
 export const updateTrail = (id, updatedTrail) => API.patch(`/trails/${id}`, updatedTrail);
 export const deleteTrail = (id) => API.delete(`/trails/${id}`);
+export const fetchTrailByName = (name) => API.get(`/trails/name/${name}`);
 
-export const fetchMarkers = () => API.get('/marker');
+// Markers
+export const fetchMarkers = (trailId) => API.get(`/marker?trailId=${trailId}`);
 export const createMarker = (newMarker) => API.post('/marker', newMarker);
 export const updateMarker = (id, updatedMarker) => API.patch(`/marker/${id}`, updatedMarker);
 export const deleteMarker = (id) => API.delete(`/marker/${id}`);
 
+// Nutrition
 export const fetchNutrition = () => API.get('/nutrition');
 export const createNutrition = (newNutrition) => API.post('/nutrition', newNutrition);
 export const updateNutrition = (id, updatedNutrition) => API.patch(`/nutrition/${id}`, updatedNutrition);

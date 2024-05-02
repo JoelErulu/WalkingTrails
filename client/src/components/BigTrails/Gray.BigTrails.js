@@ -8,16 +8,13 @@ import { GreyCoords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
 import video4 from '../../videos/ProjectVideo4.mp4';
+import { getTrails } from '../../actions/trails';
 
 
 const Gray = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-
-    
-    
     const initialState = { lat: '', lng: '', name: ''};
-
     //gets markers from store
     const {markers, isLoading} = useSelector((state) => state.markers);
 
@@ -28,6 +25,8 @@ const Gray = () => {
 
     const [isVideoOpen, setIsVideoOpen] = useState(false);//video opener
     const [videoSource, setVideoSource] = useState(null);
+    const trails = useSelector(state => state.trails);
+    const [selectedTrail, setSelectedTrail] = useState(null);
 
     //sets center of map
     useEffect(() => {
@@ -40,6 +39,17 @@ const Gray = () => {
     useEffect(() => {
         dispatch(getMarkers());
     }, [dispatch])
+
+    useEffect(() => {
+        dispatch(getTrails());
+    }, [dispatch]);
+
+    useEffect(() => {
+        const grayTrail = trails.find(trail => trail.name === 'Gray Trail');
+        if (grayTrail) {
+            setSelectedTrail(grayTrail);
+        }
+    }, [trails]);
 
     //when marker is clicked
     const handleMarkerClick = (marker) => {
@@ -152,10 +162,14 @@ const Gray = () => {
                             />
                             )}
 
-                            <Polyline
-                                path = {GreyCoords}
+                            {selectedTrail && (
+                                <Polyline path={selectedTrail.path.coordinates.map(coord => ({
+                                    lat: coord[1],
+                                    lng: coord[0]
+                                }))}
                                 options={GreyTrailOptions}
                             />
+                            )}
                         </GoogleMap>
                     </LoadScript>
                 </div>

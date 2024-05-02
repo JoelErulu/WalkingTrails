@@ -29,7 +29,7 @@ GroupMe
 **Spring 2024**
 1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
 2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison*
-3. Kiet Ly - *Lead Programmer/Team Manager*
+3. Kiet Ly - *Lead Programmer/Team Manager/UI and UX Design*
 
 Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrender.com/)
 
