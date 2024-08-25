@@ -31,6 +31,10 @@ GroupMe
 2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison*
 3. Kiet Ly - *Lead Programmer/Team Manager/UI and UX Design*
 
+**Fall 2024**
+1.   Joel Erulu - *Lead Programmer/Team Manager*
+
+
 Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrender.com/)
 
 ### Description
