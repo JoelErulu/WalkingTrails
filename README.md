@@ -34,6 +34,7 @@ GroupMe
 **Fall 2024**
 1.   Joel Erulu - *Lead Programmer/Team Manager*
 2.   Josiah Haines - *Code Architect/Documentation Lead*
+3.   Ginette Wilson Bahun-*Lead UI/UX design/Client liaison*
 
 
 Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrender.com/)
