@@ -2,15 +2,18 @@
 
 ### Semester
 
-Spring 2024
+Fall 2024
 
 ### Team Name
 
-Diamonds
+YoungThugs
 
 ### Project Name
 
-Walking Trail - GGC Trail Guide
+Walking Trail 
+
+### Team Members
+1.Ginette Wilson Bahun😊
 
 ### Repository Location URL:
 
@@ -23,6 +26,7 @@ Jira
 ### Secondary Communication Tool
 
 GroupMe
+Discord
 
 ### Team Roles
 
