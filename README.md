@@ -14,7 +14,7 @@ Walking Trail
 
 ### Team Members
 1. Ginette Wilson Bahun😊
-2. Mathews Binny
+2. Mathews Binny 🙀
 3. Joel Erulu
 4. Josiah Haines
 
