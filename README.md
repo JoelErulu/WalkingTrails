@@ -30,8 +30,6 @@ Jira
 
 ### Secondary Communication Tool
 
-GroupMe
-
 Discord
 
 ### Team Roles
