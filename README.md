@@ -14,9 +14,11 @@ Walking Trail
 
 ### Team Members
 1. Ginette Wilson Bahun😊
-2. Mathews Binny 🙀
-3. Joel Erulu
-4. Josiah Haines
+   ![IMG_8731 (1)](https://github.com/user-attachments/assets/3c51688b-dfcc-4de6-9da0-6c2a16c0b824)
+
+3. Mathews Binny 🙀
+4. Joel Erulu
+5. Josiah Haines
 
 ### Repository Location URL:
 
@@ -29,6 +31,7 @@ Jira
 ### Secondary Communication Tool
 
 GroupMe
+
 Discord
 
 ### Team Roles
@@ -41,7 +44,7 @@ Discord
 **Fall 2024**
 1.   Joel Erulu - *Lead Programmer/Team Manager*
 2.   Josiah Haines - *Code Architect/Documentation Lead*
-3.   Ginette Wilson Bahun - *Lead UI/UX design/Client liaison*😊
+3.   Ginette Wilson Bahun - *Lead UI/UX design & Client liaison*😊
 4.   Mathews Binny - *Lead Data Modeler & Testing Lead*
 
 
