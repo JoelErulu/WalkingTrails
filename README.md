@@ -13,7 +13,10 @@ YoungThugs
 Walking Trail 
 
 ### Team Members
-1.Ginette Wilson Bahun😊
+1. Ginette Wilson Bahun😊
+2. Mathews Binny
+3. Joel Erulu
+4. Josiah Haines
 
 ### Repository Location URL:
 
@@ -38,7 +41,8 @@ Discord
 **Fall 2024**
 1.   Joel Erulu - *Lead Programmer/Team Manager*
 2.   Josiah Haines - *Code Architect/Documentation Lead*
-3.   Ginette Wilson Bahun-*Lead UI/UX design/Client liaison*😊
+3.   Ginette Wilson Bahun - *Lead UI/UX design/Client liaison*😊
+4.   Mathews Binny - *Lead Data Modeler & Testing Lead*
 
 
 Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrender.com/)
