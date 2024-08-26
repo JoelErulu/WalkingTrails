@@ -52,11 +52,11 @@ Run app Spring 2023: [Walking App, Spring 2023 version](https://ggctrail.onrende
 
 ### Description
 
-A fitness app which allows users to experience trails through a digital experience. Users in the future will be able to scan QR codes to learn about trails they are exploring, create blog posts, and begin personalized workouts
+The Walking Trails App is a mobile application designed to enhance the walking experience on Georgia Gwinnett College (GGC) trails through interactive and educational content focused on fitness, health, and wellness. The app is accessible via QR codes placed on signs along the trails. By scanning a QR code, users are directed to the app, where they can access instructional videos, trail maps, exercise guides, and nutrition information, among other features.
+
 
 ### Technologies
 
-This project uses the MERN Stack
 
 - MongoDB
   https://www.mongodb.com/
@@ -125,13 +125,8 @@ This project uses the MERN Stack
 
 ### Features for the future
 
-1. Have comments and reviews of trails posted on the blog
-2. Offline/True GPS tracking (High difficulty, if you want to do this then start immediately or you won't have enough time to complete)
-3. Simple portal for admins to add media and markers
-4. Functioning database to store media and marker information
-5. Possibly newsletter functinality as per requested by the clients
-6. Like and dislike function to videos
+In progress
 
 ### link to the demo of the app running
 
-https://www.youtube.com/watch?v=3VzEgL2PCQM
+In progress
