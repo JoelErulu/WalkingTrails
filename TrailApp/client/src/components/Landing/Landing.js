@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
 import useStyles from './styles.js';
 import Footer from '../../components/Navbar/Footer.js';
-import pic1 from '../../images/trailpic.png';
-import pic2 from '../../images/personalized.jpg';
+import pic1 from '../../images/ggcnew.jpg';
+import pic2 from '../../images/exercise1.jpg';
 import pic3 from '../../images/handshake1.jpg';
 
 const Landing = () => {
@@ -96,9 +96,9 @@ const Landing = () => {
                         <div class="container">
                             <div class="d-lg-flex align-items-center justify-content-between">
                                 <div class = "p-3">
-                                    <h1>Walking Trails App </h1>
+                                    <h1>Fitness/Walking Trails App </h1>
                                 <p class="lead my-4">
-                                Embark on a journey of well-being as you explore our picturesque walking trails. Each step unveils a path to wellness, inviting you to immerse yourself in nature's tranquility. Our scenic trails are more than a route; they are a gateway to a healthier, revitalized you.
+                                The Walking Trails App is a mobile application designed to enhance the walking experience on Georgia Gwinnett College (GGC) trails through interactive and educational content focused on fitness, health, and wellness. This project is a collaborative effort between ITEC students, who are responsible for app development, and EXSC students, who create the content. The goal is to combine technology with practical health education, encouraging the GGC community to engage in physical activities while learning about exercise techniques, nutrition, hydration, and related topics.
                                 </p>
                                 <Button class = "btn btn-primary" component={Link} to="/auth" variant="contained" color="primary" className={classes.submit}>Sign In</Button>
                             </div>
@@ -112,19 +112,7 @@ const Landing = () => {
                     <hr></hr>
                 </section>
                 
-                {/*<!-- Newsletter -->*/}
-                <section class="bg-dark text-light p-5">
-                    <div class="container">
-                        <div class="d-md-flex justify-content-between align-items-center">
-                            <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
-
-                            <div class="input-group news-input">
-                                <input type="text" class="form-control" placeholder="Enter Email" />
-                                <button class="btn btn-primary btn-lg" type="button">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                
 
                {/*} <!-- Boxes -->*/}
                 <section class="p-5">
@@ -223,249 +211,7 @@ const Landing = () => {
                     </div>
                 </section>
                 
-                {/*<!-- Question Accordion -->*/}
-                <section id="questions" class="p-5">
-                    <div class="container">
-                        <h2 class="text-white text-center mb-4">Frequently Asked Questions</h2>
-                        <div class="accordion accordion-flush" id="questions">
-                            {/*} <!-- Item 1 -->*/}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button collapsed"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#question-one"
-                                    >
-                                        Where is Gwinnett county located at?
-                                    </button>
-                                </h2>
-                                <div
-                                    id="question-one"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#questions"
-                                >
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                                        beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                                        totam tempora accusamus modi explicabo accusantium consequatur,
-                                        praesentium rem quisquam molestias at quos vero. Officiis ad
-                                        velit doloremque at. Dignissimos praesentium necessitatibus
-                                        natus corrupti cum consequatur aliquam! Minima molestias iure
-                                        quam distinctio velit.
-                                    </div>
-                                </div>
-                            </div>
-                            {/*<!-- Item 2 -->*/}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button collapsed"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#question-two"
-                                    >
-                                        How many minute does it take to run 1 mile?
-                                    </button>
-                                </h2>
-                                <div
-                                    id="question-two"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#questions"
-                                >
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                                        beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                                        totam tempora accusamus modi explicabo accusantium consequatur,
-                                        praesentium rem quisquam molestias at quos vero. Officiis ad
-                                        velit doloremque at. Dignissimos praesentium necessitatibus
-                                        natus corrupti cum consequatur aliquam! Minima molestias iure
-                                        quam distinctio velit.
-                                    </div>
-                                </div>
-                            </div>
-                            {/*<!-- Item 3 -->*/}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button collapsed"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#question-three"
-                                    >
-                                        How big is Georgia Gwinnett College?
-                                    </button>
-                                </h2>
-                                <div
-                                    id="question-three"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#questions"
-                                >
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                                        beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                                        totam tempora accusamus modi explicabo accusantium consequatur,
-                                        praesentium rem quisquam molestias at quos vero. Officiis ad
-                                        velit doloremque at. Dignissimos praesentium necessitatibus
-                                        natus corrupti cum consequatur aliquam! Minima molestias iure
-                                        quam distinctio velit.
-                                    </div>
-                                </div>
-                            </div>
-                            {/*} <!-- Item 4 -->*/}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button collapsed"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#question-four"
-                                    >
-                                        How to do push ups with one hand?
-                                    </button>
-                                </h2>
-                                <div
-                                    id="question-four"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#questions"
-                                >
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                                        beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                                        totam tempora accusamus modi explicabo accusantium consequatur,
-                                        praesentium rem quisquam molestias at quos vero. Officiis ad
-                                        velit doloremque at. Dignissimos praesentium necessitatibus
-                                        natus corrupti cum consequatur aliquam! Minima molestias iure
-                                        quam distinctio velit.
-                                    </div>
-                                </div>
-                            </div>
-                            {/*<!-- Item 5 -->*/}
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button collapsed"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#question-five"
-                                    >
-                                        How big is the gold trail?
-                                    </button>
-                                </h2>
-                                <div
-                                    id="question-five"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#questions"
-                                >
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-                                        beatae fuga animi distinctio perspiciatis adipisci velit maiores
-                                        totam tempora accusamus modi explicabo accusantium consequatur,
-                                        praesentium rem quisquam molestias at quos vero. Officiis ad
-                                        velit doloremque at. Dignissimos praesentium necessitatibus
-                                        natus corrupti cum consequatur aliquam! Minima molestias iure
-                                        quam distinctio velit.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="instructors" class="p-5 bg-dark">
-                    <div class="container">
-                        <h2 class="text-center text-white">Our Team</h2>
-                        <p class="lead text-center text-white mb-5">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, repellat?
-                        </p>
-                        <div class="row g-4">
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card bg-light">
-                                    <div class="card-body text-center">
-                                        <img
-                                            src=""
-                                            class="rounded-circle mb-3"
-                                            alt=""
-                                        />
-                                        <h3 class="card-title mb-3">Lorem ipsum dolor sit amet.</h3>
-                                        <p class="card-text">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
-                                        </p>
-                                        <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card bg-light">
-                                    <div class="card-body text-center">
-                                        <img
-                                            src=""
-                                            class="rounded-circle mb-3"
-                                            alt=""
-                                        />
-                                        <h3 class="card-title mb-3">Lorem ipsum dolor sit amet.
-                                        </h3>
-                                        <p class="card-text">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
-                                        </p>
-                                        <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-{/** */}
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card bg-light">
-                                    <div class="card-body text-center">
-                                        <img
-                                            src=""
-                                            class="rounded-circle mb-3"
-                                            alt=""
-                                        />
-                                        <h3 class="card-title mb-3">Lorem ipsum dolor sit amet.</h3>
-                                        <p class="card-text">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
-                                        </p>
-                                        <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-3">
-                                <div class="card bg-light">
-                                    <div class="card-body text-center">
-                                        <img
-                                            src=""
-                                            class="rounded-circle mb-3"
-                                            alt=""
-                                        />
-                                        <h3 class="card-title mb-3">Lorem ipsum dolor sit amet.</h3>
-                                        <p class="card-text">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
-                                        </p>
-                                        <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-                                        <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+               
 
                 {/*<!-- Contact & Map --> */}
                 <section class="p-5">
@@ -497,90 +243,21 @@ const Landing = () => {
                     </div>
                 </section>
 
-                {/*<-- Footer -->*/}
-                {/* <footer class="rounded shadow-lg p-5 bg-white text-primary text-center position-relative">
-                    <div>
-                        <h1 class="lead">Copyright &copy; Walking Trails</h1>
+                {/*<!-- Newsletter -->*/}
+                <section class="bg-dark text-light p-5">
+                    <div class="container">
+                        <div class="d-md-flex justify-content-between align-items-center">
+                            <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
 
-                        <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                            <i class="bi bi-arrow-up-circle h1"></i>
-                        </a>
-                    </div>
-                </footer> */}
-
-               {/*} <!-- Modal -->*/}
-                {/* <div
-                    class="modal fade"
-                    id="enroll"
-                    tabindex="-1"
-                    aria-labelledby="enrollLabel"
-                    aria-hidden="true"
-                >
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="enrollLabel">Enrollment</h5>
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                ></button>
-                            </div>
-                            <div class="modal-body">
-                                <p class="lead">Fill out this form and we will get back to you</p>
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="first-name" class="col-form-label">
-                                            First Name:
-                                        </label>
-                                        <input type="text" class="form-control" id="first-name" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="last-name" class="col-form-label">Last Name:</label>
-                                        <input type="text" class="form-control" id="last-name" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="col-form-label">Email:</label>
-                                        <input type="email" class="form-control" id="email" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="phone" class="col-form-label">Phone:</label>
-                                        <input type="tel" class="form-control" id="phone" />
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                >
-                                    Close
-                                </button>
-                                <button type="button" class="btn btn-primary">Submit</button>
+                            <div class="input-group news-input">
+                                <input type="text" class="form-control" placeholder="Enter Email" />
+                                <button class="btn btn-primary btn-lg" type="button">Submit</button>
                             </div>
                         </div>
                     </div>
-                </div> */}
-{/*ignore this}
-                {/*}  <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+                </section>
 
-    <script>
-      mapboxgl.accessToken =
-        'pk.eyJ1IjoiYnRyYXZlcnN5IiwiYSI6ImNrbmh0dXF1NzBtbnMyb3MzcTBpaG10eXcifQ.h5ZyYCglnMdOLAGGiL1Auw'
-      var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-71.060982, 42.35725],
-        zoom: 18,
-      })
-    </script>*/}
+               }
             </body>
         </html>
 <Footer />
