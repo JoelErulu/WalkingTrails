@@ -1,73 +1,56 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
-  appBar: {
-    borderRadius: 15,
-    margin: '30px 0',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '10px 5px',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column',
+    appBar: {
+        background: 'transparent', // Removes the black background
+        boxShadow: 'none',
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: theme.spacing(2),
     },
-  },
-  drop:{
-    right: '0',
-    display: 'flex',
-    padding: '5px 10px',
-  },
-  heading: {
-    color: theme.palette.primary.main,
-    textDecoration: 'none',
-    fontSize: '2em',
-    fontWeight: 300,
-  },
-  image: {
-    marginLeft: '10px',
-    marginTop: '5px',
-  },
-  toolbar: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    width: '400px',
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
+    toolbar: {
+        display: 'flex',
+        justifyContent: 'space-between', // Spread content to left and right
+        width: '100%',
     },
-  },
-  profile: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: '400px',
-    alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      marginTop: 20,
-      justifyContent: 'center',
+    menuContainer: {
+        display: 'flex',
+        justifyContent: 'flex-start', // Align menu button to the left
+        flex: 1, // Take up space on the left side
     },
-  },
-  logout: {
-    marginLeft: '50px',
-    padding: '5px 10px', 
-    justifyContent: 'flex-end',
-  },
-  userName: {
-    display: 'flex',
-    alignItems: 'center',
-    textAlign: 'center',
-  },
-  brandContainer: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
-  },
-  footerText: {
-    flexGrow: 1,
-    textAlign: 'center',
-  },
+    textContainer: {
+        display: 'flex',
+        justifyContent: 'flex-end', // Align text to the right
+        flex: 1, // Take up space on the right side
+    },
+    heading: {
+        color: '#000', // Change the text color to black or as needed
+        fontSize: '2rem',
+        textDecoration: 'none',
+    },
+    menuButton: {
+        color: 'white',
+        backgroundColor: '#3f51b5', // Button color
+        '&:hover': {
+            backgroundColor: '#283593', // Hover color
+        },
+    },
+    menu: {
+        backgroundColor: '#f5f5f5', // Background color of dropdown
+        '& .MuiMenuItem-root': {
+            color: '#333', // Text color in dropdown
+            '&:hover': {
+                backgroundColor: '#3f51b5', // Hover background color
+                color: '#fff', // Hover text color
+            },
+        },
+    },
+    newsletter: {
+        position: 'absolute',
+        bottom: 0, // Move the newsletter to the bottom of the page
+        width: '100%',
+        textAlign: 'center',
+        padding: theme.spacing(2),
+        backgroundColor: '#f5f5f5', // Adjust background color if necessary
+    },
 }));
