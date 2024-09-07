@@ -20,7 +20,7 @@ const Footer = () => {
         <AppBar position="static" color="inherit" className={classes.appBar}>
             <Toolbar>
                 <Typography variant="body1" className={classes.footerText}>
-                    &copy; Walking Trails
+                    &copy; Walking Trails Fall 2024
                 </Typography>
             </Toolbar>
         </AppBar>
