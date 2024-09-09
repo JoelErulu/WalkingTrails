@@ -30,7 +30,7 @@ export default makeStyles((theme) => ({
     },
     menuButton: {
         color: 'white',
-        backgroundColor: '#3f51b5', // Button color
+        backgroundColor: 'green', // Button color
         '&:hover': {
             backgroundColor: '#283593', // Hover color
         },
@@ -40,7 +40,7 @@ export default makeStyles((theme) => ({
         '& .MuiMenuItem-root': {
             color: '#333', // Text color in dropdown
             '&:hover': {
-                backgroundColor: '#3f51b5', // Hover background color
+                backgroundColor: 'green', // Hover background color
                 color: '#fff', // Hover text color
             },
         },
