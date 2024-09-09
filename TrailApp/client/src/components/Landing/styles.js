@@ -1,25 +1,48 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
-  paper: {
-    backgroundColor: '#454B1B',
-    boxShadow: 'none',
-    flexDirection: 'column',
-    textAlign: 'center',
-    padding: theme.spacing(2),
+  section: {
+    padding: theme.spacing(5, 0),
+    backgroundColor: '#ffffff',
+    color: '#333333',
   },
-  title: {
-    marginTop: theme.spacing(3),
+  sectionTitle: {
+    color: 'gold',
+    fontSize: '2.5rem',
   },
-  subtitle: {
-    marginTop: theme.spacing(3),
+  sectionSubtitle: {
+    color: 'gray',
+    fontSize: '2rem',
+  },
+  sectionGreen: {
+    color: 'green',
+    fontSize: '2rem',
+  },
+  button: {
+    backgroundColor: 'green',
     color: 'white',
+    '&:hover': {
+      backgroundColor: 'darkgreen',
+    },
   },
-  body: {
-    marginTop: theme.spacing(3),
+  imgFluid: {
+    width: '50%',
+    padding: theme.spacing(5),
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+  imgHiddenOnSm: {
+    display: 'none',
+    [theme.breakpoints.up('lg')]: {
+      display: 'block',
+    },
   },
-  
+  newsInput: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  input: {
+    flexGrow: 1,
+  },
+  footer: {
+    marginTop: theme.spacing(5),
+  },
 }));
