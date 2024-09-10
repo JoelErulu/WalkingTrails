@@ -148,12 +148,8 @@ const Landing = () => {
           </div>
         </section>
 
-
-        {/* Footer */}
-        <Footer className={classes.footer} />
-
-        {/* Newsletter Section */}
-        <section className={classes.section}>
+{/* Newsletter Section */}
+<section className={classes.section}>
           <div className="container">
             <div className="d-md-flex justify-content-between align-items-center">
               <h3 className="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
@@ -164,6 +160,11 @@ const Landing = () => {
             </div>
           </div>
         </section>
+
+        {/* Footer */}
+        <Footer className={classes.footer} />
+
+        
         </body>
       </html>
     </Container>
