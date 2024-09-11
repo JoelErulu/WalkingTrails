@@ -1,13 +1,13 @@
 import { Button, Grid, Typography, Container, Divider, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api'
-import useStyles, { GreyTrailOptions, containerStyle, MapID } from './styles.js';
+import useStyles, { GreyTrailOptions, containerStyle, MapID } from '../../styles/BigTrailsstyles.js';
 import { createMarker, getMarkers } from '../../actions/markers.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { GreyCoords } from './Coords.js';
 import FileBase from 'react-file-base64';
 import { Link, useNavigate } from 'react-router-dom';
-import video4 from '../../videos/ProjectVideo4.mp4';
+import video4 from '../../assets/videos/ProjectVideo4.mp4';
 
 
 const Gray = () => {

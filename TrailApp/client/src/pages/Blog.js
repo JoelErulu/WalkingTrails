@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
-import { getPostPreview } from '../../actions/posts.js';
-import Posts from '../Posts/Posts.js';
-import Form from '../Form/Form.js';
-import useStyles from './styles.js';
+import { getPostPreview } from '../actions/posts.js';
+import Posts from '../components/Posts/Posts.js';
+import Form from '../components/Form/Form.js';
+import useStyles from '../styles/Blogstyles.js';
 
 const Home = (theme) => {
     const [currentId, setCurrentId] = useState(null);
@@ -33,3 +33,4 @@ const Home = (theme) => {
 };
 
 export default Home;
+

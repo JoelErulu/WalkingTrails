@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers, updateUserRole } from '../../actions/users';
 import RoleCheckbox from './RoleCheckbox';
-import useStyles from './styles';
+import useStyles from '../../styles/Adminstyles.js';
 import {
   Button,
   Card,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AppBar, Button, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import useStyles from './styles';
+import useStyles from '../../styles/NavBarstyles.js';
 
 const Navbar = () => {
     const classes = useStyles();

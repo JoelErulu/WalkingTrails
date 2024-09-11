@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Grid, Typography, Container, Button, Divider, Collapse} from '@material-ui/core';
-import useStyles, {goldOptions, greenOptions, greyOptions, containerStyle, exampleMapStyles} from './styles.js';
+import useStyles, {goldOptions, greenOptions, greyOptions, containerStyle, exampleMapStyles} from '../styles/Homestyles.js';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api';
-import { GoldCords, GreenCoords, GreyCoords} from '../BigTrails/Coords.js'
-import gold from '../../images/gold.png';
-import green from '../../images/green.png';
-import gray from '../../images/gray.png';
+import { GoldCords, GreenCoords, GreyCoords} from '../components/BigTrails/Coords.js'
+import gold from '../assets/images/gold.png';
+import green from '../assets/images/green.png';
+import gray from '../assets/images/gray.png';
 
 const Home = () => {
 

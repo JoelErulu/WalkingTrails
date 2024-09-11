@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container } from '@material-ui/core';
-import Footer from '../../components/Navbar/Footer.js';
-import pic1 from '../../images/ggcnew.jpg';
-import pic2 from '../../images/exercise1.jpg';
-import pic4 from '../../images/nutrition1.jpg';
-import pic5 from '../../images/hydration.jpg';
-import pic6 from '../../images/climate.jpg';
-import useStyles from './styles.js';
+import Footer from '../components/Navbar/Footer.js';
+import pic1 from '../assets/images/ggcnew.jpg';
+import pic2 from '../assets/images/exercise1.jpg';
+import pic4 from '../assets/images/nutrition1.jpg';
+import pic5 from '../assets/images/hydration.jpg';
+import pic6 from '../assets/images/climate.jpg';
+import useStyles from '../styles/Landingstyles.js';
 
 const Landing = () => {
   const classes = useStyles();
