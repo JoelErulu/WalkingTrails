@@ -1,0 +1,69 @@
+/* Navbar Styles */
+.appBar {
+    background: transparent; /* Removes the black background */
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px; /* Adjust padding as needed */
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Spread content to left and right */
+    width: 100%;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: flex-start; /* Align menu button to the left */
+    flex: 1; /* Take up space on the left side */
+}
+
+.textContainer {
+    display: flex;
+    justify-content: flex-end; /* Align text to the right */
+    flex: 1; /* Take up space on the right side */
+}
+
+.heading {
+    color: #000; /* Change the text color to black or as needed */
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.menuButton {
+    color: white;
+    background-color: green; /* Button color */
+}
+
+.menuButton:hover {
+    background-color: #283593; /* Hover color */
+}
+
+.menu {
+    background-color: #f5f5f5; /* Background color of dropdown */
+}
+
+.menu .MuiMenuItem-root {
+    color: #333; /* Text color in dropdown */
+}
+
+.menu .MuiMenuItem-root:hover {
+    background-color: green; /* Hover background color */
+    color: #fff; /* Hover text color */
+}
+
+.pic {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+    margin-right: 16px; /* Space between the logo and text */
+}
+
+.newsletter {
+    position: absolute;
+    bottom: 0; /* Move the newsletter to the bottom of the page */
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    background-color: #f5f5f5; /* Adjust background color if necessary */
+}
