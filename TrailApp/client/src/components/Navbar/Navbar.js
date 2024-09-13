@@ -63,16 +63,16 @@ const Navbar = () => {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#workout">Personalized Workout</a>
+                            <a className="nav-link" href="#workout">Workout</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#community">Hydration</a>
+                            <a className="nav-link" href="#hydration">Hydration</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#questions">Nutrition</a>
+                            <a className="nav-link" href="#nutrition">Nutrition</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#instructors">Climate</a>
+                            <a className="nav-link" href="#climate">Climate</a>
                         </li>
                         {user ? (
                             <li className="nav-item">
@@ -80,7 +80,7 @@ const Navbar = () => {
                             </li>
                         ) : (
                             <li className="nav-item">
-                                <Link className="nav-link" to="/auth">Sign in / Sign up</Link>
+                                <Link className="nav-link" to="/auth">Sign in/Sign up</Link>
                             </li>
                         )}
                     </ul>
