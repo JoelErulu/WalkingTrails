@@ -1,0 +1,14 @@
+ Global CSS File: interfaceSettings.css
+Location: /src/interfaceSettings.css
+
+Team Members and their Variables:
+
+1. [Ginette]
+   - Variable: --font-size-large
+     Used on: "WALKING TRAILS" heading.
+      - Variable: --font-size-small
+     Used on: Navbar menu items.
+   - Variable: --heading-gradient
+     Used on: "WALKING TRAILS" heading gradient.
+      - Variable: --primary-color
+     Used on: nav items for hover states.
