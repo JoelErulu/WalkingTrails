@@ -1,40 +1,68 @@
 
 /* Navbar Styles */
+:root {
+    /* Global CSS Variables */
+    --primary-color: #3e8c3e; /* Green */
+    --secondary-color: #808080; /* Gray */
+    --font-size-large: 2.5rem;
+    --font-size-small: 1rem;
+    --heading-gradient: linear-gradient(#3e8c3e, #808080, #ffcc00); /* Green, gray, yellow */
+    --menu-button-bg-color: #3e8c3e; /* Green background for menu button */
+    --menu-button-text-color: white; /* White text color for menu button */
+}
+
 .navbar {
-    background-color: white !important; /* Ensure white background */
-    border: none; /* Remove border */
+    border: none;
+    padding: 10px 20px;
 }
 
+/* Gwinnett logo styling */
 .logo {
-    width: 50px; /* Adjust size of logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px;
+    width: 150px;
+    height: auto;
+    background-color: transparent;
 }
 
+/* "WALKING TRAILS" text styling */
 .heading {
-    background: linear-gradient(to right, green, gray, yellow);
+    font-size: var(--font-size-large); /* Using global font size */
+    font-weight: bold;
+    background: var(--heading-gradient); /* Using global gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 2.5rem; /* Adjust this for bigger text */
+}
+
+/* Navbar menu items */
+.navbar-nav .nav-link {
+    font-size: var(--font-size-small); /* Using global font size */
     font-weight: bold;
-    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
 }
 
-.nav-link {
-    color: black !important; /* Override Bootstrap default */
-    font-size: 1rem;
+.navbar-nav .nav-link:hover {
+    color: var(--primary-color); /* Using global primary color */
 }
 
-.nav-link:hover {
-    color: green !important;
+/* Menu button styling */
+.navbar-toggler {
+    border: none;
 }
 
+.navbar-toggler-icon {
+    background-color: var(--menu-button-bg-color); /* Using global variable for background */
+    color: var(--menu-button-text-color); /* Using global variable for text color */
+}
+
+/* Custom button for "Logout" */
 .btn-outline-danger {
-    color: white;
-    background-color: green;
+    color: var(--menu-button-text-color);
+    background-color: var(--primary-color);
+    border: none;
+    font-weight: bold;
 }
 
 .btn-outline-danger:hover {
     background-color: darkgreen;
-    color: white;
+    color: var(--menu-button-text-color);
 }
