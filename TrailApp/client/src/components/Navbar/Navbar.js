@@ -4,7 +4,6 @@ import { AppBar, Button, Menu, MenuItem, Toolbar, Typography } from '@material-u
 import { useDispatch } from 'react-redux';
 import '../../interfaceSettings.css'; // Import the CSS file
 
-
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const profile = JSON.parse(localStorage.getItem('profile'));
@@ -39,8 +38,14 @@ const Navbar = () => {
     return (
         <AppBar className="appBar" position="static">
             <Toolbar className="toolbar">
-                
-                {/* Move Menu to the Left */}
+                {/* Move Title to the Left */}
+                <div className="textContainer">
+                    <Typography component={Link} to={user ? "/home" : "/"} className="heading" variant="h1">
+                        WALKING TRAILS
+                    </Typography>
+                </div>
+
+                {/* Move Menu to the Right */}
                 <div className="menuContainer">
                     <Button
                         variant="contained"
@@ -98,13 +103,6 @@ const Navbar = () => {
                             <MenuItem onClick={handleMenuClose} component={Link} to="/auth">Sign in / Sign up</MenuItem>
                         )}
                     </Menu>
-                </div>
-
-                {/* Move Title to the Right */}
-                <div className="textContainer">
-                    <Typography component={Link} to={user ? "/home" : "/"} className="heading" variant="h1" align="right">
-                        WALKING TRAILS
-                    </Typography>
                 </div>
             </Toolbar>
         </AppBar>
