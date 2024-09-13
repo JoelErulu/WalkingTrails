@@ -4,4 +4,14 @@ import { useDispatch } from 'react-redux';
 import '../../interfaceSettings.css'; // Import the CSS file
 import GwinnettLogo from './gwinnett.png';  // Import the image properly
 
-<span>Welcome to the Nutrition Page</span>
+const Nutrition = () => {
+    return (
+        <section id="nutrition" className="container mt-5">
+            <h1>Nutrition</h1>
+            <p>Welcome to the Nutrition section! Here you will find information about healthy eating, meal plans, and nutrition tips.</p>
+            {/* Add more content as needed */}
+        </section>
+    );
+};
+
+export default Nutrition;
