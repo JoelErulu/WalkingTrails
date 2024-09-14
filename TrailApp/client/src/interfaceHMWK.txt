@@ -12,3 +12,9 @@ Team Members and their Variables:
      Used on: "WALKING TRAILS" heading gradient.
       - Variable: --primary-color
      Used on: nav items for hover states.
+
+2. [Joel Erulu]
+   - Variable: --image-max-width-md
+     Used on: Landing Page Images.
+      - Variable: --font-size-heading
+     Used on: h1, h2 Heading titles on Landing page.

@@ -1,88 +1,16 @@
-/* Navbar Styles */
-.appBar {
-    background: transparent; /* Removes the black background */
-    box-shadow: none;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px; /* Adjust padding as needed */
-}
-
-.toolbar {
-    display: flex;
-    justify-content: space-between; /* Spread content to left and right */
-    width: 100%;
-}
-
-.menuContainer {
-    display: flex;
-    justify-content: flex-start; /* Align menu button to the left */
-    flex: 1; /* Take up space on the left side */
-}
-
-.textContainer {
-    display: flex;
-    justify-content: flex-end; /* Align text to the right */
-    flex: 1; /* Take up space on the right side */
-}
-
-.heading {
-    color: #000; /* Change the text color to black or as needed */
-    font-size: 2rem;
-    text-decoration: none;
-}
-
-.menuButton {
-    color: white;
-    background-color: green; /* Button color */
-}
-
-.menuButton:hover {
-    background-color: #283593; /* Hover color */
-}
-
-.menu {
-    background-color: #f5f5f5; /* Background color of dropdown */
-}
-
-.menu .MuiMenuItem-root {
-    color: #333; /* Text color in dropdown */
-}
-
-.menu .MuiMenuItem-root:hover {
-    background-color: green; /* Hover background color */
-    color: #fff; /* Hover text color */
-}
-
-.pic {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px;
-    margin-right: 16px; /* Space between the logo and text */
-}
-
-.newsletter {
-    position: absolute;
-    bottom: 0; /* Move the newsletter to the bottom of the page */
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-    background-color: #f5f5f5; /* Adjust background color if necessary */
-}
-
-/* Reusable Styles */
+/* Global Variables */
 
 :root {
   /* Color Variables */
   --primary-color: green;
   --secondary-color: #6c757d;
-
+  
   /* Font Variables */
   --font-size-heading: 2rem;
   --font-size-lead: 1.25rem;
-  
-  /* Spacing Variables */
-  --padding-lg: 3rem;
-  --padding-md: 2rem;
-  --padding-sm: 1rem;
+  --font-size-large: 2.5rem;
+  --font-size-small: 1rem;
+
   
   /* Image Variables */
   --image-max-width-lg: 600px;
@@ -92,9 +20,71 @@
   /* Button Variables */
   --btn-padding: 0.75rem 1.5rem;
   --btn-border-radius: 0.25rem;
+  --menu-button-bg-color: #3e8c3e; /* Green background for menu button */
+  --menu-button-text-color: white; /* White text color for menu button */
+
+  /* Heading Gradient */
+  --heading-gradient: linear-gradient(#3e8c3e, #808080, #ffcc00); /* Green, gray, yellow */
 }
 
-/* Reusable Button Styling */
+/* Navbar Styles */
+.navbar {
+  border: none;
+  padding: 10px 20px;
+}
+
+/* Gwinnett logo styling */
+.logo {
+  width: 150px;
+  height: var(--image-height-auto); /* Using global image height */
+  background-color: transparent;
+}
+
+/* "WALKING TRAILS" text styling */
+.heading {
+  font-size: var(--font-size-large); /* Using global font size */
+  font-weight: bold;
+  background: var(--heading-gradient); /* Using global gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navbar menu items */
+.navbar-nav .nav-link {
+  font-size: var(--font-size-small); /* Using global font size */
+  font-weight: bold;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color); /* Using global primary color */
+}
+
+/* Menu button styling */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: var(--menu-button-bg-color); /* Using global variable for background */
+  color: var(--menu-button-text-color); /* Using global variable for text color */
+}
+
+/* Custom button for "Logout" */
+.btn-outline-danger {
+  color: var(--menu-button-text-color);
+  background-color: var(--primary-color);
+  border: none;
+  font-weight: bold;
+}
+
+.btn-outline-danger:hover {
+  background-color: darkgreen;
+  color: var(--menu-button-text-color);
+}
+
+/* General button styling */
 .btn-primary {
   background-color: var(--primary-color);
   padding: var(--btn-padding);
@@ -103,24 +93,23 @@
 
 /* Heading and Paragraph Styling */
 h1, h2 {
-  font-size: var(--font-size-heading);
+  font-size: var(--font-size-heading); /* Using global heading size */
 }
 
 p.lead {
-  font-size: var(--font-size-lead);
+  font-size: var(--font-size-lead); /* Using global lead text size */
 }
 
 /* Image Styling */
 .img-fluid {
-  max-width: var(--image-max-width-md);
-  height: var(--image-height-auto);
+  max-width: var(--image-max-width-md); /* Using global image width */
+  height: var(--image-height-auto); /* Using global image height */
 }
-
 
 /* Adjust image sizes for smaller screens */
 @media (max-width: 900px) {
   .img-fluid {
-    max-width: 95%; 
+    max-width: 95%; /* Adjusted for better responsiveness */
   }
 }
 
@@ -130,6 +119,3 @@ p.lead {
     max-width: 95%; 
   }
 }
-
-
-
