@@ -1,68 +1,135 @@
-
 /* Navbar Styles */
-:root {
-    /* Global CSS Variables */
-    --primary-color: #3e8c3e; /* Green */
-    --secondary-color: #808080; /* Gray */
-    --font-size-large: 2.5rem;
-    --font-size-small: 1rem;
-    --heading-gradient: linear-gradient(#3e8c3e, #808080, #ffcc00); /* Green, gray, yellow */
-    --menu-button-bg-color: #3e8c3e; /* Green background for menu button */
-    --menu-button-text-color: white; /* White text color for menu button */
+.appBar {
+    background: transparent; /* Removes the black background */
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px; /* Adjust padding as needed */
 }
 
-.navbar {
-    border: none;
-    padding: 10px 20px;
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Spread content to left and right */
+    width: 100%;
 }
 
-/* Gwinnett logo styling */
-.logo {
-    width: 150px;
-    height: auto;
-    background-color: transparent;
+.menuContainer {
+    display: flex;
+    justify-content: flex-start; /* Align menu button to the left */
+    flex: 1; /* Take up space on the left side */
 }
 
-/* "WALKING TRAILS" text styling */
+.textContainer {
+    display: flex;
+    justify-content: flex-end; /* Align text to the right */
+    flex: 1; /* Take up space on the right side */
+}
+
 .heading {
-    font-size: var(--font-size-large); /* Using global font size */
-    font-weight: bold;
-    background: var(--heading-gradient); /* Using global gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #000; /* Change the text color to black or as needed */
+    font-size: 2rem;
+    text-decoration: none;
 }
 
-/* Navbar menu items */
-.navbar-nav .nav-link {
-    font-size: var(--font-size-small); /* Using global font size */
-    font-weight: bold;
-    color: #000;
-    transition: color 0.3s ease;
+.menuButton {
+    color: white;
+    background-color: green; /* Button color */
 }
 
-.navbar-nav .nav-link:hover {
-    color: var(--primary-color); /* Using global primary color */
+.menuButton:hover {
+    background-color: #283593; /* Hover color */
 }
 
-/* Menu button styling */
-.navbar-toggler {
-    border: none;
+.menu {
+    background-color: #f5f5f5; /* Background color of dropdown */
 }
 
-.navbar-toggler-icon {
-    background-color: var(--menu-button-bg-color); /* Using global variable for background */
-    color: var(--menu-button-text-color); /* Using global variable for text color */
+.menu .MuiMenuItem-root {
+    color: #333; /* Text color in dropdown */
 }
 
-/* Custom button for "Logout" */
-.btn-outline-danger {
-    color: var(--menu-button-text-color);
-    background-color: var(--primary-color);
-    border: none;
-    font-weight: bold;
+.menu .MuiMenuItem-root:hover {
+    background-color: green; /* Hover background color */
+    color: #fff; /* Hover text color */
 }
 
-.btn-outline-danger:hover {
-    background-color: darkgreen;
-    color: var(--menu-button-text-color);
+.pic {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+    margin-right: 16px; /* Space between the logo and text */
 }
+
+.newsletter {
+    position: absolute;
+    bottom: 0; /* Move the newsletter to the bottom of the page */
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    background-color: #f5f5f5; /* Adjust background color if necessary */
+}
+
+/* Reusable Styles */
+
+:root {
+  /* Color Variables */
+  --primary-color: green;
+  --secondary-color: #6c757d;
+
+  /* Font Variables */
+  --font-size-heading: 2rem;
+  --font-size-lead: 1.25rem;
+  
+  /* Spacing Variables */
+  --padding-lg: 3rem;
+  --padding-md: 2rem;
+  --padding-sm: 1rem;
+  
+  /* Image Variables */
+  --image-max-width-lg: 600px;
+  --image-max-width-md: 500px;
+  --image-height-auto: auto;
+  
+  /* Button Variables */
+  --btn-padding: 0.75rem 1.5rem;
+  --btn-border-radius: 0.25rem;
+}
+
+/* Reusable Button Styling */
+.btn-primary {
+  background-color: var(--primary-color);
+  padding: var(--btn-padding);
+  border-radius: var(--btn-border-radius);
+}
+
+/* Heading and Paragraph Styling */
+h1, h2 {
+  font-size: var(--font-size-heading);
+}
+
+p.lead {
+  font-size: var(--font-size-lead);
+}
+
+/* Image Styling */
+.img-fluid {
+  max-width: var(--image-max-width-md);
+  height: var(--image-height-auto);
+}
+
+
+/* Adjust image sizes for smaller screens */
+@media (max-width: 900px) {
+  .img-fluid {
+    max-width: 95%; 
+  }
+}
+
+/* Further adjustments for extra small screens */
+@media (max-width: 650px) {
+  .img-fluid {
+    max-width: 95%; 
+  }
+}
+
+
+

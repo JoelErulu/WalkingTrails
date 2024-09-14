@@ -1,173 +1,159 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Container } from '@material-ui/core';
 import Footer from '../components/Navbar/Footer.js';
 import pic1 from '../assets/images/ggcnew.jpg';
 import pic2 from '../assets/images/exercise1.jpg';
 import pic4 from '../assets/images/nutrition1.jpg';
 import pic5 from '../assets/images/hydration.jpg';
 import pic6 from '../assets/images/climate.jpg';
-import useStyles from '../styles/Landingstyles.js';
+import '../interfaceSettings.css'; // Import your global CSS file
 
 const Landing = () => {
-  const classes = useStyles();
-
   return (
-    <Container maxWidth="xl">
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-            crossorigin="anonymous"
-          />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-          />
-          <link
-            href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
-            rel="stylesheet"
-          />
-          <link rel="stylesheet" href="style.css" />
-          <title>WALKERS</title>
-        </head>
-        <body>
-        
-        {/* Showcase Section */}
-        <section className={classes.section}>
-          <div className="container">
-            <div className="d-lg-flex align-items-center justify-content-between">
-              <div className="p-3">
-                <h1 className={classes.sectionTitle}>Fitness/Walking Trails App</h1>
-                <p className="lead my-4">
-                  The Walking Trails App is a mobile application designed to enhance the walking experience on Georgia Gwinnett College (GGC) trails through interactive and educational content focused on fitness, health, and wellness. 
-                  This project is a collaborative effort between ITEC students, who are responsible for app development, and EXSC students, who create the content.
-                </p>
-                <Button component={Link} to="/auth" variant="contained" className={classes.button}>Sign In</Button>
-              </div>
+    <div className="container-xl">
+      {/* Showcase Section */}
+      <section>
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 p-3">
+              <h1>Fitness/Walking Trails App</h1>
+              <p className="lead my-4">
+                The Walking Trails App is a mobile application designed to enhance the walking experience on Georgia Gwinnett College (GGC) trails through interactive and educational content focused on fitness, health, and wellness. This project is a collaborative effort between ITEC students, who are responsible for app development, and EXSC students, who create the content.
+              </p>
+              <Link to="/auth" className="btn btn-primary">Sign In</Link>
+            </div>
+            <div className="col-lg-6">
               <img
-                className={`${classes.imgFluid} ${classes.imgHiddenOnSm}`}
                 src={pic1}
                 alt="GGC Trails"
+                className="img-fluid"
               />
             </div>
           </div>
-          <hr />
-        </section>
+        </div>
+        <hr />
+      </section>
 
-        {/* Workout Section */}
-        <section id="workout" className={classes.section}>
-          <div className="container">
-            <div className="row align-items-center justify-content-between">
-              <div className="col-md d-sm-none d-lg-block">
-                <img src={pic2} className="img-fluid" alt="Workout" />
-              </div>
-              <div className="col-md p-5">
-                <div className="card-body">
-                  <h2 className={classes.sectionSubtitle}>Personalized Workouts/Workout Spaces</h2>
-                  <p className="lead">
-                    Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness.
-                  </p>
-                  <a href="#" className="btn btn-primary mt-3">
-                    <i className="bi bi-chevron-right"></i> Read More
-                  </a>
-                </div>
+      {/* Workout Section */}
+      <section id="workout">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img
+                src={pic2}
+                alt="Workout"
+                className="img-fluid"
+              />
+            </div>
+            <div className="col-md-6 p-5">
+              <div className="card-body">
+                <h2>Personalized Workouts/Workout Spaces</h2>
+                <p className="lead">
+                  Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness.
+                </p>
+                <a href="/workouts" className="btn btn-primary mt-3">
+                  <i className="bi bi-chevron-right"></i> Personalized Workouts
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Hydration Section */}
-        <section id="hydration" className={classes.section}>
-          <div className="container">
-            <div className="row align-items-center justify-content-between">
-              <div className="col-md d-sm-none d-lg-block">
-                <img src={pic5} className="img-fluid" alt="Hydration" />
-              </div>
-              <div className="col-md p-5">
-                <div className="card-body">
-                  <h2 className={classes.sectionGreen}>Hydration</h2>
-                  <p className="lead">
-                    Hydration is crucial for maintaining the body's balance, especially during physical activities...
-                  </p>
-                  <a href="#" className="btn btn-primary mt-3">
-                    <i className="bi bi-chevron-right"></i> Read More
-                  </a>
-                </div>
+      {/* Hydration Section */}
+      <section id="hydration">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img
+                src={pic5}
+                alt="Hydration"
+                className="img-fluid"
+              />
+            </div>
+            <div className="col-md-6 p-5">
+              <div className="card-body">
+                <h2 className>Hydration</h2>
+                <p className="lead">
+                  Hydration is crucial for maintaining the body's balance, especially during physical activities. Proper hydration supports energy levels, helps regulate body temperature, and enhances overall physical performance.
+                </p>
+                <a href="/hydration" className="btn btn-primary mt-3">
+                  <i className="bi bi-chevron-right"></i> Hydration
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Nutrition Section */}
-        <section id="nutrition" className={classes.section}>
-          <div className="container">
-            <div className="row align-items-center justify-content-between">
-              <div className="col-md d-sm-none d-lg-block">
-                <img src={pic4} className="img-fluid" alt="Nutrition" />
-              </div>
-              <div className="col-md p-5">
-                <div className="card-body">
-                  <h2 className={classes.sectionTitle}>Nutrition</h2>
-                  <p className="lead">
-                    Nutrition is the cornerstone of a healthy lifestyle, providing the essential nutrients needed to...
-                  </p>
-                  <a href="#" className="btn btn-primary mt-3">
-                    <i className="bi bi-chevron-right"></i> Read More
-                  </a>
-                </div>
+      {/* Nutrition Section */}
+      <section id="nutrition">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img
+                src={pic4}
+                alt="Nutrition"
+                className="img-fluid"
+              />
+            </div>
+            <div className="col-md-6 p-5">
+              <div className="card-body">
+                <h2>Nutrition</h2>
+                <p className="lead">
+                  Nutrition is the cornerstone of a healthy lifestyle, providing the essential nutrients needed to fuel your body. Proper nutrition can enhance performance, speed up recovery, and improve overall health.
+                </p>
+                <a href="/nutrition" className="btn btn-primary mt-3">
+                  <i className="bi bi-chevron-right"></i> Nutrition
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Climate Section */}
-        <section id="climate" className={classes.section}>
-          <div className="container">
-            <div className="row align-items-center justify-content-between">
-              <div className="col-md d-sm-none d-lg-block">
-                <img src={pic6} className="img-fluid" alt="Climate" />
-              </div>
-              <div className="col-md p-5">
-                <div className="card-body">
-                  <h2 className={classes.sectionSubtitle}>Climate and Environment</h2>
-                  <p className="lead">
-                    Climate and environmental conditions play a significant role in outdoor physical activities. Understanding how weather affects your performance, from heat and humidity to cold and wind, allows you to adjust your workouts and take precautions for safe and effective exercise.
-                  </p>
-                  <a href="#" className="btn btn-primary mt-3">
-                    <i className="bi bi-chevron-right"></i> Read More
-                  </a>
-                </div>
+      {/* Climate Section */}
+      <section id="climate">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img
+                src={pic6}
+                alt="Climate"
+                className="img-fluid"
+              />
+            </div>
+            <div className="col-md-6 p-5">
+              <div className="card-body">
+                <h2>Climate and Environment</h2>
+                <p className="lead">
+                  Climate and environmental conditions play a significant role in outdoor physical activities. Understanding how weather affects your performance, from heat and humidity to cold and wind, allows you to adjust your workouts and take precautions for safe and effective exercise.
+                </p>
+                <a href="/climate" className="btn btn-primary mt-3">
+                  <i className="bi bi-chevron-right"></i> Climate
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-{/* Newsletter Section */}
-<section className={classes.section}>
-          <div className="container">
-            <div className="d-md-flex justify-content-between align-items-center">
-              <h3 className="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
-              <div className={classes.newsInput}>
-                <input type="text" className={`form-control ${classes.input}`} placeholder="Enter Email" />
-                <button className="btn btn-primary btn-lg" type="button">Submit</button>
-              </div>
+      {/* Newsletter Section */}
+      <section>
+        <div className="container">
+          <div className="d-md-flex justify-content-between align-items-center">
+            <h3 className="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
+            <div className="d-flex">
+              <input type="text" className="form-control me-2" placeholder="Enter Email" />
+              <button className="btn btn-primary btn-lg" type="button">Submit</button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <Footer className={classes.footer} />
-
-        
-        </body>
-      </html>
-    </Container>
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 };
 
