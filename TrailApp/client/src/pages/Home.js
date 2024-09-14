@@ -4,9 +4,11 @@ import { Grid, Typography, Container, Button, Divider, Collapse} from '@material
 import useStyles, {goldOptions, greenOptions, greyOptions, containerStyle, exampleMapStyles} from '../styles/Homestyles.js';
 import { GoogleMap, LoadScript, Polyline, Marker} from '@react-google-maps/api';
 import { GoldCords, GreenCoords, GreyCoords} from '../components/BigTrails/Coords.js'
+import '../interfaceSettings.css'; // Import the CSS file
 import gold from '../assets/images/gold.png';
 import green from '../assets/images/green.png';
 import gray from '../assets/images/gray.png';
+import { red } from '@material-ui/core/colors';
 
 const Home = () => {
 
@@ -45,10 +47,104 @@ const Home = () => {
 
     return (
         <Container component="main" maxWidth="xl">
-            <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                <Grid item xs={12} sm={6} md={4} style={{ background: '#ffffff' }}>
-                    <div style={{textAlign: "center"}}>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+          />
+          <link
+            href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+            rel="stylesheet"
+          />
+          <link rel="stylesheet" href="" />
 
+          <title>WALKERS</title>
+        </head>
+        <body>
+
+        <div class="container" style={{ background: '#ffffff' }}>
+            <div class="col-xl text-center pb-3">
+                <div class="col-sm align-items-center">
+                <Typography className = {classes.gold} onClick = {() => setOpenGold(!openGold)}>Gold Trail</Typography>
+                    <Collapse in={openGold}>
+                        <Link to ="/gold">
+                            <img className={classes.image} src={gold} alt="Gold Trail"/>
+                        </Link>
+                    </Collapse>
+                    <Divider/>
+                </div>
+                <div class="col-sm">
+                <Typography className = {classes.green} onClick = {() => setOpenGreen(!openGreen)}>Green Trail</Typography>
+                    <Collapse Collapse in={openGreen}>
+                        <Link to ="/green">
+                        <img className={classes.image} src={green} alt="Green Trail"/>
+                        </Link>
+                    </Collapse>
+                    <Divider/>                
+                </div>
+                <div class="col-sm">
+                <Typography className = {classes.grey} onClick = {() => setOpenGrey(!openGrey)}>Gray Trail</Typography>
+                    <Collapse Collapse in={openGrey}>
+                        <Link to ="/gray">
+                        <img className={classes.image} src={gray} alt="Gray Trail"/>
+                        </Link>
+                    </Collapse>
+                    <Divider/>               
+                </div>
+                
+            </div>
+        </div>
+        <hr />
+        <div class="container" style={{ background: '#ffffff' }}>
+            <div class="col-xl text-center pb-3">
+                <div class="col-sm align-items-center" style={{ display: "inline-block", height: "80vh", width: "100%" }}>
+                    <LoadScript
+                        googleMapsApiKey="AIzaSyCKEd9gY2vA4IAZdBmZkhvrrfofT2KZfyU"
+                    >
+                        <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={center}
+                            zoom={16}
+                            options={mapID}
+                        >
+                            <Polyline
+                                path = {GoldCords}
+                                options={goldOptions}
+                                onClick={goGold}
+                            />
+                            <Polyline
+                                path = {GreenCoords}
+                                options={greenOptions}
+                                onClick={goGreen}
+                            />
+                            <Polyline 
+                                path = {GreyCoords}
+                                options={greyOptions}
+                                onClick={goGrey}
+                            />
+                        </GoogleMap>
+                    </LoadScript>
+                </div>
+            </div>
+        </div>
+                
+
+        
+            {/*    <Grid item xs={12} sm={6} md={8} style={{ background: 'rgba(255, 255, 255, 0.5)' } }>
+
+             Old Code <Grid className={classes.gridContainer} container justifyContent="center" alignItems="stretch" spacing={3}>
+                <Grid item xs={12} sm={6} md={12} style={{ background: '#ffffff' }}>
+                    <div className="container" style={{textAlign: "center"}}>
                         <Typography className = {classes.gold} onClick = {() => setOpenGold(!openGold)}>Gold Trail</Typography>
                         <Collapse in={openGold}>
                             <Link to ="/gold">
@@ -74,8 +170,9 @@ const Home = () => {
                         <Divider/>
 
                     </div>
+                    <hr />
                 </Grid>
-                <Grid item xs={12} sm={6} md={8} style={{ background: 'rgba(255, 255, 255, 0.5)' }}>
+            <Grid item xs={12} sm={6} md={8} style={{ background: 'rgba(255, 255, 255, 0.5)' } }>*/}
 
 
                 {/* <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
@@ -95,7 +192,7 @@ const Home = () => {
                     <Link to ="/gray">
                         <img className={classes.image} src={gray} alt="Gray Trail"/>
                     </Link>
-                </Grid> */}
+                </Grid> 
 
 
 
@@ -128,7 +225,9 @@ const Home = () => {
                     </LoadScript>
                 </div>
                 </Grid>
-            </Grid>
+            </Grid>*/}
+            </body>
+            </html>
             
         </Container>
     );
