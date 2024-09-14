@@ -27,9 +27,9 @@ import Library from './pages/Library.js';
 import Nutrition from './pages/Nutrition.js';
 
 //New imports:
-import Climate from './components/Climate.js';
-import Hydration from './components/Hydration.js';
-import NutritionNew from './components/Nutrition.js';
+import Climate from './pages/Climate.js';
+import Hydration from './pages/Hydration.js';
+import NutritionNew from './pages/Nutrition.js';
 
 //const oldIdclientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
 
