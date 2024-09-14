@@ -1,4 +1,80 @@
 /* Global Variables */
+/* Navbar Styles */
+.appBar {
+    background: transparent; /* Removes the black background */
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px; /* Adjust padding as needed */
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Spread content to left and right */
+    width: 100%;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: flex-start; /* Align menu button to the left */
+    flex: 1; /* Take up space on the left side */
+}
+
+.textContainer {
+    display: flex;
+    justify-content: flex-end; /* Align text to the right */
+    flex: 1; /* Take up space on the right side */
+}
+
+.heading {
+    color: #000; /* Change the text color to black or as needed */
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.menuButton {
+    color: white;
+    background-color: green; /* Button color */
+}
+
+.menuButton:hover {
+    background-color: #283593; /* Hover color */
+}
+
+.menu {
+    background-color: #f5f5f5; /* Background color of dropdown */
+}
+
+.menu .MuiMenuItem-root {
+    color: #333; /* Text color in dropdown */
+}
+
+.menu .MuiMenuItem-root:hover {
+    background-color: green; /* Hover background color */
+    color: #fff; /* Hover text color */
+}
+
+.pic {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+    margin-right: 16px; /* Space between the logo and text */
+}
+
+.newsletter {
+    position: absolute;
+    bottom: 0; /* Move the newsletter to the bottom of the page */
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    background-color: #f5f5f5; /* Adjust background color if necessary */
+}
+
+.trailsCollapseText {
+    text-align: center;
+}
+
+
+/* Reusable Styles */
 
 :root {
   /* Color Variables */
@@ -20,11 +96,18 @@
   /* Button Variables */
   --btn-padding: 0.75rem 1.5rem;
   --btn-border-radius: 0.25rem;
+  --btn-margin: 0 "auto";
+  --btn-border-color: rgb(0, 80, 0);
+  --btn-hover-color: rgb(0, 90, 0);
+  --btn-active-color: rgb(0, 120, 0);
+
   --menu-button-bg-color: #3e8c3e; /* Green background for menu button */
   --menu-button-text-color: white; /* White text color for menu button */
 
   /* Heading Gradient */
   --heading-gradient: linear-gradient(#3e8c3e, #808080, #ffcc00); /* Green, gray, yellow */
+
+
 }
 
 /* Navbar Styles */
@@ -89,6 +172,23 @@
   background-color: var(--primary-color);
   padding: var(--btn-padding);
   border-radius: var(--btn-border-radius);
+  
+  border-color: var(--btn-border-color);
+  display:block;
+  margin: var(--btn-margin);
+
+}
+
+.btn-primary:hover
+{
+    background-color: var(--btn-hover-color);
+    transition: 0.24s;
+}
+
+.btn-primary:active
+{
+    color: var(--btn-active-color);
+    transition: 0.24s;
 }
 
 /* Heading and Paragraph Styling */
