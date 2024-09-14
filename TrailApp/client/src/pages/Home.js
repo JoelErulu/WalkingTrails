@@ -74,7 +74,7 @@ const Home = () => {
 
         <div class="container" style={{ background: '#ffffff' }}>
             <div class="col-xl text-center pb-3">
-                <div class="col-sm align-items-center">
+                <div class="col-sm trailsCollapseText">              
                 <Typography className = {classes.gold} onClick = {() => setOpenGold(!openGold)}>Gold Trail</Typography>
                     <Collapse in={openGold}>
                         <Link to ="/gold">
@@ -139,93 +139,27 @@ const Home = () => {
         </div>
                 
 
-        
-            {/*    <Grid item xs={12} sm={6} md={8} style={{ background: 'rgba(255, 255, 255, 0.5)' } }>
-
-             Old Code <Grid className={classes.gridContainer} container justifyContent="center" alignItems="stretch" spacing={3}>
-                <Grid item xs={12} sm={6} md={12} style={{ background: '#ffffff' }}>
-                    <div className="container" style={{textAlign: "center"}}>
-                        <Typography className = {classes.gold} onClick = {() => setOpenGold(!openGold)}>Gold Trail</Typography>
-                        <Collapse in={openGold}>
-                            <Link to ="/gold">
-                                <img className={classes.image} src={gold} alt="Gold Trail"/>
-                            </Link>
-                        </Collapse>
-                        <Divider/>
-
-                        <Typography className = {classes.green} onClick = {() => setOpenGreen(!openGreen)}>Green Trail</Typography>
-                        <Collapse Collapse in={openGreen}>
-                            <Link to ="/green">
-                            <img className={classes.image} src={green} alt="Green Trail"/>
-                            </Link>
-                        </Collapse>
-                        <Divider/>
-
-                        <Typography className = {classes.grey} onClick = {() => setOpenGrey(!openGrey)}>Gray Trail</Typography>
-                        <Collapse Collapse in={openGrey}>
-                            <Link to ="/gray">
-                            <img className={classes.image} src={gray} alt="Gray Trail"/>
-                            </Link>
-                        </Collapse>
-                        <Divider/>
-
-                    </div>
-                    <hr />
-                </Grid>
-            <Grid item xs={12} sm={6} md={8} style={{ background: 'rgba(255, 255, 255, 0.5)' } }>*/}
-
-
-                {/* <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                    <Typography variant="h5">Gold Trail</Typography>
-                    <Link to ="/gold">
-                        <img className={classes.image} src={gold} alt="Gold Trail"/>
-                    </Link>
-                </Grid>
-                <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                    <Typography variant="h5">Green Trail</Typography>
-                    <Link to ="/green">
-                        <img className={classes.image} src={green} alt="Green Trail"/>
-                    </Link>
-                </Grid>
-                <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                    <Typography variant="h5">Gray Trail</Typography>
-                    <Link to ="/gray">
-                        <img className={classes.image} src={gray} alt="Gray Trail"/>
-                    </Link>
-                </Grid> 
-
-
-
-                    <div style={{ display: "inline-block", height: "80vh", width: "100%" }}>
-                    <LoadScript
-                        googleMapsApiKey="AIzaSyCKEd9gY2vA4IAZdBmZkhvrrfofT2KZfyU"
-                    >
-                        <GoogleMap
-                            mapContainerStyle={containerStyle}
-                            center={center}
-                            zoom={16}
-                            options={mapID}
-                        >
-                            <Polyline
-                                path = {GoldCords}
-                                options={goldOptions}
-                                onClick={goGold}
-                            />
-                            <Polyline
-                                path = {GreenCoords}
-                                options={greenOptions}
-                                onClick={goGreen}
-                            />
-                            <Polyline 
-                                path = {GreyCoords}
-                                options={greyOptions}
-                                onClick={goGrey}
-                            />
-                        </GoogleMap>
-                    </LoadScript>
-                </div>
-                </Grid>
-            </Grid>*/}
+        {/*
+                
+            <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                <Typography variant="h5">Gold Trail</Typography>
+                <Link to ="/gold">
+                    <img className={classes.image} src={gold} alt="Gold Trail"/>
+                </Link>
+            </Grid>
+            <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                <Typography variant="h5">Green Trail</Typography>
+                <Link to ="/green">
+                    <img className={classes.image} src={green} alt="Green Trail"/>
+                </Link>
+            </Grid>
+            <Grid className={classes.gridItem} item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                <Typography variant="h5">Gray Trail</Typography>
+                <Link to ="/gray">
+                    <img className={classes.image} src={gray} alt="Gray Trail"/>
+                </Link>
+            </Grid> 
+            */}
             </body>
             </html>
             
