@@ -223,7 +223,7 @@ p.lead {
   --footer-font-color: #555555; /* Light gray */
   /*--footer-font-family: 'Roboto', sans-serif;*/
 
-  --appBar-background: #fff; /* Or whatever color you want */
+  --appBar-background: #fff;
   --appBar-border-radius: 15px;
   --appBar-margin: 30px 0;
 }
