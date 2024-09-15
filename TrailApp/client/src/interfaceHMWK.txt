@@ -27,3 +27,5 @@ Team Members and their Variables:
     Used on: "WALKING TRAILS" buttons' pressed color.
    - Variable --btn-border-color
     Used on: "WALKING TRAILS" buttons' border color.
+   - Variable --font-size-medium
+    Used on: "WALKING TRAILS" landing page footer text.

@@ -80,12 +80,13 @@
   /* Color Variables */
   --primary-color: green;
   --secondary-color: #6c757d;
-  
+
   /* Font Variables */
   --font-size-heading: 2rem;
   --font-size-lead: 1.25rem;
   --font-size-large: 2.5rem;
   --font-size-small: 1rem;
+  --font-size-medium: 1.75rem;
 
   
   /* Image Variables */
@@ -173,7 +174,7 @@
   padding: var(--btn-padding);
   border-radius: var(--btn-border-radius);
   
-  border-color: var(--btn-border-color);
+  border-color: var(--btn-border-color); 
   display:block;
   margin: var(--btn-margin);
 
@@ -194,6 +195,10 @@
 /* Heading and Paragraph Styling */
 h1, h2 {
   font-size: var(--font-size-heading); /* Using global heading size */
+}
+
+h3 {
+    font-size: var(--font-size-medium);
 }
 
 p.lead {
