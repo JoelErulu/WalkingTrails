@@ -130,6 +130,7 @@
   font-weight: bold;
   background: var(--heading-gradient); /* Using global gradient */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -143,6 +144,17 @@
 
 .navbar-nav .nav-link:hover {
   color: var(--primary-color); /* Using global primary color */
+}
+
+.underline-link {
+  text-decoration: underline;
+  text-decoration-thickness: .5px; /* Thickness of the underline */
+  text-decoration-color: var(--underline-style); /* Use the global variable */
+  text-underline-offset: 5px; /* Offset the underline from the text */
+}
+
+:root {
+  --underline-style: 2px solid #3498db; /* Global underline style */
 }
 
 /* Menu button styling */
@@ -203,6 +215,31 @@ h3 {
 
 p.lead {
   font-size: var(--font-size-lead); /* Using global lead text size */
+}
+
+/* Footer Styling */
+:root {
+  --footer-font-size: 14px;
+  --footer-font-color: #555555; /* Light gray */
+  /*--footer-font-family: 'Roboto', sans-serif;*/
+
+  --appBar-background: #fff;
+  --appBar-border-radius: 15px;
+  --appBar-margin: 30px 0;
+}
+
+.appBar {
+  border-radius: var(--appBar-border-radius);
+  margin: var(--appBar-margin);
+  display: flex;
+}
+
+.footerText {
+  flex-grow: 1;
+  text-align: center;
+  font-size: var(--footer-font-size);
+  color: var(--footer-font-color);
+  font-family: var(--footer-font-family);
 }
 
 /* Image Styling */
