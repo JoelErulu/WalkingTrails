@@ -219,3 +219,53 @@ p.lead {
     max-width: 95%; 
   }
 }
+
+
+/* Mobile Menu Button */
+.navbar-toggler {
+  border: none;
+  background-color: var(--menu-button-bg-color); /* Green background */
+  color: var(--menu-button-text-color); /* White text */
+  display: block; /* Display on mobile */
+}
+
+/* Collapsible navbar styles for mobile */
+@media (max-width: 768px) {
+    .collapse.navbar-collapse {
+        flex-direction: column;
+        align-items: center;
+        background-color: green; /* Set background color of the hidden menu to green */
+        width: 60%; /* Make the box smaller (adjust as needed) */
+        margin: 0 auto; /* Center the box horizontally */
+        /*border-radius: 8px; /* Optional: rounded corners */
+        padding: 10px;
+    }
+
+    .navbar-nav {
+        width: 100%; /* Full width for mobile */
+        text-align: center; /* Center the links */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 0; /* Add spacing between the links */
+        width: 100%;
+        color: black; /* Set text color to black */
+        transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: white; /* Change text color to white when hovered */
+    }
+
+    .btn-outline-danger {
+        margin: 10px 0; /* Adjust margin for logout button on mobile */
+    }
+}
+
+/* Custom menu toggle button */
+.navbar-toggler {
+    border: none;
+    background-color: var(--menu-button-bg-color); /* Green background */
+    color: var(--menu-button-text-color); /* White text */
+    display: block; /* Display on mobile */
+}
