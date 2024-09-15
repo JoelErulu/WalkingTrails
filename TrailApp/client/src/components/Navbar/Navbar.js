@@ -5,7 +5,7 @@ import '../../interfaceSettings.css'; // Import the CSS file
 import GwinnettLogo from './gwinnett.png';  // Import the image properly
 
 const Navbar = () => {
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // State to handle mobile menu visibility
     const profile = JSON.parse(localStorage.getItem('profile'));
     const [user, setUser] = useState(profile?.payload);
     const [userRole, setUserRole] = useState('');
@@ -14,12 +14,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleMenuClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
+    const handleMenuToggle = () => {
+        setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
     };
 
     const logout = () => {
@@ -44,21 +40,21 @@ const Navbar = () => {
                     <span className="heading">WALKING TRAILS</span>
                 </Link>
 
-                {/* Menu Button */}
+                {/* Menu Toggle Button for mobile */}
                 <button
                     className="navbar-toggler"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
+                    onClick={handleMenuToggle} // Handle the click to toggle the menu
                     aria-controls="navbarNav"
-                    aria-expanded="false"
+                    aria-expanded={isMenuOpen ? "true" : "false"}
                     aria-label="Toggle navigation"
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul className="navbar-nav">
+                {/* Collapsible navbar - visibility toggled by isMenuOpen */}
+                <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
+                    <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
