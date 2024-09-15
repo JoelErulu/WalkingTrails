@@ -145,14 +145,14 @@ const Landing = () => {
             <h3 className="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
             <div className="d-flex">
               <input type="text" className="form-control me-2" placeholder="Enter Email" />
-              <button className="btn btn-primary btn-lg" type="button">Submit</button>
+              <button className="btn btn-primary mt-3" type="button">Submit</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

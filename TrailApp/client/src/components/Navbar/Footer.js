@@ -1,27 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
-
-const useStyles = makeStyles((theme) => ({
-    appBar: {
-        borderRadius: 15,
-        margin: '30px 0',
-        display: 'flex',
-      },
-    footerText: {
-        flexGrow: 1,
-        textAlign: 'center',
-    },
-}));
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import '../../interfaceSettings.css'; // Import the CSS file
 
 const Footer = () => {
-    const classes = useStyles();
 
     return (
-        <AppBar position="static" color="inherit" className={classes.appBar}>
-            <Toolbar>
-                <Typography variant="body1" className={classes.footerText}>
-                    &copy; Walking Trails Fall 2024
+        <AppBar position="static" color="inherit" className="appBar">
+            <Toolbar classname='footer-toolbar'>
+                <Typography variant="body1" className="footerText">
+                    &copy; Walking Trails, Fall 2024 
                 </Typography>
+                <div classname='footer-links'>
+                    <Link className="nav-link" to="/about">About </Link>
+                    <Link className="nav-link" to="/privacy">Privacy</Link>
+                    {/* Create links for miscellaneous pages if needed*/}
+                </div>
             </Toolbar>
         </AppBar>
     );
