@@ -1,4 +1,4 @@
- Global CSS File: interfaceSettings.css
+Global CSS File: interfaceSettings.css
 Location: /src/interfaceSettings.css
 
 Team Members and their Variables:
@@ -13,8 +13,19 @@ Team Members and their Variables:
       - Variable: --primary-color
      Used on: nav items for hover states.
 
+
 2. [Joel Erulu]
    - Variable: --image-max-width-md
      Used on: Landing Page Images.
       - Variable: --font-size-heading
      Used on: h1, h2 Heading titles on Landing page.
+
+3. [Josiah]
+   - Variable  --btn-hover-color
+    Used on: "WALKING TRAILS" buttons' hover color.
+   - Variable  --btn-active-color
+    Used on: "WALKING TRAILS" buttons' pressed color.
+   - Variable --btn-border-color
+    Used on: "WALKING TRAILS" buttons' border color.
+   - Variable --font-size-medium
+    Used on: "WALKING TRAILS" landing page footer text.
