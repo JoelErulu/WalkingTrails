@@ -20,16 +20,18 @@ import GoldAdmin from './components/BigTrailsAdmin/GoldAdmin';
 import GreenAdmin from './components/BigTrailsAdmin/GreenAdmin';
 import GrayAdmin from './components/BigTrailsAdmin/GrayAdmin';
 import NutritionAdmin from './components/NutritionAdmin/NutritionAdmin.js';
-import Blog from './pages/Blog.js';
 import Landing from './pages/Landing.js';
 import Home from './pages/Home.js';
+
+//Deprecated pages
 import Library from './pages/Library.js';
-import Nutrition from './pages/Nutrition.js';
+import NutritionOld from './pages/NutritionDB - Old.js';
+import Blog from './pages/Blog.js';
 
 //New imports:
 import Climate from './pages/Climate.js';
 import Hydration from './pages/Hydration.js';
-import NutritionNew from './pages/Nutrition.js';
+import Nutrition from './pages/Nutrition.js';
 import Workouts from './pages/Workouts.js';
 
 //const oldIdclientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
@@ -62,9 +64,9 @@ const App = () => (
                     <Route path ="/climate" element = {<Climate/>}/>
                     <Route path ="/hydration" element = {<Hydration/>}/>
                     <Route path ="/workouts" element = {<Workouts/>}/>
-                    <Route path="/nutritionNew" element={<NutritionNew />} />
+                    <Route path="/nutrition" element={<Nutrition />} />
                 </Routes>
-                {/* <Footer /> */}
+                <Footer />
             </Container>
         </BrowserRouter>
     </GoogleOAuthProvider>
