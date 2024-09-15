@@ -33,6 +33,8 @@ import Climate from './pages/Climate.js';
 import Hydration from './pages/Hydration.js';
 import Nutrition from './pages/Nutrition.js';
 import Workouts from './pages/Workouts.js';
+import About from './pages/About.js'
+import Privacy from './pages/Privacy.js'
 
 //const oldIdclientId='115519328455-e14hf6515mt6qkkvuvuhnkuv3jdd1059.apps.googleusercontent.com';
 
@@ -65,6 +67,8 @@ const App = () => (
                     <Route path ="/hydration" element = {<Hydration/>}/>
                     <Route path ="/workouts" element = {<Workouts/>}/>
                     <Route path="/nutrition" element={<Nutrition />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/privacy" element={<Privacy />} />
                 </Routes>
                 <Footer />
             </Container>
