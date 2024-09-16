@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import '../interfaceSettings.css'; // Import the CSS file
 import GwinnettLogo from '../assets/images/gwinnett.png';  // Import the image properly
 
-const Nutrition = () => {
+const Workouts = () => {
     const [likeCounts, setLikeCounts] = useState([0, 0]); // Track likes for two videos
     const [dislikeCounts, setDislikeCounts] = useState([0, 0]); // Track dislikes for two videos
 
@@ -23,18 +23,18 @@ const Nutrition = () => {
     };
 
     return (
-        <section id="nutrition" className="container mt-5">
-            <h1>Nutrition</h1>
-            <p>Welcome to the Nutrition section! Here you will find information about healthy eating, meal plans, and nutrition tips.</p>
+        <section id="workouts" className="container mt-5">
+            <h1>Personalized Workouts</h1>
+            <p>Welcome to the Personalized Workouts section! Enjoy strengthening exercises.</p>
 
             {/* Video 1 */}
             <div className="video-section">
-                <h3>Healthy Eating Tips - Video 1</h3>
+                <h3>Strengthening Exercise 1</h3>
                 <iframe
                     width="560"
                     height="315"
-                    src="https://www.youtube.com/embed/c06dTj0v0sM" 
-                    title="Healthy Eating Tips - Video 1"
+                    src="https://www.youtube.com/embed/xTUmZcxf_tI"
+                    title="Strengthening Exercise 1"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -47,12 +47,12 @@ const Nutrition = () => {
 
             {/* Video 2 */}
             <div className="video-section">
-                <h3>Meal Plans - Video 2</h3>
+                <h3>Strengthening Exercise 2</h3>
                 <iframe
                     width="560"
                     height="315"
-                    src="https://www.youtube.com/embed/9h9S9kD67-Q" 
-                    title="Meal Plans - Video 2"
+                    src="https://www.youtube.com/embed/IR0yV_3DfBo"
+                    title="Strengthening Exercise 2"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -66,4 +66,5 @@ const Nutrition = () => {
     );
 };
 
-export default Nutrition;
+export default Workouts;
+    
