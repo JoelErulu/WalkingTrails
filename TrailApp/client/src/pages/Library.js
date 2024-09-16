@@ -4,7 +4,7 @@ import { Grid, Typography, Container, Button, Divider, Collapse} from '@material
 import useStyles, {goldOptions, greenOptions, greyOptions, containerStyle, exampleMapStyles} from '../styles/Librarystyles.js';
 
 const Library = () => {
-    return <h1> THIS IS THE LIBRRARY PAGE </h1>
+    return <h1> THIS IS THE LIBRARY PAGE </h1>
 };
 
 export default Library;

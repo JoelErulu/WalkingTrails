@@ -32,7 +32,7 @@ import Blog from './pages/Blog.js';
 import Climate from './pages/Climate.js';
 import Hydration from './pages/Hydration.js';
 import Nutrition from './pages/Nutrition.js';
-import Workouts from './pages/Workouts.js';
+import Exercises from './pages/Exercises.js';
 import About from './pages/About.js'
 import Privacy from './pages/Privacy.js'
 
@@ -49,7 +49,6 @@ const App = () => (
                     <Route path="/" element={<Landing />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/admin" element={<Admin />} />
-                    <Route path="/nutrition" element={<Nutrition />} />
                     <Route path="/gold" element={<Gold />} />
                     <Route path="/green" element={<Green />} />
                     <Route path="/gray" element={<Gray />} />
@@ -65,7 +64,7 @@ const App = () => (
 
                     <Route path ="/climate" element = {<Climate/>}/>
                     <Route path ="/hydration" element = {<Hydration/>}/>
-                    <Route path ="/workouts" element = {<Workouts/>}/>
+                    <Route path ="/exercises" element = {<Exercises/>}/>
                     <Route path="/nutrition" element={<Nutrition />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/privacy" element={<Privacy />} />
