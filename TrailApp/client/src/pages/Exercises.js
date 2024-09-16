@@ -5,21 +5,81 @@ import '../interfaceSettings.css'; // Import the CSS file
 import GwinnettLogo from '../assets/images/gwinnett.png';  // Import the image properly
 
 const Exercises = () => {
+    const [likeCounts, setLikeCounts] = useState([0, 0, 0]); // Track likes for three videos
+    const [dislikeCounts, setDislikeCounts] = useState([0, 0, 0]); // Track dislikes for three videos
+
+    // Handler for thumbs up
+    const handleLike = (index) => {
+        const newLikes = [...likeCounts];
+        newLikes[index]++;
+        setLikeCounts(newLikes);
+    };
+
+    // Handler for thumbs down
+    const handleDislike = (index) => {
+        const newDislikes = [...dislikeCounts];
+        newDislikes[index]++;
+        setDislikeCounts(newDislikes);
+    };
+
     return (
         <section id="exercises" className="container mt-5">
             <h1>Exercises</h1>
-            <p>Welcome to the Exercises library! Here we will have information regarding strengthening and stretching exercises, as well as information regarding proper walking mechanics.</p>
-            <h3>Stretching Exercises</h3>
-            {/* Provide short blurb for each heading & link to gallery of videos. 
-            Perhaps create a Gallery.js that pulls up a grid of videos, 
-            with backend for filtering based on a specific tag reated to particular category
-            Video.js that pulls up a video player element when thumbnail selected*/}
-            {/*<p></p>*/}
-            <h3>Strengthening Exercises</h3>
-            {/*<p></p>*/}
-            <h3>Walking Mechanics</h3>
-            {/*<p></p>*/}
-            {/* Add more content as needed */}
+            <p>Welcome to the Exercises library! Here we have videos on stretching exercises, strengthening exercises, and walking mechanics.</p>
+
+            {/* Stretching Exercises Video */}
+            <div className="video-section">
+                <h3>Stretching Exercises</h3>
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/i6TzP2COtow" 
+                    title="Stretching Exercises"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+                <div className="feedback">
+                    <button onClick={() => handleLike(0)}>👍 {likeCounts[0]}</button>
+                    <button onClick={() => handleDislike(0)}>👎 {dislikeCounts[0]}</button>
+                </div>
+            </div>
+
+            {/* Strengthening Exercises Video */}
+            <div className="video-section">
+                <h3>Strengthening Exercises</h3>
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/xTUmZcxf_tI" 
+                    title="Strengthening Exercises"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+                <div className="feedback">
+                    <button onClick={() => handleLike(1)}>👍 {likeCounts[1]}</button>
+                    <button onClick={() => handleDislike(1)}>👎 {dislikeCounts[1]}</button>
+                </div>
+            </div>
+
+            {/* Walking Mechanics Video */}
+            <div className="video-section">
+                <h3>Walking Mechanics</h3>
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/sEqx4VqC4pI" 
+                    title="Walking Mechanics"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></iframe>
+                <div className="feedback">
+                    <button onClick={() => handleLike(2)}>👍 {likeCounts[2]}</button>
+                    <button onClick={() => handleDislike(2)}>👎 {dislikeCounts[2]}</button>
+                </div>
+            </div>
         </section>
     );
 };
