@@ -47,12 +47,12 @@ const Landing = () => {
             </div>
             <div className="col-md-6 p-5">
               <div className="card-body">
-                <h2>Personalized Workouts/Workout Spaces</h2>
+                <h2>Exercises</h2>
                 <p className="lead">
-                  Personalized workouts and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness.
+                  Personalized workout tutorials and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness.
                 </p>
-                <a href="/workouts" className="btn btn-primary mt-3">
-                  <i className="bi bi-chevron-right"></i> Personalized Workouts
+                <a href="/exercises" className="btn btn-primary mt-3">
+                  <i className="bi bi-chevron-right"></i> Exercises
                 </a>
               </div>
             </div>

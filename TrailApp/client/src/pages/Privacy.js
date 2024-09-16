@@ -18,6 +18,7 @@ const Privacy = () => {
                 <li>the pages you visit; and</li>
                 <li>if you linked to the Georgia Gwinnett College website from another website, the address of that website.</li>
             </ul>
+            <p>We use this information to help us make our site more useful to visitors – to learn about the number of visitors to our site and the types of technology our visitors use.</p>
             {/* List out additional privacy policy stuff*/}
         </section>
     );
