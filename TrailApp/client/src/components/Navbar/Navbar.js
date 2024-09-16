@@ -59,16 +59,16 @@ const Navbar = () => {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#workout">Workout</a>
+                            <Link className="nav-link" to="/exercises">Exercises</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#hydration">Hydration</a>
+                            <Link className="nav-link" to="/hydration">Hydration</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#nutrition">Nutrition</a>
+                            <Link className="nav-link" to="/nutrition">Nutrition</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#climate">Climate</a>
+                            <Link className="nav-link" to="/climate">Climate</Link>
                         </li>
                         {user ? (
                             <li className="nav-item">

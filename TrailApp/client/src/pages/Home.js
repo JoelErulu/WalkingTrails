@@ -109,7 +109,7 @@ const Home = () => {
             <div class="col-xl text-center pb-3">
                 <div class="col-sm align-items-center" style={{ display: "inline-block", height: "80vh", width: "100%" }}>
                     <LoadScript
-                        googleMapsApiKey="AIzaSyCKEd9gY2vA4IAZdBmZkhvrrfofT2KZfyU"
+                        googleMapsApiKey="AIzaSyCKEd9gY2vA4IAZdBmZkhvrrfofT2KZfyU" //Google Maps API Key
                     >
                         <GoogleMap
                             mapContainerStyle={containerStyle}
