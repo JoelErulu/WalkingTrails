@@ -260,6 +260,15 @@ p.lead {
   .img-fluid {
     max-width: 95%; 
   }
+
+  .heading {
+    font-size: var(--font-size-medium); /* Using global font size */
+  }
+
+  .logo {
+    width: 100px;
+
+  }
 }
 
 
