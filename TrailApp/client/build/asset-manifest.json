@@ -1,11 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.a279096e.css",
-    "main.js": "/static/js/main.c781caec.js",
+    "main.js": "/static/js/main.ada51b1b.js",
     "static/media/ProjectVideo3.mp4": "/static/media/ProjectVideo3.3e84c106701ab267fb91.mp4",
     "static/media/ProjectVideo1.mp4": "/static/media/ProjectVideo1.38cf55d31eb1f8fc5eff.mp4",
     "static/media/ProjectVideo2.mp4": "/static/media/ProjectVideo2.024bf373578a42d9d538.mp4",
     "static/media/ProjectVideo4.mp4": "/static/media/ProjectVideo4.77a9dec54a99c7c3a2df.mp4",
+    "static/media/trailback.jpg": "/static/media/trailback.eb076be6faf0a7657cc3.jpg",
     "static/media/ProjectVideo5.mp4": "/static/media/ProjectVideo5.33f24394448a78f0dec6.mp4",
     "static/media/climate.jpg": "/static/media/climate.f8d37f8d13077de6ee07.jpg",
     "static/media/nutrition1.jpg": "/static/media/nutrition1.0b70a050f9dd26132cce.jpg",
@@ -17,10 +18,10 @@
     "static/media/exercise1.jpg": "/static/media/exercise1.3435f776e0b29707c2d3.jpg",
     "index.html": "/index.html",
     "main.a279096e.css.map": "/static/css/main.a279096e.css.map",
-    "main.c781caec.js.map": "/static/js/main.c781caec.js.map"
+    "main.ada51b1b.js.map": "/static/js/main.ada51b1b.js.map"
   },
   "entrypoints": [
     "static/css/main.a279096e.css",
-    "static/js/main.c781caec.js"
+    "static/js/main.ada51b1b.js"
   ]
 }
