@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a279096e.css",
+    "main.js": "/static/js/main.c781caec.js",
+    "static/media/ProjectVideo3.mp4": "/static/media/ProjectVideo3.3e84c106701ab267fb91.mp4",
+    "static/media/ProjectVideo1.mp4": "/static/media/ProjectVideo1.38cf55d31eb1f8fc5eff.mp4",
+    "static/media/ProjectVideo2.mp4": "/static/media/ProjectVideo2.024bf373578a42d9d538.mp4",
+    "static/media/ProjectVideo4.mp4": "/static/media/ProjectVideo4.77a9dec54a99c7c3a2df.mp4",
+    "static/media/ProjectVideo5.mp4": "/static/media/ProjectVideo5.33f24394448a78f0dec6.mp4",
+    "static/media/climate.jpg": "/static/media/climate.f8d37f8d13077de6ee07.jpg",
+    "static/media/nutrition1.jpg": "/static/media/nutrition1.0b70a050f9dd26132cce.jpg",
+    "static/media/gray.png": "/static/media/gray.b6b44e7a4e3298a62eda.png",
+    "static/media/gold.png": "/static/media/gold.f58283637e48cb5688b8.png",
+    "static/media/green.png": "/static/media/green.20c0306d6afe4aae1fdb.png",
+    "static/media/ggcnew.jpg": "/static/media/ggcnew.aa837602a2bc1b04d320.jpg",
+    "static/media/hydration.jpg": "/static/media/hydration.046f8efecea38cc4d628.jpg",
+    "static/media/exercise1.jpg": "/static/media/exercise1.3435f776e0b29707c2d3.jpg",
+    "index.html": "/index.html",
+    "main.a279096e.css.map": "/static/css/main.a279096e.css.map",
+    "main.c781caec.js.map": "/static/js/main.c781caec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a279096e.css",
+    "static/js/main.c781caec.js"
+  ]
+}
