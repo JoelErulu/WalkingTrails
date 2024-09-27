@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Navbar/Footer.js';
-import pic1 from '../assets/images/ggcnew.jpg';
-import pic2 from '../assets/images/exercise1.jpg';
-import pic4 from '../assets/images/nutrition1.jpg';
-import pic5 from '../assets/images/hydration.jpg';
-import pic6 from '../assets/images/climate.jpg';
+import pic1 from '../assets/images/Landing1.jpg';
+import pic2 from '../assets/images/Landing2.jpg';
+import pic3 from '../assets/images/Landing3.jpg';
+import pic4 from '../assets/images/Landing4.jpg';
+import pic5 from '../assets/images/Landing5.jpg';
+import pic6 from '../assets/images/Landing6.jpg';
+
 import '../interfaceSettings.css'; // Import your global CSS file
 
 const Landing = () => {
@@ -51,9 +53,9 @@ const Landing = () => {
                 <p className="lead">
                   Personalized workout tutorials and tailored workout spaces represent a revolution in the fitness world, a shift towards a more individualized approach to health and wellness.
                 </p>
-                <a href="/exercises" className="btn btn-primary mt-3">
+                <Link to="/exercises" className="btn btn-primary mt-3">
                   <i className="bi bi-chevron-right"></i> Exercises
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -66,20 +68,20 @@ const Landing = () => {
           <div className="row align-items-center">
             <div className="col-md-6">
               <img
-                src={pic5}
+                src={pic3}
                 alt="Hydration"
                 className="img-fluid"
               />
             </div>
             <div className="col-md-6 p-5">
               <div className="card-body">
-                <h2 className>Hydration</h2>
+                <h2>Hydration</h2>
                 <p className="lead">
                   Hydration is crucial for maintaining the body's balance, especially during physical activities. Proper hydration supports energy levels, helps regulate body temperature, and enhances overall physical performance.
                 </p>
-                <a href="/hydration" className="btn btn-primary mt-3">
+                <Link to="/hydration" className="btn btn-primary mt-3">
                   <i className="bi bi-chevron-right"></i> Hydration
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -103,9 +105,9 @@ const Landing = () => {
                 <p className="lead">
                   Nutrition is the cornerstone of a healthy lifestyle, providing the essential nutrients needed to fuel your body. Proper nutrition can enhance performance, speed up recovery, and improve overall health.
                 </p>
-                <a href="/nutrition" className="btn btn-primary mt-3">
+                <Link to="/nutrition" className="btn btn-primary mt-3">
                   <i className="bi bi-chevron-right"></i> Nutrition
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -118,7 +120,7 @@ const Landing = () => {
           <div className="row align-items-center">
             <div className="col-md-6">
               <img
-                src={pic6}
+                src={pic5}
                 alt="Climate"
                 className="img-fluid"
               />
@@ -129,14 +131,42 @@ const Landing = () => {
                 <p className="lead">
                   Climate and environmental conditions play a significant role in outdoor physical activities. Understanding how weather affects your performance, from heat and humidity to cold and wind, allows you to adjust your workouts and take precautions for safe and effective exercise.
                 </p>
-                <a href="/climate" className="btn btn-primary mt-3">
+                <Link to="/climate" className="btn btn-primary mt-3">
                   <i className="bi bi-chevron-right"></i> Climate
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+           {/* Trails Section */}
+           <section id="climate">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <img
+                src={pic6}
+                alt="Trails"
+                className="img-fluid"
+              />
+            </div>
+            <div className="col-md-6 p-5">
+              <div className="card-body">
+                <h2>Trails</h2>
+                <p className="lead">
+                  Climate and environmental conditions play a significant role in outdoor physical activities. Understanding how weather affects your performance, from heat and humidity to cold and wind, allows you to adjust your workouts and take precautions for safe and effective exercise.
+                </p>
+                <Link to="/Home" className="btn btn-primary mt-3">
+                  <i className="bi bi-chevron-right"></i> Trails
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Newsletter Section */}
       <section>

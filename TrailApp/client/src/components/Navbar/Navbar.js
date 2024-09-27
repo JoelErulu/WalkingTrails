@@ -70,6 +70,9 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/climate">Climate</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/home">Trails</Link>
+                        </li>
                         {user ? (
                             <li className="nav-item">
                                 <button className="btn btn-outline-danger" onClick={logout}>Logout</button>
