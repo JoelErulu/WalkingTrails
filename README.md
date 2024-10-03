@@ -14,8 +14,6 @@ Walking Trail
 
 ### Team Members
 1. Ginette Wilson Bahun😊
-   ![IMG_8731 (1)](https://github.com/user-attachments/assets/3c51688b-dfcc-4de6-9da0-6c2a16c0b824)
-
 3. Mathews Binny 🙀
 4. Joel Erulu
 5. Josiah Haines
@@ -33,11 +31,6 @@ Jira
 Discord
 
 ### Team Roles
-
-**Spring 2024**
-1. Luke Akridge - *Lead Programmer/Documentation Lead* :expressionless:
-2. Syeda Khadija Kazmi - *UI and UX Design/Client Liaison*
-3. Kiet Ly - *Lead Programmer/Team Manager/UI and UX Design*
 
 **Fall 2024**
 1.   Joel Erulu - *Lead Programmer/Team Manager*
@@ -127,4 +120,4 @@ In progress
 
 ### link to the demo of the app running
 
-In progress
+https://walking-trails.vercel.app/
